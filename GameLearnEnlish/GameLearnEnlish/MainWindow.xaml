@@ -1,0 +1,14 @@
+﻿<Window x:Class="GameLearnEnlish.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GameLearnEnlish"
+        xmlns:us="clr-namespace:GameLearnEnlish.UserControls"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <us:HomUC x:Name="homUC" Visibility="Visible" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <us:MapUC x:Name="mapUC" Visibility="Hidden" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+    </Grid>
+</Window>
