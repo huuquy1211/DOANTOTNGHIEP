@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Admin\Desktop\prjUntil\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\
 GameLearnEnlish
 none
 false
 DEBUG;TRACE
-C:\Users\Admin\Desktop\prjUntil\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\App.xaml
-3-442341857
-2-742376723
-8-15705952
-151438976172
-MainWindow.xaml;UserControls\HomUC.xaml;UserControls\MapUC.xaml;
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\App.xaml
+4336962708
+2-2129398154
+11-56777784
+15-1034427964
+MainWindow.xaml;UserControls\HomeUC.xaml;UserControls\ImageMissonUC.xaml;UserControls\VideoMissionUC.xaml;
 
 True
 

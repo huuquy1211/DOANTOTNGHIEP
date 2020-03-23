@@ -6,9 +6,10 @@
         xmlns:local="clr-namespace:GameLearnEnlish"
         xmlns:us="clr-namespace:GameLearnEnlish.UserControls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-        <us:HomUC x:Name="homUC" Visibility="Visible" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-        <us:MapUC x:Name="mapUC" Visibility="Hidden" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        Title="MainWindow" WindowState="Maximized">
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Name="grdMain">
+        <us:ImageMissonUC x:Name="imageMissonUC" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <us:VideoMissionUC x:Name="videoMissionUC" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <us:HomeUC x:Name="homeUC" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
     </Grid>
 </Window>
