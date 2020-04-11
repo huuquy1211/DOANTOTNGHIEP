@@ -6,10 +6,50 @@
         xmlns:local="clr-namespace:GameLearnEnlish"
         xmlns:us="clr-namespace:GameLearnEnlish.UserControls"
         mc:Ignorable="d"
-        Title="MainWindow" WindowState="Maximized">
-    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Name="grdMain">
-        <us:ImageMissonUC x:Name="imageMissonUC" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-        <us:VideoMissionUC x:Name="videoMissionUC" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-        <us:HomeUC x:Name="homeUC" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        Title="MainWindow" WindowState="Maximized" ResizeMode="NoResize" WindowStyle="None">
+    <Grid Name="grdMain" ShowGridLines="False">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="grdHomeUC" Grid.ColumnSpan="6" Grid.RowSpan="11">
+            <us:HomeUC x:Name="homeUC"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Grid>
+        <Grid x:Name="grdBoxSubMenuUC" Grid.Row="3" Grid.Column="0" Grid.RowSpan="7" Grid.ColumnSpan="5" >
+            <!--<us:BoxSubMenuUC x:Name="boxSubMenuUC"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="Visible"/>-->
+        </Grid>
+
+        <Grid x:Name="grdMenuUC" Grid.Row="1" Grid.Column="3" Grid.RowSpan="8" Grid.ColumnSpan="4" >
+            <!--<us:MenuUC x:Name="menuUC"   HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Visible"/>-->
+        </Grid>
+
+        <Grid x:Name="grdMenu_GlobeUC" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="3">
+            <!--<us:Menu_GlobeUC x:Name="menu_GlobeUC"   HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Visible"/>-->
+        </Grid>
+
+        <Grid x:Name="grdBox_helpUC" Grid.ColumnSpan="6" Grid.RowSpan="11">
+            <!--<us:Box_helpUC  HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Visible"/>-->
+        </Grid>
+
+        <Grid x:Name="grdExit_bg_boxUC" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="5">
+            <!--<us:Exit_bg_boxUC  HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Visible"/>-->
+        </Grid>
     </Grid>
 </Window>

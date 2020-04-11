@@ -23,43 +23,51 @@ namespace GameLearnEnlish
     /// </summary>
     public partial class MainWindow : Window
     {
-        public SelectUC selectUC = new SelectUC();
-        public HomeUC ucHome = new HomeUC();
-        public ImageMissonUC ucImageMission = new ImageMissonUC();
-        public VideoMissionUC ucVideoMission = new VideoMissionUC();
+        //public SelectUC selectUC;
+        //public HomeUC ucHome;
+        //public BoxSubMenuUC ucBoxSubMenu;
+        //public Menu_GlobeUC ucMenu_Globe;
+
+        //public ImageMissonUC ucImageMission;
+        //public VideoMissionUC ucVideoMission;
+        //public MenuUC ucMenu;
 
         public MainWindow()
         {
             InitializeComponent();
-            CSGlobal.Instance.WindowMain = this;
-            grdMain.Children.Remove(ucImageMission);
-            grdMain.Children.Remove(ucVideoMission);
-            grdMain.Children.Add(ucHome);
-        }
+            //ucImageMission = new ImageMissonUC();
+            //ucVideoMission = new VideoMissionUC();
 
-        public MainWindow(SelectUC ucSelect)
-        {
-            InitializeComponent();
-            this.selectUC = ucSelect;
-            if(selectUC == SelectUC._imageMissionUC)
-            {
-                grdMain.Children.Remove(ucVideoMission);
-                grdMain.Children.Remove(ucHome);
-                grdMain.Children.Add(ucImageMission);
-            }
-            else if(selectUC == SelectUC._videoMissionUC)
-            {
-                grdMain.Children.Remove(ucImageMission);
-                grdMain.Children.Remove(ucHome);
-                grdMain.Children.Add(ucVideoMission);
-            }
-            else if (selectUC == SelectUC._homeUC)
-            {
-                grdMain.Children.Remove(ucImageMission);
-                grdMain.Children.Remove(ucHome);
-                grdMain.Children.Add(ucImageMission);
-            }
+            //ucMenu = new MenuUC();
+            //ucHome = new HomeUC();
+            //ucBoxSubMenu = new BoxSubMenuUC();
+            //ucMenu_Globe = new Menu_GlobeUC();
+
+            Global.Instance.WindowMain = this;
+
+            //grdMain.Children.Remove(grdBoxSubMenuUC);
+            //grdMain.Children.Remove(grdMenu_GlobeUC);
+            //grdMain.Children.Remove(grdMenuUC);
+            //grdMain.Children.Clear();
+            //grdHomeUC.Children.Add(ucHome);
+            //grdMain.Children.Add(grdHomeUC);
 
         }
+
+        //public MainWindow(SelectUC ucSelect)
+        //{
+        //    InitializeComponent();
+        //    selectUC = new SelectUC();
+        //    this.selectUC = ucSelect;
+
+        //    if(selectUC == SelectUC._menuUC)
+        //    {
+        //        grdMain.Children.Remove(grdBoxSubMenuUC);
+        //        grdMain.Children.Remove(grdMenu_GlobeUC);
+        //        grdMain.Children.Add(grdHomeUC);
+        //        grdMain.Children.Add(grdMenuUC);
+        //    }
+
+        //}
     }
 }

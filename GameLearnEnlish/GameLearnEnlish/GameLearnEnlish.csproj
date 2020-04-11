@@ -63,7 +63,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Utility\SelectUC.cs" />
+    <Compile Include="UserControls\BoxSubMenuUC.xaml.cs">
+      <DependentUpon>BoxSubMenuUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Box_helpUC.xaml.cs">
+      <DependentUpon>Box_helpUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Exit_bg_boxUC.xaml.cs">
+      <DependentUpon>Exit_bg_boxUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\MenuUC.xaml.cs">
+      <DependentUpon>MenuUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Menu_GlobeUC.xaml.cs">
+      <DependentUpon>Menu_GlobeUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\SelectElementUC.cs" />
     <Compile Include="UserControls\HomeUC.xaml.cs">
       <DependentUpon>HomeUC.xaml</DependentUpon>
     </Compile>
@@ -73,7 +88,7 @@
     <Compile Include="UserControls\VideoMissionUC.xaml.cs">
       <DependentUpon>VideoMissionUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Utility\CSGlobal.cs" />
+    <Compile Include="Utility\Global.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -86,11 +101,31 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UserControls\BoxSubMenuUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Box_helpUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Exit_bg_boxUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\HomeUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\ImageMissonUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\MenuUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Menu_GlobeUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -279,6 +314,97 @@
   <ItemGroup>
     <Content Include="backgroud.mp4" />
     <Content Include="backgroud.wmv" />
+    <Resource Include="Images\Global\actv1.png" />
+    <Resource Include="Images\Global\actv1a.png" />
+    <Resource Include="Images\Global\actv2.png" />
+    <Resource Include="Images\Global\actv2a.png" />
+    <Resource Include="Images\Global\actv3.png" />
+    <Resource Include="Images\Global\actv3a.png" />
+    <Resource Include="Images\Global\actv4.png" />
+    <Resource Include="Images\Global\actv4a.png" />
+    <Resource Include="Images\Global\actv5.png" />
+    <Resource Include="Images\Global\actv5a.png" />
+    <Resource Include="Images\Global\actv6.png" />
+    <Resource Include="Images\Global\actv6a.png" />
+    <Resource Include="Images\Global\actv7.png" />
+    <Resource Include="Images\Global\actv7a.png" />
+    <Resource Include="Images\Global\actv8.png" />
+    <Resource Include="Images\Global\actv8a.png" />
+    <Resource Include="Images\Global\actv9.png" />
+    <Resource Include="Images\Global\actv9a.png" />
+    <Resource Include="Images\Global\Bg_BF_vol1.jpg" />
+    <Resource Include="Images\Global\BG_Menu.png" />
+    <Resource Include="Images\Global\Box_help.png" />
+    <Resource Include="Images\Global\Box_sub_menu.png" />
+    <Resource Include="Images\Global\Bt_AS.png" />
+    <Resource Include="Images\Global\Bt_AS_over.png" />
+    <Resource Include="Images\Global\Bt_AS_sel.png" />
+    <Resource Include="Images\Global\Bt_back.png" />
+    <Resource Include="Images\Global\Bt_back_over.png" />
+    <Resource Include="Images\Global\Bt_close.png" />
+    <Resource Include="Images\Global\Bt_close_over.png" />
+    <Resource Include="Images\Global\Bt_Help.png" />
+    <Resource Include="Images\Global\Bt_help_close.png" />
+    <Resource Include="Images\Global\Bt_help_close_over.png" />
+    <Resource Include="Images\Global\Bt_Help_over.png" />
+    <Resource Include="Images\Global\Bt_Menu.png" />
+    <Resource Include="Images\Global\Bt_Menu_over.png" />
+    <Resource Include="Images\Global\Bt_next.png" />
+    <Resource Include="Images\Global\Bt_next_over.png" />
+    <Resource Include="Images\Global\Bt_Phonics.png" />
+    <Resource Include="Images\Global\Bt_Phonics_over.png" />
+    <Resource Include="Images\Global\Bt_Phonics_sel.png" />
+    <Resource Include="Images\Global\Bt_unit_1.png" />
+    <Resource Include="Images\Global\Bt_unit_1_over.png" />
+    <Resource Include="Images\Global\Bt_unit_1_sel.png" />
+    <Resource Include="Images\Global\Bt_unit_2.png" />
+    <Resource Include="Images\Global\Bt_unit_2_over.png" />
+    <Resource Include="Images\Global\Bt_unit_2_sel.png" />
+    <Resource Include="Images\Global\Bt_unit_3.png" />
+    <Resource Include="Images\Global\Bt_unit_3_over.png" />
+    <Resource Include="Images\Global\Bt_unit_3_sel.png" />
+    <Resource Include="Images\Global\Bt_unit_4.png" />
+    <Resource Include="Images\Global\Bt_unit_4_over.png" />
+    <Resource Include="Images\Global\Bt_unit_4_sel.png" />
+    <Resource Include="Images\Global\Bt_unit_5.png" />
+    <Resource Include="Images\Global\Bt_unit_5_over.png" />
+    <Resource Include="Images\Global\Bt_unit_5_sel.png" />
+    <Resource Include="Images\Global\Bt_unit_6.png" />
+    <Resource Include="Images\Global\Bt_unit_6_over.png" />
+    <Resource Include="Images\Global\Bt_unit_6_sel.png" />
+    <Resource Include="Images\Global\Bt_unit_7.png" />
+    <Resource Include="Images\Global\Bt_unit_7_over.png" />
+    <Resource Include="Images\Global\Bt_unit_7_sel.png" />
+    <Resource Include="Images\Global\Bt_unit_8.png" />
+    <Resource Include="Images\Global\Bt_unit_8_over.png" />
+    <Resource Include="Images\Global\Bt_unit_8_sel.png" />
+    <Resource Include="Images\Global\exit_bg_box.png" />
+    <Resource Include="Images\Global\exit_bt_no.png" />
+    <Resource Include="Images\Global\exit_bt_no_over.png" />
+    <Resource Include="Images\Global\exit_bt_yes.png" />
+    <Resource Include="Images\Global\exit_bt_yes_over.png" />
+    <Resource Include="Images\Global\headphones.png" />
+    <Resource Include="Images\Global\Menu_Globe_U1.png" />
+    <Resource Include="Images\Global\Menu_Globe_U10.png" />
+    <Resource Include="Images\Global\Menu_Globe_U2.png" />
+    <Resource Include="Images\Global\Menu_Globe_U3.png" />
+    <Resource Include="Images\Global\Menu_Globe_U4.png" />
+    <Resource Include="Images\Global\Menu_Globe_U5.png" />
+    <Resource Include="Images\Global\Menu_Globe_U6.png" />
+    <Resource Include="Images\Global\Menu_Globe_U7.png" />
+    <Resource Include="Images\Global\Menu_Globe_U8.png" />
+    <Resource Include="Images\Global\Menu_Globe_U9.png" />
+    <Resource Include="Images\Global\Placard.png" />
+    <Resource Include="Images\Global\Volume_ball_slider.png" />
+    <Resource Include="Images\Global\Volume_vertical_slider.png" />
+    <Resource Include="Images\System\exit.png" />
+    <Resource Include="Images\System\back2.png" />
+    <Resource Include="Images\System\next.png" />
+    <Resource Include="Images\System\boder9.png" />
+    <Resource Include="Images\System\menu.png" />
+    <Resource Include="Images\System\boder8.png" />
+    <Resource Include="Images\System\backgroud.jpg" />
+    <Resource Include="Images\System\backgroud4.png" />
     <Resource Include="Images\System\backgroud2.png" />
     <Resource Include="Images\System\backgroud3.jpg" />
   </ItemGroup>

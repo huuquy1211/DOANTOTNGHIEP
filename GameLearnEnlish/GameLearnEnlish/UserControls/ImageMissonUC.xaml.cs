@@ -125,8 +125,8 @@ namespace GameLearnEnlish.UserControls
         {
             if (IsEndPage == true)
             {
-                CSGlobal.Instance.WindowMain.grdMain.Children.Clear();
-                CSGlobal.Instance.WindowMain.grdMain.Children.Add(new HomeUC());
+                Global.Instance.WindowMain.grdMain.Children.Clear();
+                Global.Instance.WindowMain.grdMain.Children.Add(new HomeUC());
             }
             else
             {

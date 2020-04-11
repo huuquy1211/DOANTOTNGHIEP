@@ -45,4 +45,14 @@ D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish.exe
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish.pdb
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish_Content.g.cs
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\MenuUC.g.cs
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\MenuUC.baml
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\BoxSubMenuUC.g.cs
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\BoxSubMenuUC.baml
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish.csprojAssemblyReference.cache
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\Menu_GlobeUC.g.cs
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\Menu_GlobeUC.baml
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\Box_helpUC.g.cs
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\Box_helpUC.baml
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\Exit_bg_boxUC.g.cs
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\Exit_bg_boxUC.baml

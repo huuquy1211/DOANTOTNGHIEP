@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\App.xaml
-4336962708
+9-2015738190
 2-2129398154
-11-56777784
+161332199860
 15-1034427964
-MainWindow.xaml;UserControls\HomeUC.xaml;UserControls\ImageMissonUC.xaml;UserControls\VideoMissionUC.xaml;
+MainWindow.xaml;UserControls\BoxSubMenuUC.xaml;UserControls\Box_helpUC.xaml;UserControls\Exit_bg_boxUC.xaml;UserControls\HomeUC.xaml;UserControls\ImageMissonUC.xaml;UserControls\MenuUC.xaml;UserControls\Menu_GlobeUC.xaml;UserControls\VideoMissionUC.xaml;
 
 True
 

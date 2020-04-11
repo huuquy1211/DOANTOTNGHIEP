@@ -1,0 +1,11 @@
+﻿<UserControl x:Class="GameLearnEnlish.UserControls.Menu_GlobeUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GameLearnEnlish.UserControls"
+             mc:Ignorable="d">
+    <Grid>
+        <Image x:Name="imgMenu_Globe_U" Source="..\Images\Global\Menu_Globe_U1.png" Stretch="Uniform"/>
+    </Grid>
+</UserControl>
