@@ -28,19 +28,16 @@ namespace GameLearnEnlish.UserControls
         private Menu_GlobeUC ucMenu_Globe;
         private Box_helpUC ucBox_help;
         private Exit_bg_boxUC ucExit_bg_box;
+        private BackgroudOpacityUC backgroudOpacity;
+        MediaPlayer mplayer = new MediaPlayer();
+        //public static SelectElementUC ButtonSelect;
 
         public HomeUC()
         {
             homeUC = this;
             InitializeComponent();
-            ucMenu = new MenuUC();
-            ucBoxSubMenu = new BoxSubMenuUC();
-            ucMenu_Globe = new Menu_GlobeUC();
-            ucBox_help = new Box_helpUC();
-            ucExit_bg_box = new Exit_bg_boxUC();
 
             grdHome.Visibility = Visibility.Visible;
-            grdBackGroud.Visibility = Visibility.Hidden;
         }
 
         private void imgbtnPlay_MouseUp(object sender, MouseButtonEventArgs e)
@@ -50,28 +47,109 @@ namespace GameLearnEnlish.UserControls
 
         private void imgbtnMenu_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            
+            ucMenu = new MenuUC();
+            ucBoxSubMenu = new BoxSubMenuUC();
+            ucMenu_Globe = new Menu_GlobeUC();
+            backgroudOpacity = new BackgroudOpacityUC();
 
-            grdBackGroud.Visibility = Visibility.Visible;
+            Global.Instance.WindowMain.grdBackgroudOpacityUC.Children.Add(backgroudOpacity);
             //CSGlobal.Instance.WindowMain.grdMain.Children.Clear();
             Global.Instance.WindowMain.grdMenuUC.Children.Add(ucMenu);
             Global.Instance.WindowMain.grdBoxSubMenuUC.Children.Add(ucBoxSubMenu);
             Global.Instance.WindowMain.grdMenu_GlobeUC.Children.Add(ucMenu_Globe);
+
+            switch (Global.Instance.ButtonMenuSelect)
+            {
+                case SelectElementUC._imgBt_unit_new:
+                    {
+                        BoxSubMenuUC.boxSubMenuUC.ChangeUnit("imgBt_unit_1");
+                        MenuUC.menuUC.IsVisibleButtonClick("imgBt_unit_1");
+                        break;
+                    }
+                case SelectElementUC._imgBt_unit_1:
+                    {
+                        BoxSubMenuUC.boxSubMenuUC.ChangeUnit("imgBt_unit_1");
+                        MenuUC.menuUC.IsVisibleButtonClick("imgBt_unit_1");
+                        break;
+                    }
+                case SelectElementUC._imgBt_unit_2:
+                    {
+                        BoxSubMenuUC.boxSubMenuUC.ChangeUnit("imgBt_unit_2");
+                        MenuUC.menuUC.IsVisibleButtonClick("imgBt_unit_2");
+                        break;
+                    }
+                case SelectElementUC._imgBt_unit_3:
+                    {
+                        BoxSubMenuUC.boxSubMenuUC.ChangeUnit("imgBt_unit_3");
+                        MenuUC.menuUC.IsVisibleButtonClick("imgBt_unit_3");
+                        break;
+                    }
+                case SelectElementUC._imgBt_unit_4:
+                    {
+                        BoxSubMenuUC.boxSubMenuUC.ChangeUnit("imgBt_unit_4");
+                        MenuUC.menuUC.IsVisibleButtonClick("imgBt_unit_4");
+                        break;
+                    }
+                case SelectElementUC._imgBt_unit_5:
+                    {
+                        BoxSubMenuUC.boxSubMenuUC.ChangeUnit("imgBt_unit_5");
+                        MenuUC.menuUC.IsVisibleButtonClick("imgBt_unit_5");
+                        break;
+                    }
+                case SelectElementUC._imgBt_unit_6:
+                    {
+                        BoxSubMenuUC.boxSubMenuUC.ChangeUnit("imgBt_unit_6");
+                        MenuUC.menuUC.IsVisibleButtonClick("imgBt_unit_6");
+                        break;
+                    }
+                case SelectElementUC._imgBt_unit_7:
+                    {
+                        BoxSubMenuUC.boxSubMenuUC.ChangeUnit("imgBt_unit_7");
+                        MenuUC.menuUC.IsVisibleButtonClick("imgBt_unit_7");
+                        break;
+                    }
+                case SelectElementUC._imgBt_unit_8:
+                    {
+                        BoxSubMenuUC.boxSubMenuUC.ChangeUnit("imgBt_unit_8");
+                        MenuUC.menuUC.IsVisibleButtonClick("imgBt_unit_8");
+                        break;
+                    }
+                case SelectElementUC._imgBt_AS:
+                    {
+                        BoxSubMenuUC.boxSubMenuUC.ChangeUnit("imgBt_AS");
+                        MenuUC.menuUC.IsVisibleButtonClick("imgBt_AS");
+                        break;
+                    }
+                case SelectElementUC._imgBt_Phonics:
+                    {
+                        BoxSubMenuUC.boxSubMenuUC.ChangeUnit("imgBt_Phonics");
+                        MenuUC.menuUC.IsVisibleButtonClick("imgBt_Phonics");
+                        break;
+                    }
+
+                default:
+                    break;
+            }
+
+
         }
 
         private void imgbtnHelp_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            ucBox_help = new Box_helpUC();
             Global.Instance.WindowMain.grdBox_helpUC.Children.Add(ucBox_help);
         }
 
         private void imgbtnClose_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
+            mplayer.Open(new Uri(@"D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\media\audio\global\clickbutton.mp3", UriKind.Relative));
+            mplayer.Play();
+            ucExit_bg_box = new Exit_bg_boxUC();
             grdToolbarMenu.IsEnabled = false;
             Global.Instance.WindowMain.grdExit_bg_boxUC.Children.Add(ucExit_bg_box);
         }
 
-       
+
         public void IsEnabledGridToolbarMenu(SelectElementUC selectElementUC)
         {
             if (selectElementUC == SelectElementUC._notEnable)
@@ -81,14 +159,28 @@ namespace GameLearnEnlish.UserControls
             else if (selectElementUC == SelectElementUC._isEnable)
                 grdToolbarMenu.IsEnabled = true;
         }
-        private void grdBackGroud_MouseDown(object sender, MouseButtonEventArgs e)
+        public void HiddenMenu()
         {
-            //this.Current = Cursors.WaitCursor;
-            grdBackGroud.Visibility = Visibility.Hidden;
             Global.Instance.WindowMain.grdMenuUC.Children.Remove(ucMenu);
-            Global.Instance.WindowMain.grdBoxSubMenuUC.Children.Remove(ucBoxSubMenu);
-            Global.Instance.WindowMain.grdMenu_GlobeUC.Children.Remove(ucMenu_Globe);
-            Global.Instance.WindowMain.grdExit_bg_boxUC.Children.Remove(ucExit_bg_box);
+            Global.Instance.WindowMain.grdBackgroudOpacityUC.Children.Clear();
+            Global.Instance.WindowMain.grdBoxSubMenuUC.Children.Clear();
+            Global.Instance.WindowMain.grdMenu_GlobeUC.Children.Clear();
+            Global.Instance.WindowMain.grdExit_bg_boxUC.Children.Clear();
         }
+
+        private void imgbtnNext_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+           
+        }
+        //private void grdBackGroud_MouseDown(object sender, MouseButtonEventArgs e)
+        //{
+        //    //this.Current = Cursors.WaitCursor;
+        //    grdBackGroud.Visibility = Visibility.Hidden;
+        //    Global.Instance.WindowMain.grdMenuUC.Children.Remove(ucMenu);
+        //    Global.Instance.WindowMain.grdBoxSubMenuUC.Children.Clear();
+        //    Global.Instance.WindowMain.grdMenu_GlobeUC.Children.Clear();
+        //    Global.Instance.WindowMain.grdExit_bg_boxUC.Children.Clear();
+        //}
     }
 }

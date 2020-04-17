@@ -3,9 +3,65 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:GameLearnEnlish.UserControls"
              mc:Ignorable="d">
-    <Grid>
-        <Image x:Name="imgbtnBox_sub_menu" Source="..\Images\Global\Box_sub_menu.png" Stretch="Uniform"/>
-    </Grid>
+
+    <UserControl.Resources>
+        <Style x:Key="LabelActivityStyle" TargetType="Label">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontStretch" Value="Expanded"/>
+            <Setter Property="FontSize" Value="19"/>
+        </Style>
+
+    </UserControl.Resources>
+    <materialDesign:TransitioningContent>
+        <materialDesign:TransitioningContent.OpeningEffects>
+            <materialDesign:TransitionEffect Kind="FadeIn" Duration="0:0:0.3"/>
+            <materialDesign:TransitionEffect Kind="ExpandIn" Duration="0:0:0.3"/>           
+        </materialDesign:TransitioningContent.OpeningEffects>
+        <Grid ShowGridLines="False" x:Name="grdBox_sub_menu">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.35*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Image x:Name="imgbtnBox_sub_menu" Grid.Row="1" Grid.RowSpan="12" Grid.ColumnSpan="2" Source="..\media\textures\global\Box_sub_menu.png" Stretch="Uniform"/>
+           
+            <Image x:Name="imgMenu_Globe_U" Grid.RowSpan="4" HorizontalAlignment="Right" Source="..\media\textures\global\Menu_Globe_U1.png" Stretch="Uniform"/>
+
+            <Label x:Name="lblTheme" Grid.Row="1" Grid.ColumnSpan="2" FontSize="23" Content="My Toys" Style="{StaticResource LabelActivityStyle}" HorizontalAlignment="Center"/>
+            <Label x:Name="lblActivity1" Grid.Column="1" Grid.Row="2" Content="Activity 1: Concentration" Style="{StaticResource LabelActivityStyle}" MouseEnter="lblActivity_MouseEnter" MouseLeave="lblActivity_MouseLeave" MouseDown="lblActivity_MouseDown"  Cursor="Hand"/>
+            <Label x:Name="lblActivity2" Grid.Column="1" Grid.Row="3" Content="Activity 2: Matching" Style="{StaticResource LabelActivityStyle}" MouseEnter="lblActivity_MouseEnter" MouseLeave="lblActivity_MouseLeave" MouseDown="lblActivity_MouseDown" Cursor="Hand"/>
+            <Label x:Name="lblActivity3" Grid.Column="1" Grid.Row="4" Content="Activity 3: Sorting" Style="{StaticResource LabelActivityStyle}" MouseEnter="lblActivity_MouseEnter" MouseLeave="lblActivity_MouseLeave" MouseDown="lblActivity_MouseDown" Cursor="Hand"/>
+            <Label x:Name="lblActivity4" Grid.Column="1" Grid.Row="5" Content="Activity 4: Multiple Choice" Style="{StaticResource LabelActivityStyle}" MouseEnter="lblActivity_MouseEnter" MouseLeave="lblActivity_MouseLeave" MouseDown="lblActivity_MouseDown" Cursor="Hand"/>
+            <Label x:Name="lblActivity5" Grid.Column="1" Grid.Row="6" Content="Activity 5: Painting" Style="{StaticResource LabelActivityStyle}" MouseEnter="lblActivity_MouseEnter" MouseLeave="lblActivity_MouseLeave" MouseDown="lblActivity_MouseDown" Cursor="Hand"/>
+            <Label x:Name="lblActivity6" Grid.Column="1" Grid.Row="7" Content="Activity 6: Story Time" Style="{StaticResource LabelActivityStyle}" MouseEnter="lblActivity_MouseEnter" MouseLeave="lblActivity_MouseLeave" MouseDown="lblActivity_MouseDown" Cursor="Hand"/>
+            <Label x:Name="lblActivity7" Grid.Column="1" Grid.Row="8" Content="Activity 7: Sequence" Style="{StaticResource LabelActivityStyle}" MouseEnter="lblActivity_MouseEnter" MouseLeave="lblActivity_MouseLeave" MouseDown="lblActivity_MouseDown" Cursor="Hand"/>
+            <Label x:Name="lblActivity8" Grid.Column="1" Grid.Row="9" Content="Activity 8: Drag and Drop" Style="{StaticResource LabelActivityStyle}" MouseEnter="lblActivity_MouseEnter" MouseLeave="lblActivity_MouseLeave" MouseDown="lblActivity_MouseDown" Cursor="Hand"/>
+            <Label x:Name="lblActivity9" Grid.Column="1" Grid.Row="10" Content="Activity 9: Look and Find" Style="{StaticResource LabelActivityStyle}" MouseEnter="lblActivity_MouseEnter" MouseLeave="lblActivity_MouseLeave" MouseDown="lblActivity_MouseDown" Cursor="Hand"/>
+
+        </Grid>
+    </materialDesign:TransitioningContent>
+      
+        
+       
 </UserControl>

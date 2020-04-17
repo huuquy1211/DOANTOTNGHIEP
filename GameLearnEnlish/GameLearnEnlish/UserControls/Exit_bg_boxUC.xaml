@@ -29,7 +29,7 @@
         <Image x:Name="imgbtnBox_help" Grid.ColumnSpan="10" Grid.RowSpan="6">
             <Image.Style>
                 <Style TargetType="{x:Type Image}">
-                    <Setter Property="Source" Value="..\Images\Global\exit_bg_box.png"/>
+                    <Setter Property="Source" Value="..\media\textures\global\exit_bg_box.png"/>
                     <Setter Property="Stretch" Value="Uniform"/>
                 </Style>
             </Image.Style>
@@ -38,11 +38,11 @@
         <Image x:Name="imgbtnExit_bt_yes" Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2" MouseDown="imgbtnExit_bt_yes_MouseDown">
             <Image.Style>
                 <Style TargetType="{x:Type Image}">
-                    <Setter Property="Source" Value="..\Images\Global\exit_bt_yes.png"/>
+                    <Setter Property="Source" Value="..\media\textures\global\exit_bt_yes.png"/>
                     <Setter Property="Stretch" Value="Uniform"/>
                     <Style.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Source" Value="..\Images\Global\exit_bt_yes_over.png"/>
+                            <Setter Property="Source" Value="..\media\textures\global\exit_bt_yes_over.png"/>
                             <Setter Property="Stretch" Value="Uniform"/>
 
                         </Trigger>
@@ -54,11 +54,11 @@
         <Image x:Name="imgbtnExit_bt_no" Grid.Row="4" Grid.Column="6" Grid.ColumnSpan="2" MouseDown="imgbtnExit_bt_no_MouseDown">
             <Image.Style>
                 <Style TargetType="{x:Type Image}">
-                    <Setter Property="Source" Value="..\Images\Global\exit_bt_no.png"/>
+                    <Setter Property="Source" Value="..\media\textures\global\exit_bt_no.png"/>
                     <Setter Property="Stretch" Value="Uniform"/>
                     <Style.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Source" Value="..\Images\Global\exit_bt_no_over.png"/>
+                            <Setter Property="Source" Value="..\media\textures\global\exit_bt_no_over.png"/>
                             <Setter Property="Stretch" Value="Uniform"/>
 
                         </Trigger>

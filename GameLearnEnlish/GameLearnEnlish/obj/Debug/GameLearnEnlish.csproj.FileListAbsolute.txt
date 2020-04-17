@@ -31,7 +31,6 @@ D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\ImageMissonUC.g.cs
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\VideoMissionUC.g.cs
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\App.g.cs
-D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish_MarkupCompile.cache
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish_MarkupCompile.lref
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\MainWindow.baml
@@ -49,10 +48,17 @@ D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\MenuUC.baml
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\BoxSubMenuUC.g.cs
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\BoxSubMenuUC.baml
-D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish.csprojAssemblyReference.cache
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\Menu_GlobeUC.g.cs
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\Menu_GlobeUC.baml
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\Box_helpUC.g.cs
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\Box_helpUC.baml
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\Exit_bg_boxUC.g.cs
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\Exit_bg_boxUC.baml
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\PlacardUC.g.cs
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\PlacardUC.baml
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\BackgroudOpacityUC.g.cs
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\BackgroudOpacityUC.baml
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish.csprojAssemblyReference.cache
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\Activity2UC.g.cs
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\Activity2UC.baml

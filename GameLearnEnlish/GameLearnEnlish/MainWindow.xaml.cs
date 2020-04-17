@@ -23,51 +23,28 @@ namespace GameLearnEnlish
     /// </summary>
     public partial class MainWindow : Window
     {
-        //public SelectUC selectUC;
-        //public HomeUC ucHome;
-        //public BoxSubMenuUC ucBoxSubMenu;
-        //public Menu_GlobeUC ucMenu_Globe;
-
-        //public ImageMissonUC ucImageMission;
-        //public VideoMissionUC ucVideoMission;
-        //public MenuUC ucMenu;
+        HomeUC homeUC;
+        //MenuUC menuUC;
+        //BoxSubMenuUC boxSubMenuUC;
+        //ListActiveUC listActive;
+        //Menu_GlobeUC menu_GlobeUC;
 
         public MainWindow()
         {
             InitializeComponent();
-            //ucImageMission = new ImageMissonUC();
-            //ucVideoMission = new VideoMissionUC();
-
-            //ucMenu = new MenuUC();
-            //ucHome = new HomeUC();
-            //ucBoxSubMenu = new BoxSubMenuUC();
-            //ucMenu_Globe = new Menu_GlobeUC();
-
             Global.Instance.WindowMain = this;
+            homeUC = new HomeUC();
+            //menuUC = new MenuUC();
+            //boxSubMenuUC = new BoxSubMenuUC();
+            //listActive = new ListActiveUC();
+            //menu_GlobeUC = new Menu_GlobeUC();
 
-            //grdMain.Children.Remove(grdBoxSubMenuUC);
-            //grdMain.Children.Remove(grdMenu_GlobeUC);
-            //grdMain.Children.Remove(grdMenuUC);
-            //grdMain.Children.Clear();
-            //grdHomeUC.Children.Add(ucHome);
-            //grdMain.Children.Add(grdHomeUC);
-
+            grdHomeUC.Children.Add(homeUC);
+            //grdMenuUC.Children.Add(menuUC);
+            //grdBoxSubMenuUC.Children.Add(boxSubMenuUC);
+            //grdListActiveUC.Children.Add(listActive);
+            //grdMenu_GlobeUC.Children.Add(menu_GlobeUC);
         }
-
-        //public MainWindow(SelectUC ucSelect)
-        //{
-        //    InitializeComponent();
-        //    selectUC = new SelectUC();
-        //    this.selectUC = ucSelect;
-
-        //    if(selectUC == SelectUC._menuUC)
-        //    {
-        //        grdMain.Children.Remove(grdBoxSubMenuUC);
-        //        grdMain.Children.Remove(grdMenu_GlobeUC);
-        //        grdMain.Children.Add(grdHomeUC);
-        //        grdMain.Children.Add(grdMenuUC);
-        //    }
-
-        //}
+       
     }
 }

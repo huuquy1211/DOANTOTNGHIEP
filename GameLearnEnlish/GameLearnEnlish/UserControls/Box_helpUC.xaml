@@ -10,15 +10,15 @@
             <ColumnDefinition Width="0.19*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="0.05*"/>
-            <ColumnDefinition Width="0.34*"/>
+            <ColumnDefinition Width="0.33*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.25*"/>
-            <RowDefinition Height="0.08*"/>
+            <RowDefinition Height="0.26*"/>
+            <RowDefinition Height="0.07*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="0.29*"/>
         </Grid.RowDefinitions>
-        <Image x:Name="imgbtnBox_help" Source="..\Images\Global\Box_help.png" Stretch="Fill" Grid.RowSpan="10" Grid.ColumnSpan="10"/>
-        <Image x:Name="imgBt_help_close" Source="..\Images\Global\Bt_help_close.png" Stretch="Fill" Grid.Column="2" Grid.Row="1" MouseEnter="imgBt_help_close_MouseEnter" MouseLeave="imgBt_help_close_MouseLeave" MouseDown="imgBt_help_close_MouseDown"/>
+        <Image x:Name="imgbtnBox_help" Source="..\media\textures\global\Box_help.png" Stretch="Fill" Grid.RowSpan="10" Grid.ColumnSpan="10"/>
+        <Image x:Name="imgBt_help_close" Source="..\media\textures\global\Bt_help_close.png" Stretch="Fill" Grid.Column="2" Grid.Row="1" MouseEnter="imgBt_help_close_MouseEnter" MouseLeave="imgBt_help_close_MouseLeave" MouseDown="imgBt_help_close_MouseDown"/>
     </Grid>
 </UserControl>

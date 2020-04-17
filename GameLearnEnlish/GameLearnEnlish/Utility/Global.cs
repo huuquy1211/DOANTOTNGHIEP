@@ -1,4 +1,5 @@
-﻿using GameLearnEnlish.UserControls;
+﻿using GameLearnEnlish.Model;
+using GameLearnEnlish.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,5 +24,6 @@ namespace GameLearnEnlish.Utility
         }      
 
         public  MainWindow WindowMain;
-   }
+        public  SelectElementUC ButtonMenuSelect;
+    }
 }

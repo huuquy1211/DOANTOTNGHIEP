@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="GameLearnEnlish.UserControls.Activity2UC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GameLearnEnlish.UserControls"
+             mc:Ignorable="d" Height="1000" Width="1000">
+    <UserControl.Resources>
+        <Style x:Key="LabelStyle" TargetType="Label">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontStretch" Value="Expanded"/>
+            <Setter Property="FontSize" Value="19"/>
+        </Style>
+
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label x:Name="lblQuestion1" Grid.Column="0" Grid.Row="0" Content="1." Style="{StaticResource LabelStyle}"  Cursor="Hand"/>
+        <Label x:Name="lblQuestion2" Grid.Column="0" Grid.Row="1" Content="2." Style="{StaticResource LabelStyle}"  Cursor="Hand"/>
+        <Label x:Name="lblQuestion3" Grid.Column="0" Grid.Row="2" Content="3." Style="{StaticResource LabelStyle}"  Cursor="Hand"/>
+
+
+        <Image x:Name="imgGuyaudio1" Source="..\media\textures\matching\guyaudio.png" Stretch="Uniform" Grid.Row="0" Grid.Column="1" Cursor="Hand"/>
+        <Image x:Name="imgGuyaudio2" Source="..\media\textures\matching\guyaudio.png" Stretch="Uniform" Grid.Row="1" Grid.Column="1" Cursor="Hand"/>
+        <Image x:Name="imgGuyaudio3" Source="..\media\textures\matching\guyaudio.png" Stretch="Uniform" Grid.Row="2" Grid.Column="1" Cursor="Hand"/>
+
+
+        <Image x:Name="imgNode1" Source="..\media\textures\matching\node.png" Stretch="Uniform" Grid.Row="0" Grid.Column="2" Cursor="Hand"/>
+        <Image x:Name="imgNode2" Source="..\media\textures\matching\node.png" Stretch="Uniform" Grid.Row="1" Grid.Column="2" Cursor="Hand"/>
+        <Image x:Name="imgNode3" Source="..\media\textures\matching\node.png" Stretch="Uniform" Grid.Row="2" Grid.Column="2 " Cursor="Hand"/>
+       
+    </Grid>
+</UserControl>

@@ -28,13 +28,13 @@ namespace GameLearnEnlish.UserControls
 
         private void imgBt_help_close_MouseEnter(object sender, MouseEventArgs e)
         {
-            Uri uri = new Uri(@"\Images\Global\Bt_help_close_over.png", UriKind.Relative);
+            Uri uri = new Uri(@"\media\textures\global\Bt_help_close_over.png", UriKind.Relative);
             imgBt_help_close.Source = new BitmapImage(uri);
         }
 
         private void imgBt_help_close_MouseLeave(object sender, MouseEventArgs e)
         {
-            Uri uri = new Uri(@"\Images\Global\Bt_help_close.png", UriKind.Relative);
+            Uri uri = new Uri(@"\media\textures\global\Bt_help_close.png", UriKind.Relative);
             imgBt_help_close.Source = new BitmapImage(uri);
         }
 
