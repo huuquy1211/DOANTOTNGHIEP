@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\
+D:\EnglishGame\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\
 GameLearnEnlish
 none
 false
 DEBUG;TRACE
-D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\App.xaml
-11727731812
+D:\EnglishGame\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\App.xaml
+121286625019
 419-1957997678
-18-803876801
-15-1034427964
-MainWindow.xaml;UserControls\Unit1Activity2UC.xaml;UserControls\BackgroudOpacityUC.xaml;UserControls\Box_helpUC.xaml;UserControls\Exit_bg_boxUC.xaml;UserControls\HomeUC.xaml;UserControls\ImageMissonUC.xaml;UserControls\BoxSubMenuUC.xaml;UserControls\MenuUC.xaml;UserControls\Menu_GlobeUC.xaml;UserControls\PlacardUC.xaml;
+19-527333099
+151001587232
+MainWindow.xaml;UserControls\UC_Concentration.xaml;UserControls\Unit1Activity2UC.xaml;UserControls\BackgroudOpacityUC.xaml;UserControls\Box_helpUC.xaml;UserControls\Exit_bg_boxUC.xaml;UserControls\HomeUC.xaml;UserControls\ImageMissonUC.xaml;UserControls\BoxSubMenuUC.xaml;UserControls\MenuUC.xaml;UserControls\Menu_GlobeUC.xaml;UserControls\PlacardUC.xaml;
 
 True
 
