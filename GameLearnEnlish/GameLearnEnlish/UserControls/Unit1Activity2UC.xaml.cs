@@ -16,14 +16,13 @@ using System.Windows.Shapes;
 namespace GameLearnEnlish.UserControls
 {
     /// <summary>
-    /// Interaction logic for VideoMissionUC.xaml
+    /// Interaction logic for Unit1Activity2UC.xaml
     /// </summary>
-    public partial class VideoMissionUC : UserControl
+    public partial class Unit1Activity2UC : UserControl
     {
-        public VideoMissionUC()
+        public Unit1Activity2UC()
         {
             InitializeComponent();
         }
-
     }
 }

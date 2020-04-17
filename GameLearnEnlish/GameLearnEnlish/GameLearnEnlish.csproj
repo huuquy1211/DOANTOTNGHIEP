@@ -63,8 +63,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="UserControls\Activity2UC.xaml.cs">
-      <DependentUpon>Activity2UC.xaml</DependentUpon>
+    <Compile Include="UserControls\Unit1Activity2UC.xaml.cs">
+      <DependentUpon>Unit1Activity2UC.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\BackgroudOpacityUC.xaml.cs">
       <DependentUpon>BackgroudOpacityUC.xaml</DependentUpon>
@@ -94,9 +94,6 @@
     <Compile Include="UserControls\ImageMissonUC.xaml.cs">
       <DependentUpon>ImageMissonUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\VideoMissionUC.xaml.cs">
-      <DependentUpon>VideoMissionUC.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Utility\Global.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -110,7 +107,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="UserControls\Activity2UC.xaml">
+    <Page Include="UserControls\Unit1Activity2UC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -147,10 +144,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\PlacardUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControls\VideoMissionUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

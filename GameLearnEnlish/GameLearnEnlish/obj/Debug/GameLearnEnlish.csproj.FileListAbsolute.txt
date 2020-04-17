@@ -29,14 +29,12 @@ D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\MainWindow.g.cs
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\HomeUC.g.cs
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\ImageMissonUC.g.cs
-D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\VideoMissionUC.g.cs
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\App.g.cs
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish_MarkupCompile.cache
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish_MarkupCompile.lref
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\MainWindow.baml
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\HomeUC.baml
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\ImageMissonUC.baml
-D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\VideoMissionUC.baml
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish.g.resources
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish.Properties.Resources.resources
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish.csproj.GenerateResource.cache
@@ -60,5 +58,5 @@ D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\BackgroudOpacityUC.baml
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish.csprojAssemblyReference.cache
-D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\Activity2UC.g.cs
-D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\Activity2UC.baml
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\Unit1Activity2UC.g.cs
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\Unit1Activity2UC.baml

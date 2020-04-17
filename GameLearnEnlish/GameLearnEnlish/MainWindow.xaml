@@ -62,8 +62,8 @@
             <!--<us:PlacardUC  HorizontalAlignment="Left" VerticalAlignment="Center" Visibility="Visible"/>-->
         </Grid>
 
-        <Grid x:Name="grActivity2UC" Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="8" Grid.RowSpan="11">
-            <us:Activity2UC  HorizontalAlignment="Left" VerticalAlignment="Center" Visibility="Visible"/>
+        <Grid x:Name="Unit1Activity2UC" Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="9" Grid.RowSpan="11">
+            <us:Unit1Activity2UC  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="Visible"/>
         </Grid>
 
         <Grid x:Name="grdBackgroudOpacityUC" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="12" Grid.RowSpan="17">
