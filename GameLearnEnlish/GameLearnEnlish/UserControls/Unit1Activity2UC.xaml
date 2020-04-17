@@ -16,7 +16,7 @@
         </Style>
 
     </UserControl.Resources>
-    <Grid ShowGridLines="True">
+    <Grid ShowGridLines="False">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.3*"/>
             <ColumnDefinition Width="0.8*"/>
@@ -32,23 +32,47 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Label x:Name="lblQuestion1" Grid.Column="0" Grid.Row="0" Content="1." Style="{StaticResource LabelStyle}"  Cursor="Hand"/>
-        <Label x:Name="lblQuestion2" Grid.Column="0" Grid.Row="1" Content="2." Style="{StaticResource LabelStyle}"  Cursor="Hand"/>
-        <Label x:Name="lblQuestion3" Grid.Column="0" Grid.Row="2" Content="3." Style="{StaticResource LabelStyle}"  Cursor="Hand"/>
+        <Label x:Name="lblQuestion1" Grid.Column="0" Grid.Row="0" Content="1." Style="{StaticResource LabelStyle}" MouseEnter="Question1_MouseEnter"  MouseLeave="Question1_MouseLeave"  Cursor="Hand"/>
+        <Label x:Name="lblQuestion2" Grid.Column="0" Grid.Row="1" Content="2." Style="{StaticResource LabelStyle}" MouseEnter="Question2_MouseEnter"  MouseLeave="Question2_MouseLeave" Cursor="Hand"/>
+        <Label x:Name="lblQuestion3" Grid.Column="0" Grid.Row="2" Content="3." Style="{StaticResource LabelStyle}" MouseEnter="Question3_MouseEnter"  MouseLeave="Question3_MouseLeave"  Cursor="Hand"/>
 
 
-        <Image x:Name="imgGuyaudio1" Source="..\media\textures\matching\guyaudio.png" Stretch="Uniform" Grid.Row="0" Grid.Column="1" Margin="2" Cursor="Hand"/>
-        <Image x:Name="imgGuyaudio2" Source="..\media\textures\matching\guyaudio.png" Stretch="Uniform" Grid.Row="1" Grid.Column="1" Margin="2" Cursor="Hand"/>
-        <Image x:Name="imgGuyaudio3" Source="..\media\textures\matching\guyaudio.png" Stretch="Uniform" Grid.Row="2" Grid.Column="1" Margin="2" Cursor="Hand"/>
+        <Image x:Name="imgGuyaudio1" Source="..\media\textures\matching\guyaudio.png" Stretch="Uniform" Grid.Row="0" Grid.Column="1" Margin="5" Cursor="Hand" MouseEnter="Question1_MouseEnter"  MouseLeave="Question1_MouseLeave" MouseDown="Question1_MouseDown">
+            <Image.Effect>
+                <DropShadowEffect Direction="-40" Color="#FFB6C2CB" ShadowDepth="5" BlurRadius="10"/>
+            </Image.Effect>
+        </Image>
+        <Image x:Name="imgGuyaudio2" Source="..\media\textures\matching\guyaudio.png" Stretch="Uniform" Grid.Row="1" Grid.Column="1" Margin="5" Cursor="Hand" MouseEnter="Question2_MouseEnter"  MouseLeave="Question2_MouseLeave">
+            <Image.Effect>
+                <DropShadowEffect Direction="-40" Color="#FFB6C2CB" ShadowDepth="5" BlurRadius="10"/>
+            </Image.Effect>
+        </Image>
+        <Image x:Name="imgGuyaudio3" Source="..\media\textures\matching\guyaudio.png" Stretch="Uniform" Grid.Row="2" Grid.Column="1" Margin="5" Cursor="Hand" MouseEnter="Question3_MouseEnter"  MouseLeave="Question3_MouseLeave">
+            <Image.Effect>
+                <DropShadowEffect Direction="-40" Color="#FFB6C2CB" ShadowDepth="5" BlurRadius="10"/>
+            </Image.Effect>
+        </Image>
 
-        <Image x:Name="imgImg1" Source="..\media\textures\matching\act1\img1.png" Stretch="Uniform" Grid.Row="0" Grid.Column="5" Margin="5" />
-        <Image x:Name="imgImg2" Source="..\media\textures\matching\act1\img2.png" Stretch="Uniform" Grid.Row="1" Grid.Column="5" Margin="5" />
-        <Image x:Name="imgImg3" Source="..\media\textures\matching\act1\img3.png" Stretch="Uniform" Grid.Row="2" Grid.Column="5" Margin="5" />
-        
+        <Image x:Name="imgImg1" Source="..\media\textures\matching\act1\img1.png" Stretch="Uniform" Grid.Row="0" Grid.Column="5" Margin="6" >
+            <Image.Effect>
+                <DropShadowEffect Direction="-40" Color="#FFB6C2CB" ShadowDepth="5" BlurRadius="10"/>
+            </Image.Effect>
+        </Image>
+        <Image x:Name="imgImg2" Source="..\media\textures\matching\act1\img2.png" Stretch="Uniform" Grid.Row="1" Grid.Column="5" Margin="6">
+            <Image.Effect>
+                <DropShadowEffect Direction="-40" Color="#FFB6C2CB" ShadowDepth="5" BlurRadius="10"/>
+            </Image.Effect>
+        </Image>
+        <Image x:Name="imgImg3" Source="..\media\textures\matching\act1\img3.png" Stretch="Uniform" Grid.Row="2" Grid.Column="5" Margin="6">
+            <Image.Effect>
+                <DropShadowEffect Direction="-40" Color="#FFB6C2CB" ShadowDepth="5" BlurRadius="10"/>
+            </Image.Effect>
+        </Image>
 
-        <Image x:Name="imgNode1" Source="..\media\textures\matching\node.png" Stretch="Uniform" Grid.Row="0" Grid.Column="2" Cursor="Hand"/>
-        <Image x:Name="imgNode2" Source="..\media\textures\matching\node.png" Stretch="Uniform" Grid.Row="1" Grid.Column="2" Cursor="Hand"/>
-        <Image x:Name="imgNode3" Source="..\media\textures\matching\node.png" Stretch="Uniform" Grid.Row="2" Grid.Column="2 " Cursor="Hand"/>
+
+        <Image x:Name="imgNode1" Source="..\media\textures\matching\node.png" Stretch="Uniform" Grid.Row="0" Grid.Column="2" Cursor="Hand" MouseEnter="Question1_MouseEnter"  MouseLeave="Question1_MouseLeave" />
+        <Image x:Name="imgNode2" Source="..\media\textures\matching\node.png" Stretch="Uniform" Grid.Row="1" Grid.Column="2" Cursor="Hand" MouseEnter="Question2_MouseEnter"  MouseLeave="Question2_MouseLeave"/>
+        <Image x:Name="imgNode3" Source="..\media\textures\matching\node.png" Stretch="Uniform" Grid.Row="2" Grid.Column="2 " Cursor="Hand" MouseEnter="Question3_MouseEnter"  MouseLeave="Question3_MouseLeave"/>
 
         <Image x:Name="imgNode1a" Source="..\media\textures\matching\node.png" Stretch="Uniform" Grid.Row="0" Grid.Column="4" />
         <Image x:Name="imgNode2a" Source="..\media\textures\matching\node.png" Stretch="Uniform" Grid.Row="1" Grid.Column="4" />
