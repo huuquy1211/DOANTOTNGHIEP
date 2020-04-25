@@ -63,8 +63,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="UserControls\Unit1Activity2UC.xaml.cs">
-      <DependentUpon>Unit1Activity2UC.xaml</DependentUpon>
+    <Compile Include="Model\AnswerModel.cs" />
+    <Compile Include="Model\MatchingModel.cs" />
+    <Compile Include="Model\QuestionModel.cs" />
+    <Compile Include="UserControls\UC_Concentration.xaml.cs">
+      <DependentUpon>UC_Concentration.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UC_Description.xaml.cs">
+      <DependentUpon>UC_Description.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UC_Matching.xaml.cs">
+      <DependentUpon>UC_Matching.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\BackgroudOpacityUC.xaml.cs">
       <DependentUpon>BackgroudOpacityUC.xaml</DependentUpon>
@@ -95,6 +104,7 @@
       <DependentUpon>ImageMissonUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utility\Global.cs" />
+    <Compile Include="Utility\Unit.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -107,7 +117,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="UserControls\Unit1Activity2UC.xaml">
+    <Page Include="UserControls\UC_Concentration.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\UC_Description.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UC_Matching.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -311,7 +329,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="media\audio\animatedstory\act1\" />
-    <Folder Include="Model\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Animals\cat1.png" />

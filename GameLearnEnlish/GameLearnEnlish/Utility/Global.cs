@@ -25,5 +25,6 @@ namespace GameLearnEnlish.Utility
 
         public  MainWindow WindowMain;
         public  SelectElementUC ButtonMenuSelect;
+        public  Unit UnitSelect;
     }
 }

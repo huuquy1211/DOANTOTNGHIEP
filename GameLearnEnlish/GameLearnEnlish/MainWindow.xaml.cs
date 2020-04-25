@@ -34,11 +34,7 @@ namespace GameLearnEnlish
             InitializeComponent();
             Global.Instance.WindowMain = this;
             homeUC = new HomeUC();
-            //menuUC = new MenuUC();
-            //boxSubMenuUC = new BoxSubMenuUC();
-            //listActive = new ListActiveUC();
-            //menu_GlobeUC = new Menu_GlobeUC();
-
+           
             grdHomeUC.Children.Add(homeUC);
             //grdMenuUC.Children.Add(menuUC);
             //grdBoxSubMenuUC.Children.Add(boxSubMenuUC);

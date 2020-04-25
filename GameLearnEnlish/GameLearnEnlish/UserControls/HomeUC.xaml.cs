@@ -38,38 +38,46 @@ namespace GameLearnEnlish.UserControls
             InitializeComponent();
 
             grdHome.Visibility = Visibility.Visible;
-        }
+            if (Global.Instance.ButtonMenuSelect == SelectElementUC._imgBt_unit_new)
+            {
+                ucMenu = new MenuUC();
+                ucBoxSubMenu = new BoxSubMenuUC();
+                ucMenu_Globe = new Menu_GlobeUC();
+                backgroudOpacity = new BackgroudOpacityUC();
 
-        private void imgbtnPlay_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            grdHome.Visibility = Visibility.Hidden;
+                Global.Instance.WindowMain.grdBackgroudOpacityUC.Children.Add(backgroudOpacity);//Khởi tạo UC BackgroudOpacityUC
+                Global.Instance.WindowMain.grdMenuUC.Children.Add(ucMenu);
+                Global.Instance.WindowMain.grdBoxSubMenuUC.Children.Add(ucBoxSubMenu);
+                Global.Instance.WindowMain.grdMenu_GlobeUC.Children.Add(ucMenu_Globe);
+
+                BoxSubMenuUC.boxSubMenuUC.ChangeUnit("imgBt_unit_1");
+                MenuUC.menuUC.IsVisibleButtonClick("imgBt_unit_1");
+                Global.Instance.UnitSelect = Unit._unit1;
+            }
         }
 
         private void imgbtnMenu_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            ucMenu = new MenuUC();
-            ucBoxSubMenu = new BoxSubMenuUC();
-            ucMenu_Globe = new Menu_GlobeUC();
-            backgroudOpacity = new BackgroudOpacityUC();
-
-            Global.Instance.WindowMain.grdBackgroudOpacityUC.Children.Add(backgroudOpacity);
-            //CSGlobal.Instance.WindowMain.grdMain.Children.Clear();
+            Global.Instance.WindowMain.grdBackgroudOpacityUC.Children.Add(backgroudOpacity);//Khởi tạo UC BackgroudOpacityUC
             Global.Instance.WindowMain.grdMenuUC.Children.Add(ucMenu);
             Global.Instance.WindowMain.grdBoxSubMenuUC.Children.Add(ucBoxSubMenu);
             Global.Instance.WindowMain.grdMenu_GlobeUC.Children.Add(ucMenu_Globe);
 
             switch (Global.Instance.ButtonMenuSelect)
             {
-                case SelectElementUC._imgBt_unit_new:
-                    {
-                        BoxSubMenuUC.boxSubMenuUC.ChangeUnit("imgBt_unit_1");
-                        MenuUC.menuUC.IsVisibleButtonClick("imgBt_unit_1");
-                        break;
-                    }
+                //case SelectElementUC._imgBt_unit_new: //Khi mới mở menu lên
+                //    {
+                //        BoxSubMenuUC.boxSubMenuUC.ChangeUnit("imgBt_unit_1");
+                //        MenuUC.menuUC.IsVisibleButtonClick("imgBt_unit_1");
+                //        Global.Instance.UnitSelect = Unit._unit1;
+
+                //        break;
+                //    }
                 case SelectElementUC._imgBt_unit_1:
                     {
                         BoxSubMenuUC.boxSubMenuUC.ChangeUnit("imgBt_unit_1");
                         MenuUC.menuUC.IsVisibleButtonClick("imgBt_unit_1");
+                        grdBackGroud.Visibility = Visibility.Hidden;
                         break;
                     }
                 case SelectElementUC._imgBt_unit_2:
@@ -142,7 +150,7 @@ namespace GameLearnEnlish.UserControls
 
         private void imgbtnClose_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            mplayer.Open(new Uri(@"D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\media\audio\global\clickbutton.mp3", UriKind.Relative));
+            mplayer.Open(new Uri(@"..\..\media\audio\global\clickbutton.mp3", UriKind.Relative));
             mplayer.Play();
             ucExit_bg_box = new Exit_bg_boxUC();
             grdToolbarMenu.IsEnabled = false;

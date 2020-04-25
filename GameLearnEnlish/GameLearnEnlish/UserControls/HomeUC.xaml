@@ -168,6 +168,6 @@
             </Grid>
         </Grid>
        
-        <!--<Grid x:Name="grdBackGroud" Background="Black" Opacity="0.3" Visibility="Hidden" MouseDown="grdBackGroud_MouseDown" Cursor="Hand"/>-->
+        <Grid x:Name="grdBackGroud" Background="Black" Opacity="0.3" Visibility="Hidden" Cursor="Arrow"/>
     </Grid>
 </UserControl>

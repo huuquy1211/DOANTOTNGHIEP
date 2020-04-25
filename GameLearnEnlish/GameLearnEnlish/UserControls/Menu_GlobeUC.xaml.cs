@@ -27,6 +27,8 @@ namespace GameLearnEnlish.UserControls
             menu_GlobeUC = this;
             InitializeComponent();
             AnimationBoxSubMenuUC();
+
+
         }
 
         private void AnimationBoxSubMenuUC()

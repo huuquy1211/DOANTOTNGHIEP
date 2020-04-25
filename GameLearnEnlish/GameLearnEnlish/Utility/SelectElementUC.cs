@@ -13,7 +13,6 @@ namespace GameLearnEnlish.Model
         _isEnable,
         _notEnable,
         _Bt_unit,
-        
         _imgBt_unit_1,
         _imgBt_unit_2,
         _imgBt_unit_3,
