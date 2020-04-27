@@ -23,6 +23,7 @@ namespace GameLearnEnlish.UserControls
     /// </summary>
     public partial class UC_Matching : UserControl
     {
+        public static UC_Matching uC_Matching = null;
         private int Unit = 1;
         private bool Question1 = false;//Bấm vào câu hỏi 1
         private bool Question2 = false;//Bấm vào câu hỏi 2
@@ -74,26 +75,55 @@ namespace GameLearnEnlish.UserControls
         private readonly string VoidCorrect = @"..\..\media\audio\matching\right.mp3";//âm khi chọn câu trả lời đúng
         private readonly string VoidClickCard = @"..\..\media\audio\matching\click_card.mp3";//âm khi chọn câu trả lời đúng
         private readonly string VoidInCorrect = @"..\..\media\audio\matching\wrong.mp3";//âm khi chọn câu trả lời sai
-        private readonly string VoidStart = @"..\..\media\audio\matching\title.mp3";//âm khi chọn câu trả lời sai
+        private readonly string VoidStart = @"..\..\media\audio\matching\title.mp3";//âm khi khởi động
         private string VoidDescription = @"..\..\media\audio\matching\description.mp3";//âm description
 
         private string TextDescription = "Listen and match.";
 
         public UC_Matching(int unit)
         {
+            uC_Matching = this;
             InitializeComponent();
             Unit = unit;
-            CreateQuestionAndAnswer();
+            //StopVoid();//Tắt âm thanh
+            //           //Tắt các âm khi mở menu
+            //if (UC_MultipleChoice.uC_MultipleChoice != null)
+            //{
+            //    UC_MultipleChoice.uC_MultipleChoice.StopVoid();
+            //}
+            //if (UC_Description.uC_Description != null)
+            //{
+            //    UC_Description.uC_Description.StopVoid();
+            //}
+            //if (MenuUC.menuUC != null)
+            //{
+            //    MenuUC.menuUC.StopVoid();
+            //}
+
+            CreateQuestionAndAnswer();//Khởi tạo câu hỏi và câu trả lời
 
             mediaPlayerVoidStart.Open(new Uri(VoidStart, UriKind.Relative));//Âm thanh title
-            
+
             mediaPlayerVoidStart.Stop();
             mediaPlayerVoidStart.Play();
 
 
             Global.Instance.WindowMain.grdUC_Description.Children.Clear();
             Global.Instance.WindowMain.grdUC_Description.Children.Add(new UC_Description());//Gọi UC Description
-            UC_Description.uC_Description.ChangeDescription(TextDescription,VoidDescription);//Gọi UC Description truyền TextDescription và âm thanh
+            UC_Description.uC_Description.CallTextDescription(TextDescription);//Gọi UC Description truyền TextDescription
+            StartApp();//Khong thao tác khi đang khởi động
+            this.Cursor = Cursors.No;
+            Task.Run(() =>
+            {
+                Thread.Sleep(2000);
+            }).ContinueWith((task) =>
+            {
+                UC_Description.uC_Description.CallVoidDescription(VoidDescription);//Gọi UC Description truyền âm thanh
+                Thread.Sleep(2000);
+                FinishStartApp(); //Khởi động xong
+
+            });
+
         }
 
         #region [Hàm dùng chung]
@@ -192,12 +222,63 @@ namespace GameLearnEnlish.UserControls
             imgImg3.IsEnabled = false;
             imgNode1a.IsEnabled = false;
             imgNode2a.IsEnabled = false;
-            imgNode3a.IsEnabled = false;//Không cho thao tác với cau trả lời khi chưa chọn câu hỏi
+            imgNode3a.IsEnabled = false;//Không cho thao tác với câu trả lời khi chưa chọn câu hỏi
 
 
         }
+        public void StopVoid()//Tắt âm thanh
+        {
+            mediaPlayerVoiInCorrect.Stop();
+            mediaPlayerVoidClickCard.Stop();
+            mediaPlayerVoidCorrect.Stop();
+            mediaPlayerVoidStart.Stop();
+            mediaPlayerVoid3.Stop();
+            mediaPlayerVoid2.Stop();
+            mediaPlayerVoid1.Stop();
+        }
+        public void StartApp()//Khong thao tác khi đang khởi động
+        {
+            this.Dispatcher.Invoke(() =>
+            {
+                lblQuestion1.IsEnabled = false;
+                imgGuyaudio1.IsEnabled = false;
+                imgNode1.IsEnabled = false;
 
 
+                lblQuestion2.IsEnabled = false;
+                imgGuyaudio2.IsEnabled = false;
+                imgNode2.IsEnabled = false;
+
+                lblQuestion3.IsEnabled = false;
+                imgGuyaudio3.IsEnabled = false;
+                imgNode3.IsEnabled = false;
+
+
+
+
+            });
+
+        }
+
+        public void FinishStartApp() //Khởi động xong
+        {
+            this.Dispatcher.Invoke(() =>
+            {
+                lblQuestion1.IsEnabled = true;
+                imgGuyaudio1.IsEnabled = true;
+                imgNode1.IsEnabled = true;
+
+                lblQuestion2.IsEnabled = true;
+                imgGuyaudio2.IsEnabled = true;
+                imgNode2.IsEnabled = true;
+
+                lblQuestion3.IsEnabled = true;
+                imgGuyaudio3.IsEnabled = true;
+                imgNode3.IsEnabled = true;
+                this.Cursor = Cursors.Arrow;
+            });
+
+        }
         //Ẩn các câu hỏi khi 1 câu hỏi được click
         public void IsHiddenQuestion(string NameQuestion)
         {
@@ -510,7 +591,7 @@ namespace GameLearnEnlish.UserControls
                 }
             }
             IsClickQuestion = true;//Đã bấm vào câu hỏi
-            
+
 
         }
 
@@ -570,7 +651,7 @@ namespace GameLearnEnlish.UserControls
                 }
             }
             IsClickQuestion = true;//Đã bấm vào câu hỏi
-           
+
         }
         private void Question3_MouseEnter(object sender, MouseEventArgs e)
         {
@@ -686,8 +767,8 @@ namespace GameLearnEnlish.UserControls
                 line.Y2 = endPoint.Y - 5;
             }
         }
-       
-       
+
+
         #endregion
 
 

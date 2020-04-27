@@ -29,7 +29,8 @@ namespace GameLearnEnlish.UserControls
         private Box_helpUC ucBox_help;
         private Exit_bg_boxUC ucExit_bg_box;
         private BackgroudOpacityUC backgroudOpacity;
-        MediaPlayer mplayer = new MediaPlayer();
+        private MediaPlayer mplayerClose = new MediaPlayer();
+        private Uri uriClose;
         //public static SelectElementUC ButtonSelect;
 
         public HomeUC()
@@ -38,6 +39,11 @@ namespace GameLearnEnlish.UserControls
             InitializeComponent();
 
             grdHome.Visibility = Visibility.Visible;
+
+            #region [Hình ảnh]
+            uriClose = new Uri(@"..\..\media\audio\global\clickbutton.mp3", UriKind.Relative);
+            #endregion
+
             if (Global.Instance.ButtonMenuSelect == SelectElementUC._imgBt_unit_new)
             {
                 ucMenu = new MenuUC();
@@ -56,28 +62,46 @@ namespace GameLearnEnlish.UserControls
             }
         }
 
+        public void StopVoid()//Tắt âm thanh
+        {
+            mplayerClose.Stop();
+        }
         private void imgbtnMenu_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            //Tắt các âm khi mở menu
+            
+            
             Global.Instance.WindowMain.grdBackgroudOpacityUC.Children.Add(backgroudOpacity);//Khởi tạo UC BackgroudOpacityUC
+            Global.Instance.WindowMain.grdMenuUC.Children.Clear();
             Global.Instance.WindowMain.grdMenuUC.Children.Add(ucMenu);
             Global.Instance.WindowMain.grdBoxSubMenuUC.Children.Add(ucBoxSubMenu);
             Global.Instance.WindowMain.grdMenu_GlobeUC.Children.Add(ucMenu_Globe);
 
+            if (UC_MultipleChoice.uC_MultipleChoice != null)
+            {
+                UC_MultipleChoice.uC_MultipleChoice.StopVoid();
+            }
+            if (UC_Matching.uC_Matching != null)
+            {
+                UC_Matching.uC_Matching.StopVoid();
+            }
+            if (UC_Description.uC_Description != null)
+            {
+                UC_Description.uC_Description.StopVoid();
+            }
+            if (BoxSubMenuUC.boxSubMenuUC != null)
+            {
+                BoxSubMenuUC.boxSubMenuUC.StopVoid();
+            }
+
             switch (Global.Instance.ButtonMenuSelect)
             {
-                //case SelectElementUC._imgBt_unit_new: //Khi mới mở menu lên
-                //    {
-                //        BoxSubMenuUC.boxSubMenuUC.ChangeUnit("imgBt_unit_1");
-                //        MenuUC.menuUC.IsVisibleButtonClick("imgBt_unit_1");
-                //        Global.Instance.UnitSelect = Unit._unit1;
-
-                //        break;
-                //    }
+                
                 case SelectElementUC._imgBt_unit_1:
                     {
                         BoxSubMenuUC.boxSubMenuUC.ChangeUnit("imgBt_unit_1");
                         MenuUC.menuUC.IsVisibleButtonClick("imgBt_unit_1");
-                        grdBackGroud.Visibility = Visibility.Hidden;
+                        //grdBackGroud.Visibility = Visibility.Hidden;
                         break;
                     }
                 case SelectElementUC._imgBt_unit_2:
@@ -150,8 +174,8 @@ namespace GameLearnEnlish.UserControls
 
         private void imgbtnClose_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            mplayer.Open(new Uri(@"..\..\media\audio\global\clickbutton.mp3", UriKind.Relative));
-            mplayer.Play();
+            mplayerClose.Open(uriClose);
+            mplayerClose.Play();
             ucExit_bg_box = new Exit_bg_boxUC();
             grdToolbarMenu.IsEnabled = false;
             Global.Instance.WindowMain.grdExit_bg_boxUC.Children.Add(ucExit_bg_box);

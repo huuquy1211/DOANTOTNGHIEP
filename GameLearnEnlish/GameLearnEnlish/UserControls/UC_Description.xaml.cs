@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameLearnEnlish.Utility;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,16 +33,35 @@ namespace GameLearnEnlish.UserControls
             uC_Description = this;
         }
 
-        public void ChangeDescription(string TextDescription, string uriVoidDescription)
+        public void StopVoid()
         {
-            txtDescription.Text = TextDescription;
-            VoidDescription = uriVoidDescription;
-
-            mediaPlayerVoidDescription.Open(new Uri(VoidDescription, UriKind.Relative));//Âm thanh description
             mediaPlayerVoidDescription.Stop();
-            Thread.Sleep(2000);
-            mediaPlayerVoidDescription.Play();
+            //MessageBox.Show("On UcDes");
+        }
+        public void CallTextDescription(string TextDescription)
+        {
+            this.Dispatcher.Invoke(() =>
+            {
+                txtDescription.Text = TextDescription;
+            });
+            
+        }
+
+        public void CallVoidDescription(string uriVoidDescription)
+        {
+            this.Dispatcher.Invoke(() =>
+            {
+                if (uriVoidDescription != null)
+                {
+                    VoidDescription = uriVoidDescription;
+                    mediaPlayerVoidDescription.Open(new Uri(VoidDescription, UriKind.Relative));//Âm thanh description
+                    mediaPlayerVoidDescription.Stop();
+                    mediaPlayerVoidDescription.Play();
+                }                
+            });
 
         }
+
+
     }
 }

@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GameLearnEnlish.UserControls"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d">
     <UserControl.Resources>
         <Style x:Key="LabelStyle" TargetType="Label">
@@ -16,74 +17,78 @@
         </Style>
 
     </UserControl.Resources>
-    <Grid x:Name="grdUC_Matching" ShowGridLines="True" MouseLeftButtonDown="grdUC_Matching_MouseLeftButtonDown" MouseLeftButtonUp="grdUC_Matching_MouseLeftButtonUp" MouseMove="grdUC_Matching_MouseMove" Background="Transparent">
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.3*"/>
-                <ColumnDefinition Width="0.8*"/>
-                <ColumnDefinition Width="0.15*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="0.15*"/>
-                <ColumnDefinition Width="0.8*"/>
-                <ColumnDefinition Width="0.3*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
 
-            <Label x:Name="lblQuestion1" Grid.Column="0" Grid.Row="0" Content="1." Style="{StaticResource LabelStyle}" MouseEnter="Question1_MouseEnter"  MouseLeave="Question1_MouseLeave"  Cursor="Hand" MouseLeftButtonDown="Question1_MouseLeftButtonDown"/>
-            <Label x:Name="lblQuestion2" Grid.Column="0" Grid.Row="1" Content="2." Style="{StaticResource LabelStyle}" MouseEnter="Question2_MouseEnter"  MouseLeave="Question2_MouseLeave" Cursor="Hand" MouseLeftButtonDown="Question2_MouseLeftButtonDown"/>
-            <Label x:Name="lblQuestion3" Grid.Column="0" Grid.Row="2" Content="3." Style="{StaticResource LabelStyle}" MouseEnter="Question3_MouseEnter"  MouseLeave="Question3_MouseLeave"  Cursor="Hand" MouseLeftButtonDown="Question3_MouseLeftButtonDown"/>
+    <materialDesign:TransitioningContent>
+        <materialDesign:TransitioningContent.OpeningEffects>
+            <materialDesign:TransitionEffect Kind="FadeIn" Duration="0:0:0.3"/>
+            <materialDesign:TransitionEffect Kind="ExpandIn" Duration="0:0:0.3"/>
+        </materialDesign:TransitioningContent.OpeningEffects>
+        <Grid x:Name="grdUC_Matching" ShowGridLines="True" MouseLeftButtonDown="grdUC_Matching_MouseLeftButtonDown" MouseLeftButtonUp="grdUC_Matching_MouseLeftButtonUp" MouseMove="grdUC_Matching_MouseMove" Background="Transparent">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.3*"/>
+                    <ColumnDefinition Width="0.8*"/>
+                    <ColumnDefinition Width="0.15*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0.15*"/>
+                    <ColumnDefinition Width="0.8*"/>
+                    <ColumnDefinition Width="0.3*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
 
-            <!--Câu hỏi-->
-            <Image x:Name="imgGuyaudio1" Source="..\media\textures\matching\guyaudio.png" Stretch="Uniform" Grid.Row="0" Grid.Column="1" Margin="5" Cursor="Hand" MouseEnter="Question1_MouseEnter"  MouseLeave="Question1_MouseLeave" MouseLeftButtonDown="Question1_MouseLeftButtonDown">
-                <Image.Effect>
-                    <DropShadowEffect Direction="-40" Color="#FFB6C2CB" ShadowDepth="5" BlurRadius="10"/>
-                </Image.Effect>
-            </Image>
-            <Image x:Name="imgGuyaudio2" Source="..\media\textures\matching\guyaudio.png" Stretch="Uniform" Grid.Row="1" Grid.Column="1" Margin="5" Cursor="Hand" MouseEnter="Question2_MouseEnter"  MouseLeave="Question2_MouseLeave" MouseLeftButtonDown="Question2_MouseLeftButtonDown">
-                <Image.Effect>
-                    <DropShadowEffect Direction="-40" Color="#FFB6C2CB" ShadowDepth="5" BlurRadius="10"/>
-                </Image.Effect>
-            </Image>
-            <Image x:Name="imgGuyaudio3" Source="..\media\textures\matching\guyaudio.png" Stretch="Uniform" Grid.Row="2" Grid.Column="1" Margin="5" Cursor="Hand" MouseEnter="Question3_MouseEnter"  MouseLeave="Question3_MouseLeave" MouseLeftButtonDown="Question3_MouseLeftButtonDown">
-                <Image.Effect>
-                    <DropShadowEffect Direction="-40" Color="#FFB6C2CB" ShadowDepth="5" BlurRadius="10"/>
-                </Image.Effect>
-            </Image>
+                <Label x:Name="lblQuestion1" Grid.Column="0" Grid.Row="0" Content="1." Style="{StaticResource LabelStyle}" MouseEnter="Question1_MouseEnter"  MouseLeave="Question1_MouseLeave"  Cursor="Hand" MouseLeftButtonDown="Question1_MouseLeftButtonDown"/>
+                <Label x:Name="lblQuestion2" Grid.Column="0" Grid.Row="1" Content="2." Style="{StaticResource LabelStyle}" MouseEnter="Question2_MouseEnter"  MouseLeave="Question2_MouseLeave" Cursor="Hand" MouseLeftButtonDown="Question2_MouseLeftButtonDown"/>
+                <Label x:Name="lblQuestion3" Grid.Column="0" Grid.Row="2" Content="3." Style="{StaticResource LabelStyle}" MouseEnter="Question3_MouseEnter"  MouseLeave="Question3_MouseLeave"  Cursor="Hand" MouseLeftButtonDown="Question3_MouseLeftButtonDown"/>
 
-            <Image x:Name="imgNode1" Source="..\media\textures\matching\node.png" Stretch="Uniform" Grid.Row="0" Grid.Column="2" Cursor="Hand" MouseEnter="Question1_MouseEnter"  MouseLeave="Question1_MouseLeave" MouseLeftButtonDown="Question1_MouseLeftButtonDown"/>
-            <Image x:Name="imgNode2" Source="..\media\textures\matching\node.png" Stretch="Uniform" Grid.Row="1" Grid.Column="2" Cursor="Hand" MouseEnter="Question2_MouseEnter"  MouseLeave="Question2_MouseLeave" MouseLeftButtonDown="Question2_MouseLeftButtonDown"/>
-            <Image x:Name="imgNode3" Source="..\media\textures\matching\node.png" Stretch="Uniform" Grid.Row="2" Grid.Column="2 " Cursor="Hand" MouseEnter="Question3_MouseEnter"  MouseLeave="Question3_MouseLeave" MouseLeftButtonDown="Question3_MouseLeftButtonDown"/>
+                <!--Câu hỏi-->
+                <Image x:Name="imgGuyaudio1" Source="..\media\textures\matching\guyaudio.png" Stretch="Uniform" Grid.Row="0" Grid.Column="1" Margin="5" Cursor="Hand" MouseEnter="Question1_MouseEnter"  MouseLeave="Question1_MouseLeave" MouseLeftButtonDown="Question1_MouseLeftButtonDown">
+                    <Image.Effect>
+                        <DropShadowEffect Direction="-40" Color="#FFB6C2CB" ShadowDepth="5" BlurRadius="10"/>
+                    </Image.Effect>
+                </Image>
+                <Image x:Name="imgGuyaudio2" Source="..\media\textures\matching\guyaudio.png" Stretch="Uniform" Grid.Row="1" Grid.Column="1" Margin="5" Cursor="Hand" MouseEnter="Question2_MouseEnter"  MouseLeave="Question2_MouseLeave" MouseLeftButtonDown="Question2_MouseLeftButtonDown">
+                    <Image.Effect>
+                        <DropShadowEffect Direction="-40" Color="#FFB6C2CB" ShadowDepth="5" BlurRadius="10"/>
+                    </Image.Effect>
+                </Image>
+                <Image x:Name="imgGuyaudio3" Source="..\media\textures\matching\guyaudio.png" Stretch="Uniform" Grid.Row="2" Grid.Column="1" Margin="5" Cursor="Hand" MouseEnter="Question3_MouseEnter"  MouseLeave="Question3_MouseLeave" MouseLeftButtonDown="Question3_MouseLeftButtonDown">
+                    <Image.Effect>
+                        <DropShadowEffect Direction="-40" Color="#FFB6C2CB" ShadowDepth="5" BlurRadius="10"/>
+                    </Image.Effect>
+                </Image>
+
+                <Image x:Name="imgNode1" Source="..\media\textures\matching\node.png" Stretch="Uniform" Grid.Row="0" Grid.Column="2" Cursor="Hand" MouseEnter="Question1_MouseEnter"  MouseLeave="Question1_MouseLeave" MouseLeftButtonDown="Question1_MouseLeftButtonDown"/>
+                <Image x:Name="imgNode2" Source="..\media\textures\matching\node.png" Stretch="Uniform" Grid.Row="1" Grid.Column="2" Cursor="Hand" MouseEnter="Question2_MouseEnter"  MouseLeave="Question2_MouseLeave" MouseLeftButtonDown="Question2_MouseLeftButtonDown"/>
+                <Image x:Name="imgNode3" Source="..\media\textures\matching\node.png" Stretch="Uniform" Grid.Row="2" Grid.Column="2 " Cursor="Hand" MouseEnter="Question3_MouseEnter"  MouseLeave="Question3_MouseLeave" MouseLeftButtonDown="Question3_MouseLeftButtonDown"/>
 
 
-            <!--Câu trả lời-->
-            <Image x:Name="imgImg1" Source="..\media\textures\matching\act1\img1.png" Stretch="Uniform" Grid.Row="0" Grid.Column="5" Margin="6" MouseEnter="Answer1_MouseEnter" MouseLeave="Answer1_MouseLeave" MouseLeftButtonDown="Answer1_MouseLeftButtonDown">
-                <Image.Effect>
-                    <DropShadowEffect Direction="-40" Color="#FFB6C2CB" ShadowDepth="5" BlurRadius="10"/>
-                </Image.Effect>
-            </Image>
-            <Image x:Name="imgImg2" Source="..\media\textures\matching\act1\img2.png" Stretch="Uniform" Grid.Row="1" Grid.Column="5" Margin="6" MouseEnter="Answer2_MouseEnter" MouseLeave="Answer2_MouseLeave" MouseLeftButtonDown="Answer2_MouseLeftButtonDown">
-                <Image.Effect>
-                    <DropShadowEffect Direction="-40" Color="#FFB6C2CB" ShadowDepth="5" BlurRadius="10"/>
-                </Image.Effect>
-            </Image>
-            <Image x:Name="imgImg3" Source="..\media\textures\matching\act1\img3.png" Stretch="Uniform" Grid.Row="2" Grid.Column="5" Margin="6" MouseEnter="Answer3_MouseEnter" MouseLeave="Answer3_MouseLeave" MouseLeftButtonDown="Answer3_MouseLeftButtonDown">
-                <Image.Effect>
-                    <DropShadowEffect Direction="-40" Color="#FFB6C2CB" ShadowDepth="5" BlurRadius="10"/>
-                </Image.Effect>
-            </Image>
+                <!--Câu trả lời-->
+                <Image x:Name="imgImg1" Source="..\media\textures\matching\act1\img1.png" Stretch="Uniform" Grid.Row="0" Grid.Column="5" Margin="6" MouseEnter="Answer1_MouseEnter" MouseLeave="Answer1_MouseLeave" MouseLeftButtonDown="Answer1_MouseLeftButtonDown">
+                    <Image.Effect>
+                        <DropShadowEffect Direction="-40" Color="#FFB6C2CB" ShadowDepth="5" BlurRadius="10"/>
+                    </Image.Effect>
+                </Image>
+                <Image x:Name="imgImg2" Source="..\media\textures\matching\act1\img2.png" Stretch="Uniform" Grid.Row="1" Grid.Column="5" Margin="6" MouseEnter="Answer2_MouseEnter" MouseLeave="Answer2_MouseLeave" MouseLeftButtonDown="Answer2_MouseLeftButtonDown">
+                    <Image.Effect>
+                        <DropShadowEffect Direction="-40" Color="#FFB6C2CB" ShadowDepth="5" BlurRadius="10"/>
+                    </Image.Effect>
+                </Image>
+                <Image x:Name="imgImg3" Source="..\media\textures\matching\act1\img3.png" Stretch="Uniform" Grid.Row="2" Grid.Column="5" Margin="6" MouseEnter="Answer3_MouseEnter" MouseLeave="Answer3_MouseLeave" MouseLeftButtonDown="Answer3_MouseLeftButtonDown">
+                    <Image.Effect>
+                        <DropShadowEffect Direction="-40" Color="#FFB6C2CB" ShadowDepth="5" BlurRadius="10"/>
+                    </Image.Effect>
+                </Image>
 
-            <Image x:Name="imgNode1a" Source="..\media\textures\matching\node.png" Stretch="Uniform" Grid.Row="0" Grid.Column="4" MouseEnter="Answer1_MouseEnter" MouseLeave="Answer1_MouseLeave" MouseLeftButtonDown="Answer1_MouseLeftButtonDown"/>
-            <Image x:Name="imgNode2a" Source="..\media\textures\matching\node.png" Stretch="Uniform" Grid.Row="1" Grid.Column="4" MouseEnter="Answer2_MouseEnter" MouseLeave="Answer2_MouseLeave" MouseLeftButtonDown="Answer2_MouseLeftButtonDown"/>
-            <Image x:Name="imgNode3a" Source="..\media\textures\matching\node.png" Stretch="Uniform" Grid.Row="2" Grid.Column="4" MouseEnter="Answer3_MouseEnter" MouseLeave="Answer3_MouseLeave" MouseLeftButtonDown="Answer3_MouseLeftButtonDown"/>
+                <Image x:Name="imgNode1a" Source="..\media\textures\matching\node.png" Stretch="Uniform" Grid.Row="0" Grid.Column="4" MouseEnter="Answer1_MouseEnter" MouseLeave="Answer1_MouseLeave" MouseLeftButtonDown="Answer1_MouseLeftButtonDown"/>
+                <Image x:Name="imgNode2a" Source="..\media\textures\matching\node.png" Stretch="Uniform" Grid.Row="1" Grid.Column="4" MouseEnter="Answer2_MouseEnter" MouseLeave="Answer2_MouseLeave" MouseLeftButtonDown="Answer2_MouseLeftButtonDown"/>
+                <Image x:Name="imgNode3a" Source="..\media\textures\matching\node.png" Stretch="Uniform" Grid.Row="2" Grid.Column="4" MouseEnter="Answer3_MouseEnter" MouseLeave="Answer3_MouseLeave" MouseLeftButtonDown="Answer3_MouseLeftButtonDown"/>
 
+            </Grid>
         </Grid>
-
-        <Grid x:Name="grd">
-            
-        </Grid>
-    </Grid>
+    </materialDesign:TransitioningContent>
+    
 </UserControl>

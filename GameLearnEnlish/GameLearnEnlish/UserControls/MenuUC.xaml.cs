@@ -54,12 +54,15 @@ namespace GameLearnEnlish.UserControls
         Uri uriImgPhonics;
         #endregion
 
-        OpenFileDialog openFileDialog = new OpenFileDialog();
         public MenuUC()
         {
             menuUC = this;
             InitializeComponent();
-
+            StopVoid();//Tắt âm thanh
+            if (UC_Description.uC_Description != null)
+            {
+                UC_Description.uC_Description.StopVoid();
+            }
             #region [Âm thanh các unit]
             mplayer1.Open(new Uri(@"..\..\media\audio\global\BigF1_cdau_menu_U01.mp3", UriKind.Relative));
             mplayer2.Open(new Uri(@"..\..\media\audio\global\BigF1_cdau_menu_U02.mp3", UriKind.Relative));
@@ -89,6 +92,19 @@ namespace GameLearnEnlish.UserControls
 
         public void StopVoid()//Tắt âm thanh
         {
+            ////Tắt các âm khi mở menu
+            //if (UC_MultipleChoice.uC_MultipleChoice != null)
+            //{
+            //    UC_MultipleChoice.uC_MultipleChoice.StopVoid();
+            //}
+            //if (UC_Matching.uC_Matching != null)
+            //{
+            //    UC_Matching.uC_Matching.StopVoid();
+            //}
+            //if (UC_Description.uC_Description != null)
+            //{
+            //    UC_Description.uC_Description.StopVoid();
+            //}
             mplayer1.Stop();
             mplayer2.Stop();
             mplayer3.Stop();
@@ -285,8 +301,8 @@ namespace GameLearnEnlish.UserControls
                             IsVisibleButtonClick(nameBtn.Name);//Hiện nút khi được nhấn
                             Global.Instance.ButtonMenuSelect = SelectElementUC._imgBt_unit_1;//Nút trên menu được click là nút nào
                             Global.Instance.UnitSelect = Unit._unit1;//Unit nào được chọn
-
                             mplayer1.Play();//Phát âm thanh của unit
+
                             break;
                         }
                     case "imgBt_unit_2":

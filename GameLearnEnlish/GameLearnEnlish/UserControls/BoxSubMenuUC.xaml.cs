@@ -55,6 +55,16 @@ namespace GameLearnEnlish.UserControls
         {
             boxSubMenuUC = this;
             InitializeComponent();
+            if (UC_MultipleChoice.uC_MultipleChoice != null)
+            {
+                UC_MultipleChoice.uC_MultipleChoice.StopVoid();
+            }
+
+            //tắt các âm
+            //HomeUC.homeUC.StopVoid();
+
+            //StopVoid();
+
             #region [Âm thanh các unit]
             mplayer1.Open(new Uri(@"..\..\media\audio\global\Activity_1.mp3", UriKind.Relative));
             mplayer2.Open(new Uri(@"..\..\media\audio\global\Activity_2.mp3", UriKind.Relative));
@@ -82,9 +92,27 @@ namespace GameLearnEnlish.UserControls
 
         }
 
-        private void StopVoid()//Tắt âm thanh
+        public void StopVoid()//Tắt âm thanh
         {
-            MenuUC.menuUC.StopVoid();
+            //MenuUC.menuUC.StopVoid();
+
+            //Tắt các âm khi mở menu
+            //if (UC_MultipleChoice.uC_MultipleChoice != null)
+            //{
+            //    UC_MultipleChoice.uC_MultipleChoice.StopVoid();
+            //}
+            //if (UC_Matching.uC_Matching != null)
+            //{
+            //    UC_Matching.uC_Matching.StopVoid();
+            //}
+            if (UC_Description.uC_Description != null)
+            {
+                UC_Description.uC_Description.StopVoid();
+            }
+            if (MenuUC.menuUC != null)
+            {
+                MenuUC.menuUC.StopVoid();
+            }
             mplayer1.Stop();
             mplayer2.Stop();
             mplayer3.Stop();
@@ -94,7 +122,7 @@ namespace GameLearnEnlish.UserControls
             mplayer7.Stop();
             mplayer8.Stop();
             mplayer9.Stop();
-           
+
         }
         public void ChangeUnit(string NameBtn) // Đổi tiêu đề khi nhấn vào từng nút unit ở Menu
         {
@@ -115,7 +143,7 @@ namespace GameLearnEnlish.UserControls
                         {
                             ButtonSelect = SelectElementUC._Bt_unit;//Nút nhấn là unit
                             lblTheme.Content = "My Body";
-                            
+
                             imgMenu_Globe_U.Source = new BitmapImage(uriImg2);
                             break;
                         }
@@ -123,7 +151,7 @@ namespace GameLearnEnlish.UserControls
                         {
                             ButtonSelect = SelectElementUC._Bt_unit;//Nút nhấn là unit
                             lblTheme.Content = "My Family";
-                            
+
                             imgMenu_Globe_U.Source = new BitmapImage(uriImg3);
                             break;
                         }
@@ -131,7 +159,7 @@ namespace GameLearnEnlish.UserControls
                         {
                             ButtonSelect = SelectElementUC._Bt_unit;//Nút nhấn là unit
                             lblTheme.Content = "My Toys";
-                           
+
                             imgMenu_Globe_U.Source = new BitmapImage(uriImg4);
                             break;
                         }
@@ -139,7 +167,7 @@ namespace GameLearnEnlish.UserControls
                         {
                             ButtonSelect = SelectElementUC._Bt_unit;//Nút nhấn là unit
                             lblTheme.Content = "My Lunch";
-                          
+
                             imgMenu_Globe_U.Source = new BitmapImage(uriImg5);
                             break;
                         }
@@ -147,7 +175,7 @@ namespace GameLearnEnlish.UserControls
                         {
                             ButtonSelect = SelectElementUC._Bt_unit;//Nút nhấn là unit
                             lblTheme.Content = "My Clothes";
-                            
+
                             imgMenu_Globe_U.Source = new BitmapImage(uriImg6);
                             break;
                         }
@@ -155,7 +183,7 @@ namespace GameLearnEnlish.UserControls
                         {
                             ButtonSelect = SelectElementUC._Bt_unit;//Nút nhấn là unit
                             lblTheme.Content = "Animals";
-                            
+
                             imgMenu_Globe_U.Source = new BitmapImage(uriImg7);
                             break;
                         }
@@ -163,7 +191,7 @@ namespace GameLearnEnlish.UserControls
                         {
                             ButtonSelect = SelectElementUC._Bt_unit;//Nút nhấn là unit
                             lblTheme.Content = "My World";
-                           
+
                             imgMenu_Globe_U.Source = new BitmapImage(uriImg8);
                             break;
                         }
@@ -180,7 +208,7 @@ namespace GameLearnEnlish.UserControls
                             lblActivity7.Content = "Unit 7: Where's Lucy?";
                             lblActivity8.Content = "Unit 8: Hospital";
                             lblActivity9.Content = "";
-                           
+
                             imgMenu_Globe_U.Source = new BitmapImage(uriImgAs);
                             break;
                         }
@@ -197,7 +225,7 @@ namespace GameLearnEnlish.UserControls
                             lblActivity7.Content = "";
                             lblActivity8.Content = "";
                             lblActivity9.Content = "";
-                            
+
                             imgMenu_Globe_U.Source = new BitmapImage(uriImgPhonics);
                             break;
                         }
@@ -343,11 +371,57 @@ namespace GameLearnEnlish.UserControls
             Global.Instance.WindowMain.grdPlacard.Children.Clear();
             Global.Instance.WindowMain.grdPlacard.Children.Add(new PlacardUC());
             PlacardUC.placardUC.ChangeActivity(nameTbl, ButtonIsSelect);
-            
+
+        }
+        public void ClearUC()//Xóa các UC
+        {
+            //Xóa các UC cũ
+            Global.Instance.WindowMain.grdUC_Concentration.Children.Clear();
+            Global.Instance.WindowMain.grdUC_MultipleChoice.Children.Clear();
+            Global.Instance.WindowMain.grdUC_Matching.Children.Clear();
         }
 
+
+        public void HiddenUC()//Ẩn các UC
+        {
+            //Ẩn các UC cũ
+            Global.Instance.WindowMain.grdUC_MultipleChoice.Visibility = Visibility.Collapsed;
+            Global.Instance.WindowMain.grdUC_Concentration.Visibility = Visibility.Collapsed;
+            Global.Instance.WindowMain.grdUC_Matching.Visibility = Visibility.Collapsed;
+        }
+
+        public void VisibleUC(string NameUC)//Hiện các UC
+        {
+            if (NameUC != null)
+            {
+                switch (NameUC)
+                {
+                    case "grdUC_MultipleChoice":
+                        {
+                            Global.Instance.WindowMain.grdUC_MultipleChoice.Visibility = Visibility.Visible;
+                            break;
+                        }
+                    case "grdUC_Matching":
+                        {
+                            Global.Instance.WindowMain.grdUC_Matching.Visibility = Visibility.Visible;
+                            break;
+                        }
+                    case "grdUC_Concentration":
+                        {
+                            Global.Instance.WindowMain.grdUC_Concentration.Visibility = Visibility.Visible;
+                            break;
+                        }
+                    default:
+                        break;
+                }
+            }
+        }
         private void UnitUCActivity(Unit unit, string Activity)//Gọi các UC activity theo từng Unit khi MouseDown lable
         {
+            //Xóa các UC cũ
+            ClearUC();
+            //Ẩn các UC cũ
+            HiddenUC();
             switch (unit)
             {
                 case Unit._unit1: //Nếu là unit 1
@@ -356,22 +430,32 @@ namespace GameLearnEnlish.UserControls
                         {
                             case "lblActivity1":
                                 {
+                                    //Add uc vào main
+                                    VisibleUC("grdUC_Concentration");//hiện UC
                                     UC_Concentration uC_Concentration = new UC_Concentration(1);
-                                    Global.Instance.WindowMain.grdUC_Concentration.Children.Clear();
                                     Global.Instance.WindowMain.grdUC_Concentration.Children.Add(uC_Concentration); //Gọi UC với đối số truyền vào là 1
                                     break;
                                 }
                             case "lblActivity2":
                                 {
+                                    //Add uc vào main
+                                    VisibleUC("grdUC_Matching");//hiện UC
                                     UC_Matching uC_Matching = new UC_Matching(1);
-                                    Global.Instance.WindowMain.grdUC_Matching.Children.Clear();
                                     Global.Instance.WindowMain.grdUC_Matching.Children.Add(uC_Matching);
+                                    break;
+                                }
+                            case "lblActivity4":
+                                {
+                                    //Add uc vào main
+                                    VisibleUC("grdUC_MultipleChoice");//hiện UC
+                                    UC_MultipleChoice uC_MultipleChoice = new UC_MultipleChoice(1);
+                                    Global.Instance.WindowMain.grdUC_MultipleChoice.Children.Add(uC_MultipleChoice);
                                     break;
                                 }
                             default:
                                 break;
                         }
-                        
+
                         break;
                     }
                 case Unit._unit2:
@@ -381,16 +465,27 @@ namespace GameLearnEnlish.UserControls
                         {
                             case "lblActivity1":
                                 {
+                                    //Add uc vào main
+                                    VisibleUC("grdUC_Concentration");//hiện UC
                                     UC_Concentration uC_Concentration = new UC_Concentration(2);
-                                    Global.Instance.WindowMain.grdUC_Concentration.Children.Clear();
-                                    Global.Instance.WindowMain.grdUC_Concentration.Children.Add(uC_Concentration);
+                                    Global.Instance.WindowMain.grdUC_Concentration.Children.Add(uC_Concentration); //Gọi UC với đối số truyền vào là 1
                                     break;
                                 }
                             case "lblActivity2":
                                 {
+
+                                    //Add uc vào main
+                                    VisibleUC("grdUC_Matching");//hiện UC
                                     UC_Matching uC_Matching = new UC_Matching(2);
-                                    Global.Instance.WindowMain.grdUC_Matching.Children.Clear();
                                     Global.Instance.WindowMain.grdUC_Matching.Children.Add(uC_Matching);
+                                    break;
+                                }
+                            case "lblActivity4":
+                                {
+                                    //Add uc vào main
+                                    VisibleUC("grdUC_MultipleChoice");//hiện UC
+                                    UC_MultipleChoice uC_MultipleChoice = new UC_MultipleChoice(2);
+                                    Global.Instance.WindowMain.grdUC_MultipleChoice.Children.Add(uC_MultipleChoice);
                                     break;
                                 }
                             default:
@@ -405,16 +500,27 @@ namespace GameLearnEnlish.UserControls
                         {
                             case "lblActivity1":
                                 {
+                                    //Add uc vào main
+                                    VisibleUC("grdUC_Concentration");//hiện UC
                                     UC_Concentration uC_Concentration = new UC_Concentration(3);
-                                    Global.Instance.WindowMain.grdUC_Concentration.Children.Clear();
-                                    Global.Instance.WindowMain.grdUC_Concentration.Children.Add(uC_Concentration);
+                                    Global.Instance.WindowMain.grdUC_Concentration.Children.Add(uC_Concentration); //Gọi UC với đối số truyền vào là 1
                                     break;
                                 }
                             case "lblActivity2":
                                 {
+
+                                    //Add uc vào main
+                                    VisibleUC("grdUC_Matching");//hiện UC
                                     UC_Matching uC_Matching = new UC_Matching(3);
-                                    Global.Instance.WindowMain.grdUC_Matching.Children.Clear();
                                     Global.Instance.WindowMain.grdUC_Matching.Children.Add(uC_Matching);
+                                    break;
+                                }
+                            case "lblActivity4":
+                                {
+                                    //Add uc vào main
+                                    VisibleUC("grdUC_MultipleChoice");//hiện UC
+                                    UC_MultipleChoice uC_MultipleChoice = new UC_MultipleChoice(3);
+                                    Global.Instance.WindowMain.grdUC_MultipleChoice.Children.Add(uC_MultipleChoice);
                                     break;
                                 }
                             default:
@@ -429,16 +535,27 @@ namespace GameLearnEnlish.UserControls
                         {
                             case "lblActivity1":
                                 {
+                                    //Add uc vào main
+                                    VisibleUC("grdUC_Concentration");//hiện UC
                                     UC_Concentration uC_Concentration = new UC_Concentration(4);
-                                    Global.Instance.WindowMain.grdUC_Concentration.Children.Clear();
-                                    Global.Instance.WindowMain.grdUC_Concentration.Children.Add(uC_Concentration);
+                                    Global.Instance.WindowMain.grdUC_Concentration.Children.Add(uC_Concentration); //Gọi UC với đối số truyền vào là 1
                                     break;
                                 }
                             case "lblActivity2":
                                 {
+
+                                    //Add uc vào main
+                                    VisibleUC("grdUC_Matching");//hiện UC
                                     UC_Matching uC_Matching = new UC_Matching(4);
-                                    Global.Instance.WindowMain.grdUC_Matching.Children.Clear();
                                     Global.Instance.WindowMain.grdUC_Matching.Children.Add(uC_Matching);
+                                    break;
+                                }
+                            case "lblActivity4":
+                                {
+                                    //Add uc vào main
+                                    VisibleUC("grdUC_MultipleChoice");//hiện UC
+                                    UC_MultipleChoice uC_MultipleChoice = new UC_MultipleChoice(4);
+                                    Global.Instance.WindowMain.grdUC_MultipleChoice.Children.Add(uC_MultipleChoice);
                                     break;
                                 }
                             default:
@@ -453,16 +570,27 @@ namespace GameLearnEnlish.UserControls
                         {
                             case "lblActivity1":
                                 {
+                                    //Add uc vào main
+                                    VisibleUC("grdUC_Concentration");//hiện UC
                                     UC_Concentration uC_Concentration = new UC_Concentration(5);
-                                    Global.Instance.WindowMain.grdUC_Concentration.Children.Clear();
-                                    Global.Instance.WindowMain.grdUC_Concentration.Children.Add(uC_Concentration);
+                                    Global.Instance.WindowMain.grdUC_Concentration.Children.Add(uC_Concentration); //Gọi UC với đối số truyền vào là 1
                                     break;
                                 }
                             case "lblActivity2":
                                 {
+
+                                    //Add uc vào main
+                                    VisibleUC("grdUC_Matching");//hiện UC
                                     UC_Matching uC_Matching = new UC_Matching(5);
-                                    Global.Instance.WindowMain.grdUC_Matching.Children.Clear();
                                     Global.Instance.WindowMain.grdUC_Matching.Children.Add(uC_Matching);
+                                    break;
+                                }
+                            case "lblActivity4":
+                                {
+                                    //Add uc vào main
+                                    VisibleUC("grdUC_MultipleChoice");//hiện UC
+                                    UC_MultipleChoice uC_MultipleChoice = new UC_MultipleChoice(5);
+                                    Global.Instance.WindowMain.grdUC_MultipleChoice.Children.Add(uC_MultipleChoice);
                                     break;
                                 }
                             default:
@@ -477,16 +605,27 @@ namespace GameLearnEnlish.UserControls
                         {
                             case "lblActivity1":
                                 {
+                                    //Add uc vào main
+                                    VisibleUC("grdUC_Concentration");//hiện UC
                                     UC_Concentration uC_Concentration = new UC_Concentration(6);
-                                    Global.Instance.WindowMain.grdUC_Concentration.Children.Clear();
-                                    Global.Instance.WindowMain.grdUC_Concentration.Children.Add(uC_Concentration);
+                                    Global.Instance.WindowMain.grdUC_Concentration.Children.Add(uC_Concentration); //Gọi UC với đối số truyền vào là 1
                                     break;
                                 }
                             case "lblActivity2":
                                 {
+
+                                    //Add uc vào main
+                                    VisibleUC("grdUC_Matching");//hiện UC
                                     UC_Matching uC_Matching = new UC_Matching(6);
-                                    Global.Instance.WindowMain.grdUC_Matching.Children.Clear();
                                     Global.Instance.WindowMain.grdUC_Matching.Children.Add(uC_Matching);
+                                    break;
+                                }
+                            case "lblActivity4":
+                                {
+                                    //Add uc vào main
+                                    VisibleUC("grdUC_MultipleChoice");//hiện UC
+                                    UC_MultipleChoice uC_MultipleChoice = new UC_MultipleChoice(6);
+                                    Global.Instance.WindowMain.grdUC_MultipleChoice.Children.Add(uC_MultipleChoice);
                                     break;
                                 }
                             default:
@@ -501,16 +640,27 @@ namespace GameLearnEnlish.UserControls
                         {
                             case "lblActivity1":
                                 {
+                                    //Add uc vào main
+                                    VisibleUC("grdUC_Concentration");//hiện UC
                                     UC_Concentration uC_Concentration = new UC_Concentration(7);
-                                    Global.Instance.WindowMain.grdUC_Concentration.Children.Clear();
-                                    Global.Instance.WindowMain.grdUC_Concentration.Children.Add(uC_Concentration);
+                                    Global.Instance.WindowMain.grdUC_Concentration.Children.Add(uC_Concentration); //Gọi UC với đối số truyền vào là 1
                                     break;
                                 }
                             case "lblActivity2":
                                 {
+
+                                    //Add uc vào main
+                                    VisibleUC("grdUC_Matching");//hiện UC
                                     UC_Matching uC_Matching = new UC_Matching(7);
-                                    Global.Instance.WindowMain.grdUC_Matching.Children.Clear();
                                     Global.Instance.WindowMain.grdUC_Matching.Children.Add(uC_Matching);
+                                    break;
+                                }
+                            case "lblActivity4":
+                                {
+                                    //Add uc vào main
+                                    VisibleUC("grdUC_MultipleChoice");//hiện UC
+                                    UC_MultipleChoice uC_MultipleChoice = new UC_MultipleChoice(7);
+                                    Global.Instance.WindowMain.grdUC_MultipleChoice.Children.Add(uC_MultipleChoice);
                                     break;
                                 }
                             default:
@@ -525,16 +675,27 @@ namespace GameLearnEnlish.UserControls
                         {
                             case "lblActivity1":
                                 {
+                                    //Add uc vào main
+                                    VisibleUC("grdUC_Concentration");//hiện UC
                                     UC_Concentration uC_Concentration = new UC_Concentration(8);
-                                    Global.Instance.WindowMain.grdUC_Concentration.Children.Clear();
-                                    Global.Instance.WindowMain.grdUC_Concentration.Children.Add(uC_Concentration);
+                                    Global.Instance.WindowMain.grdUC_Concentration.Children.Add(uC_Concentration); //Gọi UC với đối số truyền vào là 1
                                     break;
                                 }
                             case "lblActivity2":
                                 {
+
+                                    //Add uc vào main
+                                    VisibleUC("grdUC_Matching");//hiện UC
                                     UC_Matching uC_Matching = new UC_Matching(8);
-                                    Global.Instance.WindowMain.grdUC_Matching.Children.Clear();
                                     Global.Instance.WindowMain.grdUC_Matching.Children.Add(uC_Matching);
+                                    break;
+                                }
+                            case "lblActivity4":
+                                {
+                                    //Add uc vào main
+                                    VisibleUC("grdUC_MultipleChoice");//hiện UC
+                                    UC_MultipleChoice uC_MultipleChoice = new UC_MultipleChoice(8);
+                                    Global.Instance.WindowMain.grdUC_MultipleChoice.Children.Add(uC_MultipleChoice);
                                     break;
                                 }
                             default:
@@ -571,19 +732,18 @@ namespace GameLearnEnlish.UserControls
         }
         private void lblActivity_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            StopVoid();//Tắt âm thanh khi nhấn vào
             var nameTbl = sender as Label;
 
             if (nameTbl != null)
             {
                 if (ButtonSelect == SelectElementUC._Bt_unit)//Nếu nút nhấn là Unit
                 {
-                   
+
                     switch (nameTbl.Name)
                     {
                         case "lblActivity1":
                             {
-                                
+
                                 CallChangeActivity(nameTbl.Name, ButtonSelect);// Đổi placard theo unit 
                                 UnitUCActivity(Global.Instance.UnitSelect, nameTbl.Name);//Gọi các UC activity của từng Unit
                                 break;
@@ -698,7 +858,7 @@ namespace GameLearnEnlish.UserControls
                             break;
                     }
                 }
-                
+
                 else if (ButtonSelect == SelectElementUC._imgBt_Phonics)//Nếu nút nhấn là Phonics
                 {
                     switch (nameTbl.Name)
@@ -731,7 +891,7 @@ namespace GameLearnEnlish.UserControls
                             break;
                     }
                 }
-               
+
             }
         }
     }

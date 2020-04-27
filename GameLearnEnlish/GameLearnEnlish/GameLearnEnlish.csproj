@@ -72,6 +72,9 @@
     <Compile Include="UserControls\UC_Description.xaml.cs">
       <DependentUpon>UC_Description.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UC_DragAndDrop.xaml.cs">
+      <DependentUpon>UC_DragAndDrop.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UC_Matching.xaml.cs">
       <DependentUpon>UC_Matching.xaml</DependentUpon>
     </Compile>
@@ -95,6 +98,12 @@
     </Compile>
     <Compile Include="UserControls\PlacardUC.xaml.cs">
       <DependentUpon>PlacardUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UC_MultipleChoice.xaml.cs">
+      <DependentUpon>UC_MultipleChoice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UC_StoryTime.xaml.cs">
+      <DependentUpon>UC_StoryTime.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utility\SelectElementUC.cs" />
     <Compile Include="UserControls\HomeUC.xaml.cs">
@@ -122,6 +131,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\UC_Description.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UC_DragAndDrop.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -162,6 +175,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\PlacardUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UC_MultipleChoice.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UC_StoryTime.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
