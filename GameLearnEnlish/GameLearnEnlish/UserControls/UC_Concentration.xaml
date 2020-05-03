@@ -6,42 +6,51 @@
              xmlns:local="clr-namespace:GameLearnEnlish.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <StackPanel Margin="10" Height="auto">
-        <Grid x:Name="GridImg1">
-            <Border CornerRadius="10" Name="MyImage1" BorderThickness="5" BorderBrush="Black"  Width="100" Height="100" >
+    <Grid x:Name="Main" IsEnabled="False" Opacity="0.4">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid x:Name="GridImg1" Grid.Row="0" Grid.Column="0">
+            <Border CornerRadius="20" Name="MyImage1" BorderThickness="5" BorderBrush="Blue"  Width="200" Height="200" >
                 <Image Name="Image1" Stretch="Fill" Width="auto" Height="auto" Source="..\media\textures\concentration\card_back.png">
                 </Image>
             </Border>
         </Grid>
-        <Grid x:Name="GridImg2">
-            <Border CornerRadius="10" Margin="10 10 10 10" Name="MyImage2" BorderThickness="5" BorderBrush="Black"  Width="100" Height="100" >
+        <Grid x:Name="GridImg2" Grid.Row="0" Grid.Column="1">
+            <Border CornerRadius="20" Margin="10 10 10 10" Name="MyImage2" BorderThickness="5" BorderBrush="Blue"  Width="200" Height="200" >
                 <Image Name="Image2" Stretch="Fill" Width="auto" Height="auto" Source="..\media\textures\concentration\card_back.png">
                 </Image>
             </Border>
         </Grid>
-        <Grid x:Name="GridImg3">
-            <Border CornerRadius="10" Name="MyImage3" BorderThickness="5" BorderBrush="Black"  Width="100" Height="100" >
+        <Grid x:Name="GridImg3" Grid.Row="0" Grid.Column="2">
+            <Border CornerRadius="20" Name="MyImage3" BorderThickness="5" BorderBrush="Blue"  Width="200" Height="200" >
                 <Image Name="Image3" Stretch="Fill" Width="auto" Height="auto" Source="..\media\textures\concentration\card_back.png">
                 </Image>
             </Border>
         </Grid>
-        <Grid x:Name="GridImg4">
-            <Border CornerRadius="10" Margin="10 10 10 10" Name="MyImage4" BorderThickness="5" BorderBrush="Black"  Width="100" Height="100" >
+        <Grid x:Name="GridImg4" Grid.Row="1" Grid.Column="0">
+            <Border CornerRadius="20" Margin="10 10 10 10" Name="MyImage4" BorderThickness="5" BorderBrush="Blue"  Width="200" Height="200" >
                 <Image Name="Image4" Stretch="Fill" Width="auto" Height="auto" Source="..\media\textures\concentration\card_back.png">
                 </Image>
             </Border>
         </Grid>
-        <Grid x:Name="GridImg5">
-            <Border CornerRadius="10" Name="MyImage5" BorderThickness="5" BorderBrush="Black"  Width="100" Height="100" >
+        <Grid x:Name="GridImg5" Grid.Row="2" Grid.Column="1">
+            <Border CornerRadius="20" Name="MyImage5" BorderThickness="5" BorderBrush="Blue"  Width="200" Height="200" >
                 <Image Name="Image5" Stretch="Fill" Width="auto" Height="auto" Source="..\media\textures\concentration\card_back.png">
                 </Image>
             </Border>
         </Grid>
-        <Grid x:Name="GridImg6">
-            <Border CornerRadius="10" Margin="10 10 10 10" Name="MyImage6" BorderThickness="5" BorderBrush="Black"  Width="100" Height="100" >
+        <Grid x:Name="GridImg6" Grid.Row="3" Grid.Column="2">
+            <Border CornerRadius="20" Margin="10 10 10 10" Name="MyImage6" BorderThickness="5" BorderBrush="Blue"  Width="200" Height="200" >
                 <Image Name="Image6" Stretch="Fill" Width="auto" Height="auto" Source="..\media\textures\concentration\card_back.png">
                 </Image>
             </Border>
         </Grid>
-    </StackPanel>
+    </Grid>
 </UserControl>
