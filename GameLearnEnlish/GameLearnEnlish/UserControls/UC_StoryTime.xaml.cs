@@ -499,6 +499,7 @@ namespace GameLearnEnlish.UserControls
                         }
                         Label x = new Label();
                         x.Name = "lb" + indexLabel;
+                        x.FontWeight = FontWeights.Bold;
                         indexLabel++;
                         x.Content = s + " ";
                         x.FontSize = 20;
@@ -559,7 +560,7 @@ namespace GameLearnEnlish.UserControls
                             x.Name = "lb" + indexLabel;
                             indexLabel++;
                             x.FontSize = 20;
-                            //   x.FontWeight = Bold.;
+                            x.FontWeight = FontWeights.Bold;
                             x.Content = s2 + " ";
                             x.MouseDown += X_MouseDown;
                             x.MouseEnter += X_MouseEnter;

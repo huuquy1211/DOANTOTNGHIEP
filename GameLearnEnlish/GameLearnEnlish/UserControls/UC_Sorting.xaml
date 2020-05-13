@@ -47,13 +47,35 @@
         </Grid>
 
         <Grid x:Name="GridVoid1"  Canvas.Left="80" Canvas.Top="10">
-            <Image Name="ImageVoid1" MouseDown="VoidImage_MouseDown" Stretch="Fill" Width="100" Height="100" Source="..\media\textures\concentration\card_back.png"/>
+            <Image Name="ImageVoid1" MouseDown="VoidImage_MouseDown" Stretch="Fill" Width="100" Height="100" Source="..\media\textures\concentration\card_back.png">
+                <Image.Effect>
+                    <DropShadowEffect Direction="-40" Color="#FFB6C2CB" ShadowDepth="5" BlurRadius="10"/>
+                </Image.Effect>
+            </Image>
         </Grid>
         <Grid x:Name="GridVoid2"  Canvas.Left="280" Canvas.Top="10">
-            <Image Name="ImageVoid2" MouseDown="VoidImage_MouseDown" Stretch="Fill" Width="100" Height="100" Source="..\media\textures\concentration\card_back.png"/>
+            <Image Name="ImageVoid2" MouseDown="VoidImage_MouseDown" Stretch="Fill" Width="100" Height="100" Source="..\media\textures\concentration\card_back.png">
+                <Image.Effect>
+                    <DropShadowEffect Direction="-40" Color="#FFB6C2CB" ShadowDepth="5" BlurRadius="10"/>
+                </Image.Effect>
+            </Image>
         </Grid>
         <Grid x:Name="GridVoid3"  Canvas.Left="480" Canvas.Top="10">
-            <Image Name="ImageVoid3" MouseDown="VoidImage_MouseDown" Stretch="Fill" Width="100" Height="100" Source="..\media\textures\concentration\card_back.png"/>
+            <Image Name="ImageVoid3" MouseDown="VoidImage_MouseDown" Stretch="Fill" Width="100" Height="100" Source="..\media\textures\concentration\card_back.png">
+                <Image.Effect>
+                    <DropShadowEffect Direction="-40" Color="#FFB6C2CB" ShadowDepth="5" BlurRadius="10"/>
+                </Image.Effect>
+            </Image>
+        </Grid>
+
+        <Grid  Canvas.Left="120" Canvas.Top="460">
+            <Label FontWeight="Bold" Foreground="Blue" FontSize="25">1</Label>
+        </Grid>
+        <Grid Canvas.Left="320" Canvas.Top="460">
+            <Label FontWeight="Bold" Foreground="Red" FontSize="25">2</Label>
+        </Grid>
+        <Grid Canvas.Left="520" Canvas.Top="460">
+            <Label FontWeight="Bold" Foreground="Orange" FontSize="25">3</Label>
         </Grid>
     </Canvas>
 </UserControl>

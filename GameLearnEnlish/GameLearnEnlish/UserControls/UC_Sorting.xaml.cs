@@ -91,7 +91,7 @@ namespace GameLearnEnlish.UserControls
         public UC_Sorting(int unit)
         {
             Unit = unit;
-            mediaTitle.Open(new Uri(@"..\..\media\audio\sequence\title.mp3", UriKind.Relative));
+            mediaTitle.Open(new Uri(@"..\..\media\audio\sorting\title.mp3", UriKind.Relative));
             mediaTitle.MediaEnded += MediaTitle_MediaEnded;
 
             mediaDescription.Open(new Uri(@"..\..\media\audio\sequence\description.mp3", UriKind.Relative));
@@ -169,6 +169,7 @@ namespace GameLearnEnlish.UserControls
             Image1.Source = new BitmapImage(new Uri(ListImgWord[0], UriKind.Relative));
             Image2.Source = new BitmapImage(new Uri(ListImgWord[1], UriKind.Relative));
             Image3.Source = new BitmapImage(new Uri(ListImgWord[2], UriKind.Relative));
+
             //set hinh anh trong box (sẽ visible khi kéo ảnh vào đúng box)
             ImageBase1.Source = new BitmapImage(new Uri(Path + @"\textures\sequence\act" + Unit + @"\img" + 1 + @".png", UriKind.Relative));
             ImageBase2.Source = new BitmapImage(new Uri(Path + @"\textures\sequence\act" + Unit + @"\img" + 2 + @".png", UriKind.Relative));
