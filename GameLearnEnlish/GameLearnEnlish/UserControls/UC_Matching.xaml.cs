@@ -58,7 +58,7 @@ namespace GameLearnEnlish.UserControls
         private MediaPlayer mediaPlayerVoid2 = new MediaPlayer();
         private MediaPlayer mediaPlayerVoid3 = new MediaPlayer();
         private MediaPlayer mediaPlayerVoidStart = new MediaPlayer();
-        //private MediaPlayer mediaPlayerVoidDescription = new MediaPlayer();
+        private MediaPlayer mediaPlayerVoiceDescription = new MediaPlayer();//Khởi tạo âm Description
 
         private MediaPlayer mediaPlayerVoidCorrect = new MediaPlayer();
         private MediaPlayer mediaPlayerVoidClickCard = new MediaPlayer();
@@ -76,8 +76,7 @@ namespace GameLearnEnlish.UserControls
         private readonly string VoidClickCard = @"..\..\media\audio\matching\click_card.mp3";//âm khi chọn câu trả lời đúng
         private readonly string VoidInCorrect = @"..\..\media\audio\matching\wrong.mp3";//âm khi chọn câu trả lời sai
         private readonly string VoidStart = @"..\..\media\audio\matching\title.mp3";//âm khi khởi động
-        private string VoidDescription = @"..\..\media\audio\matching\description.mp3";//âm description
-
+        private string VoiceDescription = @"..\..\media\audio\matching\description.mp3";//âm description
         private string TextDescription = "Listen and match.";
 
         public UC_Matching(int unit)
@@ -85,43 +84,34 @@ namespace GameLearnEnlish.UserControls
             uC_Matching = this;
             InitializeComponent();
             Unit = unit;
-            //StopVoid();//Tắt âm thanh
-            //           //Tắt các âm khi mở menu
-            //if (UC_MultipleChoice.uC_MultipleChoice != null)
-            //{
-            //    UC_MultipleChoice.uC_MultipleChoice.StopVoid();
-            //}
-            //if (UC_Description.uC_Description != null)
-            //{
-            //    UC_Description.uC_Description.StopVoid();
-            //}
-            //if (MenuUC.menuUC != null)
-            //{
-            //    MenuUC.menuUC.StopVoid();
-            //}
-
+            StartApp();//Khong thao tác khi đang khởi động
+            
             CreateQuestionAndAnswer();//Khởi tạo câu hỏi và câu trả lời
 
             mediaPlayerVoidStart.Open(new Uri(VoidStart, UriKind.Relative));//Âm thanh title
-
             mediaPlayerVoidStart.Stop();
+            //Phát âm thanh title
             mediaPlayerVoidStart.Play();
-
 
             Global.Instance.WindowMain.grdUC_Description.Children.Clear();
             Global.Instance.WindowMain.grdUC_Description.Children.Add(new UC_Description());//Gọi UC Description
             UC_Description.uC_Description.CallTextDescription(TextDescription);//Gọi UC Description truyền TextDescription
-            StartApp();//Khong thao tác khi đang khởi động
-            this.Cursor = Cursors.No;
+
+            mediaPlayerVoiceDescription.Open(new Uri(VoiceDescription, UriKind.Relative));
+            mediaPlayerVoiceDescription.Stop();
+            
             Task.Run(() =>
             {
                 Thread.Sleep(2000);
+                this.Dispatcher.Invoke(() =>
+                {
+                    //Phát âm thanh Description
+                    mediaPlayerVoiceDescription.Play();
+                });
             }).ContinueWith((task) =>
             {
-                UC_Description.uC_Description.CallVoidDescription(VoidDescription);//Gọi UC Description truyền âm thanh
                 Thread.Sleep(2000);
                 FinishStartApp(); //Khởi động xong
-
             });
 
         }
@@ -235,6 +225,7 @@ namespace GameLearnEnlish.UserControls
             mediaPlayerVoid3.Stop();
             mediaPlayerVoid2.Stop();
             mediaPlayerVoid1.Stop();
+            mediaPlayerVoiceDescription.Stop();
         }
         public void StartApp()//Khong thao tác khi đang khởi động
         {
@@ -253,9 +244,7 @@ namespace GameLearnEnlish.UserControls
                 imgGuyaudio3.IsEnabled = false;
                 imgNode3.IsEnabled = false;
 
-
-
-
+                this.Cursor = Cursors.No;
             });
 
         }
@@ -491,6 +480,7 @@ namespace GameLearnEnlish.UserControls
 
         private void Question1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            //var startPoint = e.GetPosition(imgNode1);
             if (IsClickQuestion == false)//Nếu chưa bấm vào câu hỏi
             {
                 IsClickFirst = true; //Lần đầu bấm vào câu hỏi
@@ -523,6 +513,11 @@ namespace GameLearnEnlish.UserControls
                     line.X2 = 255.875;
                     line.Y1 = 80.294117647058727;
                     line.Y2 = 80.294117647058727;
+
+                    //line.X1 = startPoint.X;
+                    //line.X2 = startPoint.X;
+                    //line.Y1 = startPoint.Y;
+                    //line.Y2 = startPoint.Y;
                     line.StrokeThickness = 7;
                     grdUC_Matching.Children.Add(line);
                     //IsClickQuestion = true;

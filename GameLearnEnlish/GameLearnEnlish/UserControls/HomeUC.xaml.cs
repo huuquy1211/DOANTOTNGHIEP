@@ -85,15 +85,10 @@ namespace GameLearnEnlish.UserControls
             {
                 UC_Matching.uC_Matching.StopVoid();
             }
-            if (UC_Description.uC_Description != null)
-            {
-                UC_Description.uC_Description.StopVoid();
-            }
             if (BoxSubMenuUC.boxSubMenuUC != null)
             {
                 BoxSubMenuUC.boxSubMenuUC.StopVoid();
             }
-
             switch (Global.Instance.ButtonMenuSelect)
             {
                 
@@ -205,14 +200,5 @@ namespace GameLearnEnlish.UserControls
 
            
         }
-        //private void grdBackGroud_MouseDown(object sender, MouseButtonEventArgs e)
-        //{
-        //    //this.Current = Cursors.WaitCursor;
-        //    grdBackGroud.Visibility = Visibility.Hidden;
-        //    Global.Instance.WindowMain.grdMenuUC.Children.Remove(ucMenu);
-        //    Global.Instance.WindowMain.grdBoxSubMenuUC.Children.Clear();
-        //    Global.Instance.WindowMain.grdMenu_GlobeUC.Children.Clear();
-        //    Global.Instance.WindowMain.grdExit_bg_boxUC.Children.Clear();
-        //}
     }
 }

@@ -29,29 +29,30 @@ namespace GameLearnEnlish.UserControls
         public SelectElementUC ButtonSelect;
 
         #region [Khởi tạo âm thanh các unit]
-        MediaPlayer mplayer1 = new MediaPlayer();
-        MediaPlayer mplayer2 = new MediaPlayer();
-        MediaPlayer mplayer3 = new MediaPlayer();
-        MediaPlayer mplayer4 = new MediaPlayer();
-        MediaPlayer mplayer5 = new MediaPlayer();
-        MediaPlayer mplayer6 = new MediaPlayer();
-        MediaPlayer mplayer7 = new MediaPlayer();
-        MediaPlayer mplayer8 = new MediaPlayer();
-        MediaPlayer mplayerAs = new MediaPlayer();
-        MediaPlayer mplayerPhonics = new MediaPlayer(); //Âm thanh cho các nút
+        private MediaPlayer mplayer1 = new MediaPlayer();
+        private MediaPlayer mplayer2 = new MediaPlayer();
+        private MediaPlayer mplayer3 = new MediaPlayer();
+        private MediaPlayer mplayer4 = new MediaPlayer();
+        private MediaPlayer mplayer5 = new MediaPlayer();
+        private MediaPlayer mplayer6 = new MediaPlayer();
+        private MediaPlayer mplayer7 = new MediaPlayer();
+        private MediaPlayer mplayer8 = new MediaPlayer();
+        private MediaPlayer mplayerAs = new MediaPlayer();
+
+        private MediaPlayer mplayerPhonics = new MediaPlayer(); //Âm thanh cho các nút
         #endregion
 
         #region [Khởi tạo Uri hình ảnh các unit]
-        Uri uriImg1;
-        Uri uriImg2;
-        Uri uriImg3;
-        Uri uriImg4;
-        Uri uriImg5;
-        Uri uriImg6;
-        Uri uriImg7;
-        Uri uriImg8;
-        Uri uriImgAs;
-        Uri uriImgPhonics;
+        private Uri uriImg1;
+        private Uri uriImg2;
+        private Uri uriImg3;
+        private Uri uriImg4;
+        private Uri uriImg5;
+        private Uri uriImg6;
+        private Uri uriImg7;
+        private Uri uriImg8;
+        private Uri uriImgAs;
+        private Uri uriImgPhonics;
         #endregion
 
         public MenuUC()
@@ -59,10 +60,6 @@ namespace GameLearnEnlish.UserControls
             menuUC = this;
             InitializeComponent();
             StopVoid();//Tắt âm thanh
-            if (UC_Description.uC_Description != null)
-            {
-                UC_Description.uC_Description.StopVoid();
-            }
             #region [Âm thanh các unit]
             mplayer1.Open(new Uri(@"..\..\media\audio\global\BigF1_cdau_menu_U01.mp3", UriKind.Relative));
             mplayer2.Open(new Uri(@"..\..\media\audio\global\BigF1_cdau_menu_U02.mp3", UriKind.Relative));

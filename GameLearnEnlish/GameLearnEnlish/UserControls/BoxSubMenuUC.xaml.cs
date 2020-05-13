@@ -36,8 +36,6 @@ namespace GameLearnEnlish.UserControls
         MediaPlayer mplayer8 = new MediaPlayer();
         MediaPlayer mplayer9 = new MediaPlayer(); //Âm thanh cho các nút
         #endregion
-
-
         #region [Khởi tạo Uri hình ảnh các Menu_Globe]
         Uri uriImg1;
         Uri uriImg2;
@@ -55,15 +53,6 @@ namespace GameLearnEnlish.UserControls
         {
             boxSubMenuUC = this;
             InitializeComponent();
-            if (UC_MultipleChoice.uC_MultipleChoice != null)
-            {
-                UC_MultipleChoice.uC_MultipleChoice.StopVoid();
-            }
-
-            //tắt các âm
-            //HomeUC.homeUC.StopVoid();
-
-            //StopVoid();
 
             #region [Âm thanh các unit]
             mplayer1.Open(new Uri(@"..\..\media\audio\global\Activity_1.mp3", UriKind.Relative));
@@ -105,14 +94,13 @@ namespace GameLearnEnlish.UserControls
             //{
             //    UC_Matching.uC_Matching.StopVoid();
             //}
-            if (UC_Description.uC_Description != null)
-            {
-                UC_Description.uC_Description.StopVoid();
-            }
+           
             if (MenuUC.menuUC != null)
             {
                 MenuUC.menuUC.StopVoid();
             }
+
+
             mplayer1.Stop();
             mplayer2.Stop();
             mplayer3.Stop();
@@ -373,6 +361,7 @@ namespace GameLearnEnlish.UserControls
             PlacardUC.placardUC.ChangeActivity(nameTbl, ButtonIsSelect);
 
         }
+
         private void UnitUCActivity(Unit unit, string Activity)//Gọi các UC activity theo từng Unit khi MouseDown lable
         {
             //Xóa UC cũ
@@ -404,6 +393,14 @@ namespace GameLearnEnlish.UserControls
                                     //Add uc vào main
                                     UC_MultipleChoice uC_MultipleChoice = new UC_MultipleChoice(1);
                                     Global.Instance.WindowMain.grdUC_Activity.Children.Add(uC_MultipleChoice);
+                                    break;
+                                }
+
+                            case "lblActivity9":
+                                {
+                                    //Add uc vào main
+                                    UC_LookAndFind uC_LookAndFind = new UC_LookAndFind(1);
+                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(uC_LookAndFind);
                                     break;
                                 }
                             default:
@@ -439,6 +436,13 @@ namespace GameLearnEnlish.UserControls
                                     Global.Instance.WindowMain.grdUC_Activity.Children.Add(uC_MultipleChoice);
                                     break;
                                 }
+                            case "lblActivity9":
+                                {
+                                    //Add uc vào main
+                                    UC_LookAndFind uC_LookAndFind = new UC_LookAndFind(2);
+                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(uC_LookAndFind);
+                                    break;
+                                }
                             default:
                                 break;
                         }
@@ -469,6 +473,13 @@ namespace GameLearnEnlish.UserControls
                                     //Add uc vào main
                                     UC_MultipleChoice uC_MultipleChoice = new UC_MultipleChoice(3);
                                     Global.Instance.WindowMain.grdUC_Activity.Children.Add(uC_MultipleChoice);
+                                    break;
+                                }
+                            case "lblActivity9":
+                                {
+                                    //Add uc vào main
+                                    UC_LookAndFind uC_LookAndFind = new UC_LookAndFind(3);
+                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(uC_LookAndFind);
                                     break;
                                 }
                             default:
@@ -503,6 +514,13 @@ namespace GameLearnEnlish.UserControls
                                     Global.Instance.WindowMain.grdUC_Activity.Children.Add(uC_MultipleChoice);
                                     break;
                                 }
+                            case "lblActivity9":
+                                {
+                                    //Add uc vào main
+                                    UC_LookAndFind uC_LookAndFind = new UC_LookAndFind(4);
+                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(uC_LookAndFind);
+                                    break;
+                                }
                             default:
                                 break;
                         }
@@ -533,6 +551,13 @@ namespace GameLearnEnlish.UserControls
                                     //Add uc vào main
                                     UC_MultipleChoice uC_MultipleChoice = new UC_MultipleChoice(5);
                                     Global.Instance.WindowMain.grdUC_Activity.Children.Add(uC_MultipleChoice);
+                                    break;
+                                }
+                            case "lblActivity9":
+                                {
+                                    //Add uc vào main
+                                    UC_LookAndFind uC_LookAndFind = new UC_LookAndFind(5);
+                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(uC_LookAndFind);
                                     break;
                                 }
                             default:
@@ -567,6 +592,13 @@ namespace GameLearnEnlish.UserControls
                                     Global.Instance.WindowMain.grdUC_Activity.Children.Add(uC_MultipleChoice);
                                     break;
                                 }
+                            case "lblActivity9":
+                                {
+                                    //Add uc vào main
+                                    UC_LookAndFind uC_LookAndFind = new UC_LookAndFind(6);
+                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(uC_LookAndFind);
+                                    break;
+                                }
                             default:
                                 break;
                         }
@@ -599,6 +631,13 @@ namespace GameLearnEnlish.UserControls
                                     Global.Instance.WindowMain.grdUC_Activity.Children.Add(uC_MultipleChoice);
                                     break;
                                 }
+                            case "lblActivity9":
+                                {
+                                    //Add uc vào main
+                                    UC_LookAndFind uC_LookAndFind = new UC_LookAndFind(7);
+                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(uC_LookAndFind);
+                                    break;
+                                }
                             default:
                                 break;
                         }
@@ -629,6 +668,13 @@ namespace GameLearnEnlish.UserControls
                                     //Add uc vào main
                                     UC_MultipleChoice uC_MultipleChoice = new UC_MultipleChoice(8);
                                     Global.Instance.WindowMain.grdUC_Activity.Children.Add(uC_MultipleChoice);
+                                    break;
+                                }
+                            case "lblActivity9":
+                                {
+                                    //Add uc vào main
+                                    UC_LookAndFind uC_LookAndFind = new UC_LookAndFind(8);
+                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(uC_LookAndFind);
                                     break;
                                 }
                             default:

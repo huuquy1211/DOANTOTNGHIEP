@@ -61,10 +61,10 @@
             <Image x:Name="imgBt_unit_8" Source="..\media\textures\global\Bt_unit_8.png" Stretch="Uniform" Grid.Row="3" Grid.Column="5" Margin="2" MouseDown="imgBt_unit_MouseDown" MouseUp="imgBt_unit_MouseUp" MouseLeave="imgBt_unit_MouseLeave" MouseEnter="imgBt_unit_MouseEnter" Cursor="Hand"/>
 
             <Image x:Name="imgBt_AS_click" Source="..\media\textures\global\Bt_AS_click.png" Stretch="Uniform" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="4" Margin="1" Visibility="Hidden"/>
-            <Image x:Name="imgBt_AS" Source="..\media\textures\global\Bt_AS.png" Stretch="Uniform" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="4" Margin="5,0,5,0"  MouseDown="imgBt_unit_MouseDown" MouseUp="imgBt_unit_MouseUp" MouseLeave="imgBt_unit_MouseLeave" MouseEnter="imgBt_unit_MouseEnter" Cursor="Hand"/>
+            <Image x:Name="imgBt_AS" IsEnabled="False" Source="..\media\textures\global\Bt_AS.png" Stretch="Uniform" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="4" Margin="5,0,5,0"  MouseDown="imgBt_unit_MouseDown" MouseUp="imgBt_unit_MouseUp" MouseLeave="imgBt_unit_MouseLeave" MouseEnter="imgBt_unit_MouseEnter" Cursor="Hand"/>
 
             <Image x:Name="imgBt_Phonics_click" Source="..\media\textures\global\Bt_Phonics_click.png" Stretch="Uniform" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="4" Visibility="Hidden"/>
-            <Image x:Name="imgBt_Phonics" Source="..\media\textures\global\Bt_Phonics.png" Stretch="Uniform" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="4" Margin="1" MouseDown="imgBt_unit_MouseDown" MouseUp="imgBt_unit_MouseUp" MouseLeave="imgBt_unit_MouseLeave" MouseEnter="imgBt_unit_MouseEnter" Cursor="Hand"/>
+            <Image x:Name="imgBt_Phonics" IsEnabled="False" Source="..\media\textures\global\Bt_Phonics.png" Stretch="Uniform" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="4" Margin="1" MouseDown="imgBt_unit_MouseDown" MouseUp="imgBt_unit_MouseUp" MouseLeave="imgBt_unit_MouseLeave" MouseEnter="imgBt_unit_MouseEnter" Cursor="Hand"/>
 
 
         </Grid>
