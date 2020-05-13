@@ -240,7 +240,7 @@ namespace GameLearnEnlish.UserControls
                         }
                     case 5:
                         {
-                            myStoryboard9.Begin(this);
+                            myStoryboard9.Begin(this); 
                             break;
                         }
                     case 6:
@@ -258,9 +258,10 @@ namespace GameLearnEnlish.UserControls
             var myDoubleAnimation = new DoubleAnimation();
             myDoubleAnimation.From = 200;
             myDoubleAnimation.To = 0;
+            myDoubleAnimation.Duration = new Duration(TimeSpan.FromMilliseconds(500));
             myDoubleAnimation.AutoReverse = false;
 
-            storyBoard.Duration = new Duration(TimeSpan.FromMilliseconds(1000));
+            storyBoard.Duration = new Duration(TimeSpan.FromMilliseconds(500));
             storyBoard.Children.Add(myDoubleAnimation);
 
             Storyboard.SetTargetName(myDoubleAnimation, name);
@@ -273,9 +274,10 @@ namespace GameLearnEnlish.UserControls
             var myDoubleAnimation = new DoubleAnimation();
             myDoubleAnimation.From = 0;
             myDoubleAnimation.To = 200;
+            myDoubleAnimation.Duration = new Duration(TimeSpan.FromMilliseconds(500));
             myDoubleAnimation.AutoReverse = false;
 
-            storyBoard.Duration = new Duration(TimeSpan.FromMilliseconds(1000));
+            storyBoard.Duration = new Duration(TimeSpan.FromMilliseconds(500));
             storyBoard.Children.Add(myDoubleAnimation);
 
             Storyboard.SetTargetName(myDoubleAnimation, name);
@@ -570,6 +572,12 @@ namespace GameLearnEnlish.UserControls
 
         public bool CheckImg()
         {
+            if(ImgClick_1== ImgClick_2)
+            {
+                ImgClick_1 = 0;
+                ImgClick_2 = 0;
+                return false;
+            }    
             if (ListImgSort[ImgClick_1 - 1] == ListImgSort[ImgClick_2 - 1])
                 return true;
             else

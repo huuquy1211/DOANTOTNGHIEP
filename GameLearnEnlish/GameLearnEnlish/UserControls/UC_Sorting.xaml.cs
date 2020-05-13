@@ -193,6 +193,8 @@ namespace GameLearnEnlish.UserControls
 
         private void Feast_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            if(moving)
+            { return; }    
             Image l = e.Source as Image;
             if (l != null)
             {
