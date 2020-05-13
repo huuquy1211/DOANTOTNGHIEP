@@ -1,0 +1,81 @@
+﻿<UserControl x:Class="GameLearnEnlish.UserControls.UC_Sorting"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GameLearnEnlish.UserControls"
+             mc:Ignorable="d" 
+            >
+    <Canvas x:Name="Main" Width="650" Height="500" IsEnabled="False" Opacity="0.4">
+        <Grid x:Name="GridImg1"  Canvas.Left="{Binding XPosition1}" Canvas.Top="{Binding YPosition1}">
+            <Border CornerRadius="20" BorderThickness="8" BorderBrush="Blue"  Width="auto" Height="auto" >
+                <Image Name="Image1" MouseMove="Feast_MouseMove" MouseDown="Feast_MouseDown" MouseUp="Feast_MouseUp"  Stretch="Fill" Width="140" Height="140" Source="..\media\textures\concentration\card_back.png"/>
+            </Border>
+        </Grid>
+        <Grid x:Name="GridImg2"  Canvas.Left="{Binding XPosition2}" Canvas.Top="{Binding YPosition2}">
+            <Border CornerRadius="20" BorderThickness="8" BorderBrush="Blue"  Width="auto" Height="auto" >
+                <Image Name="Image2" MouseMove="Feast_MouseMove" MouseDown="Feast_MouseDown" MouseUp="Feast_MouseUp" Stretch="Fill" Width="140" Height="140" Source="..\media\textures\concentration\card_back.png"/>
+            </Border>
+        </Grid>
+        <Grid x:Name="GridImg3"  Canvas.Left="{Binding XPosition3}" Canvas.Top="{Binding YPosition3}">
+            <Border CornerRadius="20" BorderThickness="8" BorderBrush="Blue"  Width="auto" Height="auto" >
+                <Image Name="Image3" MouseMove="Feast_MouseMove" MouseDown="Feast_MouseDown" MouseUp="Feast_MouseUp" Stretch="Fill" Width="140" Height="140" Source="..\media\textures\concentration\card_back.png"/>
+            </Border>
+        </Grid>
+        <Grid x:Name="GridBox1" Canvas.Top="300" Canvas.Left="50">
+            <Border CornerRadius="20" BorderThickness="10" BorderBrush="Green"  Width="auto" Height="auto" >
+                <Grid Width="140" Height="140">
+                    <Image Name="ImageBase1" Visibility="Hidden" MouseMove="Feast_MouseMove" MouseDown="Feast_MouseDown" MouseUp="Feast_MouseUp" Stretch="Fill" Width="auto" Height="auto" Source="..\media\textures\concentration\card_back.png"/>
+                </Grid>
+            </Border>
+        </Grid>
+
+
+        <Grid x:Name="GridBox2" Canvas.Top="300" Canvas.Left="250">
+            <Border CornerRadius="20" BorderThickness="10" BorderBrush="Green"  Width="auto" Height="auto" >
+                <Grid Width="140" Height="140">
+                    <Image Name="ImageBase2" Visibility="Hidden" MouseMove="Feast_MouseMove" MouseDown="Feast_MouseDown" MouseUp="Feast_MouseUp" Stretch="Fill" Width="auto" Height="auto" Source="..\media\textures\concentration\card_back.png"/>
+                </Grid>
+            </Border>
+        </Grid>
+        <Grid x:Name="GridBox3" Canvas.Top="300" Canvas.Left="450">
+            <Border CornerRadius="20" BorderThickness="10" BorderBrush="Green"  Width="auto" Height="auto" >
+                <Grid Width="140" Height="140">
+                    <Image Name="ImageBase3" Visibility="Hidden" MouseMove="Feast_MouseMove" MouseDown="Feast_MouseDown" MouseUp="Feast_MouseUp" Stretch="Fill" Width="auto" Height="auto" Source="..\media\textures\concentration\card_back.png"/>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <Grid x:Name="GridVoid1"  Canvas.Left="80" Canvas.Top="10">
+            <Image Name="ImageVoid1" MouseDown="VoidImage_MouseDown" Stretch="Fill" Width="100" Height="100" Source="..\media\textures\concentration\card_back.png">
+                <Image.Effect>
+                    <DropShadowEffect Direction="-40" Color="#FFB6C2CB" ShadowDepth="5" BlurRadius="10"/>
+                </Image.Effect>
+            </Image>
+        </Grid>
+        <Grid x:Name="GridVoid2"  Canvas.Left="280" Canvas.Top="10">
+            <Image Name="ImageVoid2" MouseDown="VoidImage_MouseDown" Stretch="Fill" Width="100" Height="100" Source="..\media\textures\concentration\card_back.png">
+                <Image.Effect>
+                    <DropShadowEffect Direction="-40" Color="#FFB6C2CB" ShadowDepth="5" BlurRadius="10"/>
+                </Image.Effect>
+            </Image>
+        </Grid>
+        <Grid x:Name="GridVoid3"  Canvas.Left="480" Canvas.Top="10">
+            <Image Name="ImageVoid3" MouseDown="VoidImage_MouseDown" Stretch="Fill" Width="100" Height="100" Source="..\media\textures\concentration\card_back.png">
+                <Image.Effect>
+                    <DropShadowEffect Direction="-40" Color="#FFB6C2CB" ShadowDepth="5" BlurRadius="10"/>
+                </Image.Effect>
+            </Image>
+        </Grid>
+
+        <Grid  Canvas.Left="120" Canvas.Top="460">
+            <Label FontWeight="Bold" Foreground="Blue" FontSize="25">1</Label>
+        </Grid>
+        <Grid Canvas.Left="320" Canvas.Top="460">
+            <Label FontWeight="Bold" Foreground="Red" FontSize="25">2</Label>
+        </Grid>
+        <Grid Canvas.Left="520" Canvas.Top="460">
+            <Label FontWeight="Bold" Foreground="Orange" FontSize="25">3</Label>
+        </Grid>
+    </Canvas>
+</UserControl>
