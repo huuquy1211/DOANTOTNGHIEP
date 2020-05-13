@@ -375,7 +375,6 @@ namespace GameLearnEnlish.UserControls
                             case "lblActivity1":
                                 {
                                     //Add uc vào main
-                                   
                                     UC_Concentration uC_Concentration = new UC_Concentration(1);
                                     Global.Instance.WindowMain.grdUC_Activity.Children.Add(uC_Concentration); //Gọi UC với đối số truyền vào là 1
                                     break;
@@ -388,6 +387,13 @@ namespace GameLearnEnlish.UserControls
                                     Global.Instance.WindowMain.grdUC_Activity.Children.Add(uC_Matching);
                                     break;
                                 }
+                            case "lblActivity3":
+                                {
+                                    //Add uc vào main
+                                    UC_Sorting uC_MultipleChoice = new UC_Sorting(2);
+                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(uC_MultipleChoice);
+                                    break;
+                                }
                             case "lblActivity4":
                                 {
                                     //Add uc vào main
@@ -395,12 +401,48 @@ namespace GameLearnEnlish.UserControls
                                     Global.Instance.WindowMain.grdUC_Activity.Children.Add(uC_MultipleChoice);
                                     break;
                                 }
+<<<<<<< HEAD
 
                             case "lblActivity9":
                                 {
                                     //Add uc vào main
                                     UC_LookAndFind uC_LookAndFind = new UC_LookAndFind(1);
                                     Global.Instance.WindowMain.grdUC_Activity.Children.Add(uC_LookAndFind);
+=======
+                            case "lblActivity5":
+                                {
+                                    //Add uc vào main
+                                    UC_Painting uC_MultipleChoice = new UC_Painting(1);
+                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(uC_MultipleChoice);
+                                    break;
+                                }
+                            case "lblActivity6":
+                                {
+                                    //Add uc vào main
+                                    UC_StoryTime uC_MultipleChoice = new UC_StoryTime(1);
+                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(uC_MultipleChoice);
+                                    break;
+                                }
+                            case "lblActivity7":
+                                {
+                                    //Add uc vào main
+                                    UC_MultipleChoice uC_MultipleChoice = new UC_MultipleChoice(1);
+                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(uC_MultipleChoice);
+                                    break;
+                                }
+                            case "lblActivity8":
+                                {
+                                    //Add uc vào main
+                                    UC_MultipleChoice uC_MultipleChoice = new UC_MultipleChoice(1);
+                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(uC_MultipleChoice);
+                                    break;
+                                }
+                            case "lblActivity9":
+                                {
+                                    //Add uc vào main
+                                    UC_MultipleChoice uC_MultipleChoice = new UC_MultipleChoice(1);
+                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(uC_MultipleChoice);
+>>>>>>> a1e56f5972ccc5253ae61a3f32242eda2a2e9fa8
                                     break;
                                 }
                             default:
