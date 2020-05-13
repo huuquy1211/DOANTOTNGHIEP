@@ -102,8 +102,6 @@
     <Compile Include="UserControls\UC_MultipleChoice.xaml.cs">
       <DependentUpon>UC_MultipleChoice.xaml</DependentUpon>
     </Compile>
-<<<<<<< HEAD
-=======
     <Compile Include="UserControls\UC_Painting.xaml.cs">
       <DependentUpon>UC_Painting.xaml</DependentUpon>
     </Compile>
@@ -113,7 +111,6 @@
     <Compile Include="UserControls\UC_StoryTime.xaml.cs">
       <DependentUpon>UC_StoryTime.xaml</DependentUpon>
     </Compile>
->>>>>>> a1e56f5972ccc5253ae61a3f32242eda2a2e9fa8
     <Compile Include="Utility\SelectElementUC.cs" />
     <Compile Include="UserControls\HomeUC.xaml.cs">
       <DependentUpon>HomeUC.xaml</DependentUpon>
@@ -191,8 +188,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-<<<<<<< HEAD
-=======
     <Page Include="UserControls\UC_Painting.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -205,7 +200,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
->>>>>>> a1e56f5972ccc5253ae61a3f32242eda2a2e9fa8
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

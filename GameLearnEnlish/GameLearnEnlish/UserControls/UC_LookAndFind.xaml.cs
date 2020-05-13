@@ -25,6 +25,7 @@ namespace GameLearnEnlish.UserControls
     /// 
     public partial class UC_LookAndFind : UserControl
     {
+        public static UC_LookAndFind uC_LookAndFind = null;
         private int Unit = 1;
         private int CountAnswer = 0;//Số câu hỏi
 
@@ -53,6 +54,7 @@ namespace GameLearnEnlish.UserControls
 
         public UC_LookAndFind(int unit)
         {
+            uC_LookAndFind = this;
             InitializeComponent();
             Unit = unit;
             CreateListImg(Unit);//Khởi tạo hình ảnh activity
@@ -72,20 +74,19 @@ namespace GameLearnEnlish.UserControls
                 //Âm thanh Description
                 mediaPlayerVoiceDescription.Open(new Uri(VoiceDescription, UriKind.Relative));
                 mediaPlayerVoiceDescription.Stop();
-
+                NotEnableQuestionAndAnswer();//Ẩn các hình ảnh khi phát âm
                 Task.Run(() =>
                 {
-                    NotEnableQuestionAndAnswer();//Ẩn các hình ảnh khi phát âm
                     Thread.Sleep(2000);
                     this.Dispatcher.Invoke(() =>
                     {
+                        //Phát âm thanh Description
                         mediaPlayerVoiceDescription.Play();
-                        Thread.Sleep(5000); //Chờ dể đọc xong Description
-                       
                     });
                 }).ContinueWith((task) =>
                 {
-                    FinishStartApp();// khởi động xong //Hiện các câu trả lời và câu hỏi
+                    Thread.Sleep(5000);
+                    FinishStartApp(); //Khởi động xong
                 });
             }
             catch (Exception)
@@ -124,6 +125,8 @@ namespace GameLearnEnlish.UserControls
         public void StopVoid()//Tắt âm thanh
         {
             mediaPlayerVoidCorrect.Stop();
+            mediaPlayerVoiceDescription.Stop();
+            mediaPlayerVoidStart.Stop();
         }
 
         //Tạo bóng đỏ cho hình

@@ -89,6 +89,10 @@ namespace GameLearnEnlish.UserControls
             {
                 BoxSubMenuUC.boxSubMenuUC.StopVoid();
             }
+            if (UC_LookAndFind.uC_LookAndFind != null)
+            {
+                UC_LookAndFind.uC_LookAndFind.StopVoid();
+            }
             switch (Global.Instance.ButtonMenuSelect)
             {
                 
