@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -24,13 +25,13 @@ namespace GameLearnEnlish.UserControls
     {
         private int Unit = 1;//Unit
 
-        private readonly string VoidCorrect = @"..\..\media\audio\concentration\correct.mp3";//âm khi chọn 2 thẻ giống giau
-        private readonly string VoidInCorrect = @"..\..\media\audio\concentration\wrong.mp3";//âm khi chọn 2 thẻ khác nhau
+        private readonly string VoiceCorrect = @"..\..\media\audio\concentration\correct.mp3";//âm khi chọn 2 thẻ giống giau
+        private readonly string VoiceInCorrect = @"..\..\media\audio\concentration\wrong.mp3";//âm khi chọn 2 thẻ khác nhau
 
         private readonly string LinkImgCloseCard = @"..\..\media\textures\concentration\card_back.png";
         private List<string> ListImgWord = new List<string>();//danh sách hình ảnh của từ
         private List<int> ListImgSort = new List<int>();//vị trí của 3 bức ảnh.
-        private List<string> ListVoidWord;//danh sách âm thanh của từ
+        private List<string> ListVoiceWord;//danh sách âm thanh của từ
 
         private bool[] hasOpened; // false: hình đang úp, true: hình đang mở
         private bool isOpen; // đang thực chạy hiệu ứng lật hình
@@ -53,17 +54,29 @@ namespace GameLearnEnlish.UserControls
         private Storyboard myStoryboard11 = new Storyboard();
         private Storyboard myStoryboard12 = new Storyboard();
 
+        private Storyboard storyboardHidden1 = new Storyboard();
+        private Storyboard storyboardHidden2 = new Storyboard();
+        private Storyboard storyboardHidden3 = new Storyboard();
+        private Storyboard storyboardHidden4 = new Storyboard();
+        private Storyboard storyboardHidden5 = new Storyboard();
+        private Storyboard storyboardHidden6 = new Storyboard();
+
         private MediaPlayer mediaPlayerVoid1 = new MediaPlayer();
         private MediaPlayer mediaPlayerVoid2 = new MediaPlayer();
         private MediaPlayer mediaPlayerVoid3 = new MediaPlayer();
 
-        private MediaPlayer mediaPlayerVoidCorrect = new MediaPlayer();
-        private MediaPlayer mediaPlayerVoiInCorrect = new MediaPlayer();
+        private MediaPlayer mediaPlayerVoiceCorrect = new MediaPlayer();
+        private MediaPlayer mediaPlayerVoiceInCorrect = new MediaPlayer();
 
         private MediaPlayer mediaTitle = new MediaPlayer();
         private MediaPlayer mediaDescription = new MediaPlayer();
 
-        private int Score;
+        private MediaPlayer mediaVotay = new MediaPlayer();
+
+        private int Score = 0;
+
+
+
 
         public UC_Concentration(int unit)
         {
@@ -79,22 +92,34 @@ namespace GameLearnEnlish.UserControls
 
             mediaTitle.Play();
 
-            CreateListImg(unit);
+            CreateListImgAndVoice(unit);
+            AddStoryboardToCard();
 
+        }
 
-            #region thêm storyboard lật hình và sự kiện mouseDown theo Unit truyền vào
-            ThuNho(myStoryboard1, "MyImage1", Unit);
-            PhongTo(myStoryboard2, "MyImage1", Unit);
-            ThuNho(myStoryboard3, "MyImage2", Unit);
-            PhongTo(myStoryboard4, "MyImage2", Unit);
-            ThuNho(myStoryboard5, "MyImage3", Unit);
-            PhongTo(myStoryboard6, "MyImage3", Unit);
-            ThuNho(myStoryboard7, "MyImage4", Unit);
-            PhongTo(myStoryboard8, "MyImage4", Unit);
-            ThuNho(myStoryboard9, "MyImage5", Unit);
-            PhongTo(myStoryboard10, "MyImage5", Unit);
-            ThuNho(myStoryboard11, "MyImage6", Unit);
-            PhongTo(myStoryboard12, "MyImage6", Unit);
+        public void AddStoryboardToCard()
+        {
+            #region {thêm storyboard lật hình và sự kiện mouseDown}
+            ThuNho(myStoryboard1, "MyImage1");
+            PhongTo(myStoryboard2, "MyImage1");
+            ThuNho(myStoryboard3, "MyImage2");
+            PhongTo(myStoryboard4, "MyImage2");
+            ThuNho(myStoryboard5, "MyImage3");
+            PhongTo(myStoryboard6, "MyImage3");
+            ThuNho(myStoryboard7, "MyImage4");
+            PhongTo(myStoryboard8, "MyImage4");
+            ThuNho(myStoryboard9, "MyImage5");
+            PhongTo(myStoryboard10, "MyImage5");
+            ThuNho(myStoryboard11, "MyImage6");
+            PhongTo(myStoryboard12, "MyImage6");
+
+            HiddenImage(storyboardHidden1, "MyImage1");
+            HiddenImage(storyboardHidden2, "MyImage2");
+            HiddenImage(storyboardHidden3, "MyImage3");
+            HiddenImage(storyboardHidden4, "MyImage4");
+            HiddenImage(storyboardHidden5, "MyImage5");
+            HiddenImage(storyboardHidden6, "MyImage6");
+
 
             MyImage1.MouseDown += new MouseButtonEventHandler(Image_MouseDown);
             MyImage2.MouseDown += new MouseButtonEventHandler(Image_MouseDown);
@@ -103,22 +128,22 @@ namespace GameLearnEnlish.UserControls
             MyImage5.MouseDown += new MouseButtonEventHandler(Image_MouseDown);
             MyImage6.MouseDown += new MouseButtonEventHandler(Image_MouseDown);
             #endregion
-
         }
+        // sự kiện khi phát hết âm thanh tiêu đề
+        private void MediaTitle_MediaEnded(object sender, EventArgs e)
+        {
+            mediaTitle.Stop();
+            mediaDescription.Play();
+        }
+        // sự kiện khi phát hết âm thanh mô tả activity
         private void MediaDescription_MediaEnded(object sender, EventArgs e)
         {
             Main.IsEnabled = true;
             Main.Opacity = 1;
         }
 
-        private void MediaTitle_MediaEnded(object sender, EventArgs e)
-        {
-            mediaTitle.Stop();
-            mediaDescription.Play();
-        }
-
-        //Khởi tạo vị trí các bức hình
-        public void CreateListImg(int Unit)
+        //Khởi tạo vị trí các bức hình và file âm thanh
+        public void CreateListImgAndVoice(int Unit)
         {
             Score = 0;
             ListImgWord.Clear();
@@ -127,18 +152,22 @@ namespace GameLearnEnlish.UserControls
             isOpen = false;
 
             #region media
-            ListVoidWord = new List<string>()
-        {@"..\..\media\audio\concentration\act"+Unit+@"\sound1.mp3",
-         @"..\..\media\audio\concentration\act"+Unit+@"\sound2.mp3",
-         @"..\..\media\audio\concentration\act"+Unit+@"\sound3.mp3"};
-            mediaPlayerVoid1.Open(new Uri(ListVoidWord[0], UriKind.Relative));
-            mediaPlayerVoid2.Open(new Uri(ListVoidWord[1], UriKind.Relative));
-            mediaPlayerVoid3.Open(new Uri(ListVoidWord[2], UriKind.Relative));
-            mediaPlayerVoidCorrect.Open(new Uri(VoidCorrect, UriKind.Relative));
-            mediaPlayerVoiInCorrect.Open(new Uri(VoidInCorrect, UriKind.Relative));
+            ListVoiceWord = new List<string>()
+                {@"..\..\media\audio\concentration\act"+Unit+@"\sound1.mp3",
+                 @"..\..\media\audio\concentration\act"+Unit+@"\sound2.mp3",
+                 @"..\..\media\audio\concentration\act"+Unit+@"\sound3.mp3"};
+
+            mediaPlayerVoid1.Open(new Uri(ListVoiceWord[0], UriKind.Relative));
+            mediaPlayerVoid2.Open(new Uri(ListVoiceWord[1], UriKind.Relative));
+            mediaPlayerVoid3.Open(new Uri(ListVoiceWord[2], UriKind.Relative));
+            mediaPlayerVoiceCorrect.Open(new Uri(VoiceCorrect, UriKind.Relative));
+            mediaPlayerVoiceInCorrect.Open(new Uri(VoiceInCorrect, UriKind.Relative));
+
+            mediaVotay.Open(new Uri(@"..\..\media\audio\tiengvotay.mp3", UriKind.Relative));
+            mediaVotay.MediaEnded += MediaVotay_MediaEnded;
             #endregion
 
-            string pathLinkImg = @"..\..\media\textures\matching\act" + Unit;
+            string pathLinkImg = @"..\..\media\textures\concentration\act" + Unit;
             Random rd = new Random();
             int[] num = new int[3] { 0, 0, 0 };
             int rand = 0;
@@ -161,7 +190,11 @@ namespace GameLearnEnlish.UserControls
                 }
             }
         }
-        public void PlayMp3(int i)
+        private void MediaVotay_MediaEnded(object sender, EventArgs e)
+        {
+            mediaVotay.Stop();
+        }
+        public void PlayVoice(int i)
         {
             switch (i)
             {
@@ -175,10 +208,10 @@ namespace GameLearnEnlish.UserControls
                     mediaPlayerVoid3.Play();
                     break;
                 case 4:
-                    mediaPlayerVoidCorrect.Play();
+                    mediaPlayerVoiceCorrect.Play();
                     break;
                 case 5:
-                    mediaPlayerVoiInCorrect.Play();
+                    mediaPlayerVoiceInCorrect.Play();
                     break;
             }
         }
@@ -191,8 +224,8 @@ namespace GameLearnEnlish.UserControls
                 mediaPlayerVoid1.Stop();
                 mediaPlayerVoid2.Stop();
                 mediaPlayerVoid3.Stop();
-                mediaPlayerVoidCorrect.Stop();
-                mediaPlayerVoiInCorrect.Stop();
+                mediaPlayerVoiceCorrect.Stop();
+                mediaPlayerVoiceInCorrect.Stop();
                 #endregion
 
                 //lấy vị trí hình ảnh vừa chọn
@@ -252,8 +285,25 @@ namespace GameLearnEnlish.UserControls
             }
         }
 
+        #region {Khởi tạo story board}
+        //tạo sb làm ẩn hình ảnh khi chọn đúng 2 hình giống nhau
+        public void HiddenImage(Storyboard storyBoard, string name)
+        {
+            var myDoubleAnimation = new DoubleAnimation();
+            myDoubleAnimation.From = 1;
+            myDoubleAnimation.To = 0;
+            myDoubleAnimation.Duration = new Duration(TimeSpan.FromMilliseconds(500));
+            myDoubleAnimation.AutoReverse = false;
 
-        public void ThuNho(Storyboard storyBoard, string name, int num)
+            storyBoard.Duration = new Duration(TimeSpan.FromMilliseconds(500));
+            storyBoard.Children.Add(myDoubleAnimation);
+
+            Storyboard.SetTargetName(myDoubleAnimation, name);
+            Storyboard.SetTargetProperty(myDoubleAnimation, new PropertyPath(Rectangle.OpacityProperty));
+
+            storyBoard.Completed += StoryBoard_Completed; //sau khi hình bị ẩn đi thì ẩn luôn cả gif ánh sáng.
+        }   
+        public void ThuNho(Storyboard storyBoard, string name)
         {
             var myDoubleAnimation = new DoubleAnimation();
             myDoubleAnimation.From = 200;
@@ -269,7 +319,7 @@ namespace GameLearnEnlish.UserControls
 
             storyBoard.Completed += new EventHandler(StoryBoard_1_Completed);
         }
-        public void PhongTo(Storyboard storyBoard, string name, int num)
+        public void PhongTo(Storyboard storyBoard, string name)
         {
             var myDoubleAnimation = new DoubleAnimation();
             myDoubleAnimation.From = 0;
@@ -284,102 +334,43 @@ namespace GameLearnEnlish.UserControls
             Storyboard.SetTargetProperty(myDoubleAnimation, new PropertyPath(Rectangle.WidthProperty));
             storyBoard.Completed += new EventHandler(StoryBoard_2_Completed);
         }
+        #endregion
 
+
+        private void StoryBoard_Completed(object sender, EventArgs e)
+        {
+            Gif1.Visibility = Visibility.Hidden;
+            Gif2.Visibility = Visibility.Hidden;
+            Gif3.Visibility = Visibility.Hidden;
+            Gif4.Visibility = Visibility.Hidden;
+            Gif5.Visibility = Visibility.Hidden;
+            Gif6.Visibility = Visibility.Hidden;
+
+            if (Score == 3)
+            {
+                //ẩn main, hiện gif vỗ tay, phát âm thanh hoàn thành action
+                Main.Visibility = Visibility.Hidden;
+                Votay.Visibility = Visibility.Visible;
+                mediaVotay.Play();
+
+                Score = 0;
+            }
+        }
+        //thu nhỏ hình 
         public void StoryBoard_1_Completed(object sender, EventArgs e)
         {
-            switch (numImageClick)
+            if (hasOpened[numImageClick - 1] == false)
             {
-                case 1:
-                    {
-                        if (hasOpened[numImageClick - 1] == false)
-                        {
-                            Image1.Source = new BitmapImage(new Uri(ListImgWord[0], UriKind.Relative));
-                            PlayMp3(ListImgSort[numImageClick - 1]);
-                        }
-                        else
-                        {
-                            Image1.Source = new BitmapImage(new Uri(LinkImgCloseCard, UriKind.Relative));
-                        }
-                        myStoryboard2.Begin(this);
-                    }
-                    break;
-                case 2:
-                    {
-                        if (hasOpened[numImageClick - 1] == false)
-                        {
-                            Image2.Source = new BitmapImage(new Uri(ListImgWord[1], UriKind.Relative));
-                            PlayMp3(ListImgSort[numImageClick - 1]);
-                        }
-                        else
-                        {
-                            Image2.Source = new BitmapImage(new Uri(LinkImgCloseCard, UriKind.Relative));
-                        }
-                        myStoryboard4.Begin(this);
-                    }
-                    break;
-                case 3:
-                    {
-                        if (hasOpened[numImageClick - 1] == false)
-                        {
-                            Image3.Source = new BitmapImage(new Uri(ListImgWord[2], UriKind.Relative));
-                            PlayMp3(ListImgSort[numImageClick - 1]);
-                        }
-                        else
-                        {
-                            Image3.Source = new BitmapImage(new Uri(LinkImgCloseCard, UriKind.Relative));
-                        }
-                        myStoryboard6.Begin(this);
-                    }
-                    break;
-                case 4:
-                    {
-                        if (hasOpened[numImageClick - 1] == false)
-                        {
-                            Image4.Source = new BitmapImage(new Uri(ListImgWord[3], UriKind.Relative));
-                            PlayMp3(ListImgSort[numImageClick - 1]);
-                        }
-                        else
-                        {
-                            Image4.Source = new BitmapImage(new Uri(LinkImgCloseCard, UriKind.Relative));
-                        }
-                        myStoryboard8.Begin(this);
-                    }
-                    break;
-                case 5:
-                    {
-                        if (hasOpened[numImageClick - 1] == false)
-                        {
-                            Image5.Source = new BitmapImage(new Uri(ListImgWord[4], UriKind.Relative));
-                            PlayMp3(ListImgSort[numImageClick - 1]);
-                        }
-                        else
-                        {
-                            Image5.Source = new BitmapImage(new Uri(LinkImgCloseCard, UriKind.Relative));
-                        }
-                        myStoryboard10.Begin(this);
-                    }
-                    break;
-                case 6:
-                    {
-                        if (hasOpened[numImageClick - 1] == false)
-                        {
-                            Image6.Source = new BitmapImage(new Uri(ListImgWord[5], UriKind.Relative));
-                            PlayMp3(ListImgSort[numImageClick - 1]);
-                        }
-                        else
-                        {
-                            Image6.Source = new BitmapImage(new Uri(LinkImgCloseCard, UriKind.Relative));
-                        }
-                        myStoryboard12.Begin(this);
-                    }
-                    break;
+                GetImageByIndex(numImageClick).Source = new BitmapImage(new Uri(ListImgWord[numImageClick-1], UriKind.Relative));
+                PlayVoice(ListImgSort[numImageClick - 1]);
             }
-
-            //phát âm thanh của hình ảnh vừa chọn
-            // PlayMp3(ListImgSort[numImageClick - 1]);
-
+            else
+            {
+                GetImageByIndex(numImageClick).Source = new BitmapImage(new Uri(LinkImgCloseCard, UriKind.Relative));
+            }
+            GetMyStoryboard_2(numImageClick).Begin(this);
         }
-
+        //Lật hình xong thì kiểm tra đáp án
         public void StoryBoard_2_Completed(object sender, EventArgs e)
         {
             if (isOpen == true)
@@ -404,254 +395,206 @@ namespace GameLearnEnlish.UserControls
             {
                 if (CheckImg() == 1)
                 {
-                    PlayMp3(4);//phát âm báo chính xác
-                    //ẩn 2 hình đi
-                    switch (ImgClick_1)
-                    {
-                        case 1:
-                            {
-                                GridImg1.Visibility = Visibility.Hidden;
-                            }
-                            break;
-                        case 2:
-                            {
-                                GridImg2.Visibility = Visibility.Hidden;
-                            }
-                            break;
-                        case 3:
-                            {
-                                GridImg3.Visibility = Visibility.Hidden;
-                            }
-                            break;
-                        case 4:
-                            {
-                                GridImg4.Visibility = Visibility.Hidden;
-                            }
-                            break;
-                        case 5:
-                            {
-                                GridImg5.Visibility = Visibility.Hidden;
-                            }
-                            break;
-                        case 6:
-                            {
-                                GridImg6.Visibility = Visibility.Hidden;
-                            }
-                            break;
-                    }
-                    switch (ImgClick_2)
-                    {
-                        case 1:
-                            {
-                                GridImg1.Visibility = Visibility.Hidden;
-                            }
-                            break;
-                        case 2:
-                            {
-                                GridImg2.Visibility = Visibility.Hidden;
-                            }
-                            break;
-                        case 3:
-                            {
-                                GridImg3.Visibility = Visibility.Hidden;
-                            }
-                            break;
-                        case 4:
-                            {
-                                GridImg4.Visibility = Visibility.Hidden;
-                            }
-                            break;
-                        case 5:
-                            {
-                                GridImg5.Visibility = Visibility.Hidden;
-                            }
-                            break;
-                        case 6:
-                            {
-                                GridImg6.Visibility = Visibility.Hidden;
-                            }
-                            break;
-                    }
-                    Score++;
-                    if (Score == 3)
-                    {
-                        Thread.Sleep(1000);
-                        //phát âm thanh hoàn thành action
+                    ShowGifCorrect(ImgClick_1);
+                    ShowGifCorrect(ImgClick_2);
 
-                        Score = 0;
-                    }
+                    PlayVoice(4);//phát âm báo chính xác
+                    //ẩn 2 hình đi
+                    GetStoryboardHiddenCardByIndexImage(ImgClick_1).Begin(this);
+                    GetStoryboardHiddenCardByIndexImage(ImgClick_2).Begin(this);
+
+                    Score++;
                 }
                 else
                 if (CheckImg() == 0)
                 {
-                    PlayMp3(5);//phát âm báo không chính xác
+                    PlayVoice(5);//phát âm báo không chính xác
                     //úp 2 hình lại
                     Thread.Sleep(1000);
-                    switch (ImgClick_1)
-                    {
-                        case 1:
-                            {
-                                Image1.Source = new BitmapImage(new Uri(LinkImgCloseCard, UriKind.Relative));
-                                hasOpened[ImgClick_1 - 1] = false;
-                            }
-                            break;
-                        case 2:
-                            {
-                                Image2.Source = new BitmapImage(new Uri(LinkImgCloseCard, UriKind.Relative));
-                                hasOpened[ImgClick_1 - 1] = false;
-                            }
-                            break;
-                        case 3:
-                            {
-                                Image3.Source = new BitmapImage(new Uri(LinkImgCloseCard, UriKind.Relative));
-                                hasOpened[ImgClick_1 - 1] = false;
-                            }
-                            break;
-                        case 4:
-                            {
-                                Image4.Source = new BitmapImage(new Uri(LinkImgCloseCard, UriKind.Relative));
-                                hasOpened[ImgClick_1 - 1] = false;
-                            }
-                            break;
-                        case 5:
-                            {
-                                Image5.Source = new BitmapImage(new Uri(LinkImgCloseCard, UriKind.Relative));
-                                hasOpened[ImgClick_1 - 1] = false;
-                            }
-                            break;
-                        case 6:
-                            {
-                                Image6.Source = new BitmapImage(new Uri(LinkImgCloseCard, UriKind.Relative));
-                                hasOpened[ImgClick_1 - 1] = false;
-                            }
-                            break;
-                    }
-                    switch (ImgClick_2)
-                    {
-                        case 1:
-                            {
-                                Image1.Source = new BitmapImage(new Uri(LinkImgCloseCard, UriKind.Relative));
-                                hasOpened[ImgClick_2 - 1] = false;
-                            }
-                            break;
-                        case 2:
-                            {
-                                Image2.Source = new BitmapImage(new Uri(LinkImgCloseCard, UriKind.Relative));
-                                hasOpened[ImgClick_2 - 1] = false;
-                            }
-                            break;
-                        case 3:
-                            {
-                                Image3.Source = new BitmapImage(new Uri(LinkImgCloseCard, UriKind.Relative));
-                                hasOpened[ImgClick_2 - 1] = false;
-                            }
-                            break;
-                        case 4:
-                            {
-                                Image4.Source = new BitmapImage(new Uri(LinkImgCloseCard, UriKind.Relative));
-                                hasOpened[ImgClick_2 - 1] = false;
-                            }
-                            break;
-                        case 5:
-                            {
-                                Image5.Source = new BitmapImage(new Uri(LinkImgCloseCard, UriKind.Relative));
-                                hasOpened[ImgClick_2 - 1] = false;
-                            }
-                            break;
-                        case 6:
-                            {
-                                Image6.Source = new BitmapImage(new Uri(LinkImgCloseCard, UriKind.Relative));
-                                hasOpened[ImgClick_2 - 1] = false;
-                            }
-                            break;
-                    }
+                    GetImageByIndex(ImgClick_1).Source = new BitmapImage(new Uri(LinkImgCloseCard, UriKind.Relative));
+                    hasOpened[ImgClick_1 - 1] = false;
+
+                    GetImageByIndex(ImgClick_2).Source = new BitmapImage(new Uri(LinkImgCloseCard, UriKind.Relative));
+                    hasOpened[ImgClick_2 - 1] = false;
                 }
                 else
                 {
-                    switch (ImgClick_1)
-                    {
-                        case 1:
-                            {
-                                Image1.Source = new BitmapImage(new Uri(LinkImgCloseCard, UriKind.Relative));
-                                hasOpened[ImgClick_1 - 1] = false;
-                            }
-                            break;
-                        case 2:
-                            {
-                                Image2.Source = new BitmapImage(new Uri(LinkImgCloseCard, UriKind.Relative));
-                                hasOpened[ImgClick_1 - 1] = false;
-                            }
-                            break;
-                        case 3:
-                            {
-                                Image3.Source = new BitmapImage(new Uri(LinkImgCloseCard, UriKind.Relative));
-                                hasOpened[ImgClick_1 - 1] = false;
-                            }
-                            break;
-                        case 4:
-                            {
-                                Image4.Source = new BitmapImage(new Uri(LinkImgCloseCard, UriKind.Relative));
-                                hasOpened[ImgClick_1 - 1] = false;
-                            }
-                            break;
-                        case 5:
-                            {
-                                Image5.Source = new BitmapImage(new Uri(LinkImgCloseCard, UriKind.Relative));
-                                hasOpened[ImgClick_1 - 1] = false;
-                            }
-                            break;
-                        case 6:
-                            {
-                                Image6.Source = new BitmapImage(new Uri(LinkImgCloseCard, UriKind.Relative));
-                                hasOpened[ImgClick_1 - 1] = false;
-                            }
-                            break;
-                    }
-                    switch (ImgClick_2)
-                    {
-                        case 1:
-                            {
-                                Image1.Source = new BitmapImage(new Uri(LinkImgCloseCard, UriKind.Relative));
-                                hasOpened[ImgClick_2 - 1] = false;
-                            }
-                            break;
-                        case 2:
-                            {
-                                Image2.Source = new BitmapImage(new Uri(LinkImgCloseCard, UriKind.Relative));
-                                hasOpened[ImgClick_2 - 1] = false;
-                            }
-                            break;
-                        case 3:
-                            {
-                                Image3.Source = new BitmapImage(new Uri(LinkImgCloseCard, UriKind.Relative));
-                                hasOpened[ImgClick_2 - 1] = false;
-                            }
-                            break;
-                        case 4:
-                            {
-                                Image4.Source = new BitmapImage(new Uri(LinkImgCloseCard, UriKind.Relative));
-                                hasOpened[ImgClick_2 - 1] = false;
-                            }
-                            break;
-                        case 5:
-                            {
-                                Image5.Source = new BitmapImage(new Uri(LinkImgCloseCard, UriKind.Relative));
-                                hasOpened[ImgClick_2 - 1] = false;
-                            }
-                            break;
-                        case 6:
-                            {
-                                Image6.Source = new BitmapImage(new Uri(LinkImgCloseCard, UriKind.Relative));
-                                hasOpened[ImgClick_2 - 1] = false;
-                            }
-                            break;
-                    }
+                    GetImageByIndex(ImgClick_1).Source= new BitmapImage(new Uri(LinkImgCloseCard, UriKind.Relative));
+                    hasOpened[ImgClick_1 - 1] = false;
+                    GetImageByIndex(ImgClick_2).Source = new BitmapImage(new Uri(LinkImgCloseCard, UriKind.Relative));
+                    hasOpened[ImgClick_2 - 1] = false;
                 }
                 ImgClick_1 = 0;
                 ImgClick_2 = 0;
             }
         }
 
+        public void ShowGifCorrect(int index)
+        {
+            switch (index)
+            {
+                case 1:
+                    {
+                        Gif1.Visibility=Visibility.Visible;
+                    }
+                    break;
+                case 2:
+                    {
+                        Gif2.Visibility = Visibility.Visible;
+                    }
+                    break;
+                case 3:
+                    {
+                        Gif3.Visibility = Visibility.Visible;
+                    }
+                    break;
+                case 4:
+                    {
+                        Gif4.Visibility = Visibility.Visible;
+                    }
+                    break;
+                case 5:
+                    {
+                        Gif5.Visibility = Visibility.Visible;
+                    }
+                    break;
+                case 6:
+                    {
+                        Gif6.Visibility = Visibility.Visible;
+                    }
+                    break;
+            }
+        }
+        public Storyboard GetMyStoryboard_1(int index)
+        {
+            switch (index)
+            {
+                case 1:
+                    {
+                        return myStoryboard1;
+                    }
+                case 2:
+                    {
+                        return myStoryboard3;
+                    }
+                case 3:
+                    {
+                        return myStoryboard5;
+                    }
+                case 4:
+                    {
+                        return myStoryboard7;
+                    }
+                case 5:
+                    {
+                        return myStoryboard9;
+                    }
+                case 6:
+                    {
+                        return myStoryboard11;
+                    }
+                default:
+                    return null;
+            }
+        }
+
+        public Storyboard GetMyStoryboard_2(int index)
+        {
+            switch (index)
+            {
+                case 1:
+                    {
+                        return myStoryboard2;
+                    }
+                case 2:
+                    {
+                        return myStoryboard4;
+                    }
+                case 3:
+                    {
+                        return myStoryboard6;
+                    }
+                case 4:
+                    {
+                        return myStoryboard8;
+                    }
+                case 5:
+                    {
+                        return myStoryboard10;
+                    }
+                case 6:
+                    {
+                        return myStoryboard12;
+                    }
+                default:
+                    return null;
+            }
+        }
+
+        public Storyboard GetStoryboardHiddenCardByIndexImage(int index)
+        {
+            switch (index)
+            {
+                case 1:
+                    {
+                        return storyboardHidden1;
+                    }
+                case 2:
+                    {
+                        return storyboardHidden2;
+                    }
+                case 3:
+                    {
+                        return storyboardHidden3;
+                    }
+                case 4:
+                    {
+                        return storyboardHidden4;
+                    }
+                case 5:
+                    {
+                        return storyboardHidden5;
+                    }
+                case 6:
+                    {
+                        return storyboardHidden6;
+                    }
+                default:
+                    return null;
+            }
+        }
+        public Image GetImageByIndex(int index)
+        {
+            switch (index)
+            {
+                case 1:
+                    {
+                        return Image1;
+                    }
+                case 2:
+                    {
+                        return Image2;
+                    }    
+                case 3:
+                    {
+                        return Image3;
+                    }         
+                case 4:
+                    {
+                        return Image4;
+                    }
+               case 5:
+                    {
+                        return Image5;
+                    }
+                case 6:
+                    {
+                        return Image6;
+                    }
+                default:
+                    return null;
+            }
+        }
         public int CheckImg()
         {
             if (ImgClick_1 == ImgClick_2)

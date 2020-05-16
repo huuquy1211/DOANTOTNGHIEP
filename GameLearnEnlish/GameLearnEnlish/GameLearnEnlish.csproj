@@ -57,6 +57,9 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="XamlAnimatedGif">
+      <HintPath>..\..\..\..\..\..\Downloads\XamlAnimatedGif.1.2.2\XamlAnimatedGif.1.2.2\lib\net45\XamlAnimatedGif.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -507,6 +510,7 @@
     <Content Include="media\audio\global\clickbutton.mp3" />
     <Content Include="media\audio\global\right.mp3" />
     <Content Include="media\audio\global\wrong.mp3" />
+    <Content Include="media\audio\tiengvotay.mp3" />
     <Content Include="media\audio\lookandfind\act1\description.mp3" />
     <Content Include="media\audio\lookandfind\act1\title.mp3" />
     <Content Include="media\audio\lookandfind\act2\description.mp3" />
@@ -816,6 +820,9 @@
     <Content Include="media\audio\storytime\audiobank\you.mp3" />
     <Content Include="media\audio\storytime\description.mp3" />
     <Content Include="media\audio\storytime\title.mp3" />
+    <Resource Include="media\textures\giphy.gif" />
+    <Resource Include="media\textures\saosang.gif" />
+    <Resource Include="media\textures\global\votay256x256.gif" />
     <Resource Include="media\textures\global\Bt_AS_click.png" />
     <Resource Include="media\textures\global\Bt_Phonics_click.png" />
     <Resource Include="media\textures\global\Bt_unit_click.png" />

@@ -126,3 +126,4 @@ C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\Game
 C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish.csproj.CopyComplete
 C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish.exe
 C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish.pdb
+C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\XamlAnimatedGif.dll

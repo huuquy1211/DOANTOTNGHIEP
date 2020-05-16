@@ -118,6 +118,7 @@
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("media/audio/global/clickbutton.mp3")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("media/audio/global/right.mp3")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("media/audio/global/wrong.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("media/audio/tiengvotay.mp3")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("media/audio/lookandfind/act1/description.mp3")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("media/audio/lookandfind/act1/title.mp3")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("media/audio/lookandfind/act2/description.mp3")]
