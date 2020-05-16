@@ -33,11 +33,7 @@ namespace GameLearnEnlish.UserControls
             uC_Description = this;
         }
 
-        public void StopVoid()
-        {
-            mediaPlayerVoidDescription.Stop();
-            //MessageBox.Show("On UcDes");
-        }
+       
         public void CallTextDescription(string TextDescription)
         {
             this.Dispatcher.Invoke(() =>
@@ -46,22 +42,6 @@ namespace GameLearnEnlish.UserControls
             });
             
         }
-
-        public void CallVoidDescription(string uriVoidDescription)
-        {
-            this.Dispatcher.Invoke(() =>
-            {
-                if (uriVoidDescription != null)
-                {
-                    VoidDescription = uriVoidDescription;
-                    mediaPlayerVoidDescription.Open(new Uri(VoidDescription, UriKind.Relative));//Âm thanh description
-                    mediaPlayerVoidDescription.Stop();
-                    mediaPlayerVoidDescription.Play();
-                }                
-            });
-
-        }
-
 
     }
 }

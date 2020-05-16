@@ -381,8 +381,6 @@ namespace GameLearnEnlish.UserControls
                                 }
                             case "lblActivity2":
                                 {
-                                    //Add uc vào main
-
                                     UC_Matching UC_Activity = new UC_Matching(1);
                                     Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
                                     break;

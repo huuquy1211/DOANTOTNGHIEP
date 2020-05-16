@@ -75,8 +75,8 @@
     <Compile Include="UserControls\UC_Description.xaml.cs">
       <DependentUpon>UC_Description.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\UC_DragAndDrop.xaml.cs">
-      <DependentUpon>UC_DragAndDrop.xaml</DependentUpon>
+    <Compile Include="UserControls\UC_LookAndFind.xaml.cs">
+      <DependentUpon>UC_LookAndFind.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UC_Matching.xaml.cs">
       <DependentUpon>UC_Matching.xaml</DependentUpon>
@@ -143,7 +143,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\UC_DragAndDrop.xaml">
+    <Page Include="UserControls\UC_LookAndFind.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -820,9 +820,13 @@
     <Content Include="media\audio\storytime\audiobank\you.mp3" />
     <Content Include="media\audio\storytime\description.mp3" />
     <Content Include="media\audio\storytime\title.mp3" />
+
     <Resource Include="media\textures\giphy.gif" />
     <Resource Include="media\textures\saosang.gif" />
     <Resource Include="media\textures\global\votay256x256.gif" />
+
+    <Resource Include="media\textures\lookandfind\select.gif" />
+
     <Resource Include="media\textures\global\Bt_AS_click.png" />
     <Resource Include="media\textures\global\Bt_Phonics_click.png" />
     <Resource Include="media\textures\global\Bt_unit_click.png" />

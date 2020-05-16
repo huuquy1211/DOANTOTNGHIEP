@@ -35,12 +35,15 @@ namespace GameLearnEnlish.UserControls
 
 
         private readonly string VoidStart = @"..\..\media\audio\multiplechoice\title.mp3";//âm khi khởi động
+
         private string TextDescription = "Look and listen. Choose.";//Nội dung Description
-        private string VoidDescription = @"..\..\media\audio\multiplechoice\description.mp3";//âm description
+        private string VoiceDescription = @"..\..\media\audio\multiplechoice\description.mp3";//âm description
         private readonly string VoidCorrect = @"..\..\media\audio\global\right.mp3";//âm khi chọn câu trả lời đúng
         private readonly string VoidInCorrect = @"..\..\media\audio\global\wrong.mp3";//âm khi chọn câu trả lời sai
         //Âm thanh
         private MediaPlayer mediaPlayerVoidStart = new MediaPlayer();//Khởi tạo âm thanh khi khởi động
+
+        private MediaPlayer mediaPlayerVoiceDescription = new MediaPlayer();//Khởi tạo âm Description
         private MediaPlayer mediaPlayerVoid = new MediaPlayer();//Âm thanh câu hỏi
         private MediaPlayer mediaPlayerVoidCorrect = new MediaPlayer();//Âm thanh câu trả lời đúng
         private MediaPlayer mediaPlayerVoiInCorrect = new MediaPlayer();//Âm thanh câu trả lời sai
@@ -59,56 +62,54 @@ namespace GameLearnEnlish.UserControls
             uC_MultipleChoice = this;
             InitializeComponent();
             Unit = unit;
-          
+            StartApp();//Không thao tác đến khi khởi động xong
             //Clear các âm thanh và câu hỏi trong danh sách
             ListVoidWord.Clear();
             ListVoidSort.Clear();
 
-
-            CreateQuestionAndAnswer();//Khởi tạo danh sách câu hỏi và câu trả lời ngẫu nhiên
-            mediaPlayerVoidStart.Open(new Uri(VoidStart, UriKind.Relative));//Âm thanh title
-            mediaPlayerVoidStart.Stop();
-            mediaPlayerVoidStart.Play();
-            //Gọi UC Description
-            Global.Instance.WindowMain.grdUC_Description.Children.Clear();
-            Global.Instance.WindowMain.grdUC_Description.Children.Add(new UC_Description());
-            //Gọi UC Description truyền TextDescription
-            UC_Description.uC_Description.CallTextDescription(TextDescription);
-            StartApp();//Không thao tác đến khi khởi động xong
-
-            
             try
             {
+                CreateQuestionAndAnswer();//Khởi tạo danh sách câu hỏi và câu trả lời ngẫu nhiên
+                mediaPlayerVoidStart.Open(new Uri(VoidStart, UriKind.Relative));//Âm thanh title
+                mediaPlayerVoidStart.Stop();
+                mediaPlayerVoidStart.Play();
+                //Gọi UC Description
+                Global.Instance.WindowMain.grdUC_Description.Children.Clear();
+                Global.Instance.WindowMain.grdUC_Description.Children.Add(new UC_Description());
+                UC_Description.uC_Description.CallTextDescription(TextDescription);
+                //Âm thanh Description
+                mediaPlayerVoiceDescription.Open(new Uri(VoiceDescription, UriKind.Relative));
+                mediaPlayerVoiceDescription.Stop();
+
+                //Âm thanh câu hỏi khi bắt đầu khởi động game
+                mediaPlayerVoid.Open(new Uri(ListVoidWord[CountQuestion], UriKind.Relative));
+                mediaPlayerVoid.Stop();
+
                 if (CountQuestion < 3)
                 {
                     Task.Run(() =>
                     {
                         Thread.Sleep(2000);
-                    }).ContinueWith((task) =>
-                    {
-                        //threadVoidUC_MultipleChoice = Thread.CurrentThread;
-                        UC_Description.uC_Description.CallVoidDescription(VoidDescription);//Gọi UC Description truyền âm thanh
-                        Thread.Sleep(3000); //Chờ dể đọc xong Description
                         this.Dispatcher.Invoke(() =>
                         {
-                            mediaPlayerVoid.Open(new Uri(ListVoidWord[CountQuestion], UriKind.Relative));
-                            mediaPlayerVoid.Stop();
+                            mediaPlayerVoiceDescription.Play();
+                            Thread.Sleep(3000); //Chờ dể đọc xong Description
                             mediaPlayerVoid.Play();//Phát âm câu hỏi
                             NotEnableQuestionAndAnswer();//Ẩn các hình ảnh khi phát âm
                         });
+                    }).ContinueWith((task) =>
+                    {
                         Thread.Sleep(1000);
                         //Tự đọc câu hỏi khi khởi động
                         FinishStartApp();// khởi động xong //Hiện các câu trả lời và câu hỏi
                     });
                 }
-                
             }
             catch (Exception)
             {
 
                 MessageBox.Show("Lỗi khi khởi tạo UserControl!");
             }
-
         }
 
         public void StopVoid()//Tắt âm thanh
@@ -117,6 +118,7 @@ namespace GameLearnEnlish.UserControls
             mediaPlayerVoidCorrect.Stop();
             mediaPlayerVoid.Stop();
             mediaPlayerVoidStart.Stop();
+            mediaPlayerVoiceDescription.Stop();
         }
         public void CreateQuestionAndAnswer()
         {
@@ -421,7 +423,7 @@ namespace GameLearnEnlish.UserControls
                                     mediaPlayerVoid.Play();//Phát âm câu hỏi
                                     NotEnableQuestionAndAnswer();//Ẩn các hình ảnh khi phát âm
                                 });
-                                Thread.Sleep(800);
+                                Thread.Sleep(1000);
                             }).ContinueWith((task1) =>
                             {
                                 EnableQuestionAndAnswer(); //Hiện các câu trả lời và câu hỏi
@@ -497,7 +499,7 @@ namespace GameLearnEnlish.UserControls
                                     mediaPlayerVoid.Play();//Phát âm câu hỏi
                                     NotEnableQuestionAndAnswer();//Ẩn các hình ảnh khi phát âm
                                 });
-                                Thread.Sleep(800);
+                                Thread.Sleep(1000);
                             }).ContinueWith((task1) =>
                             {
                                 EnableQuestionAndAnswer(); //Hiện các câu trả lời và câu hỏi
@@ -571,7 +573,7 @@ namespace GameLearnEnlish.UserControls
                                     mediaPlayerVoid.Play();//Phát âm câu hỏi
                                     NotEnableQuestionAndAnswer();//Ẩn các hình ảnh khi phát âm
                                 });
-                                Thread.Sleep(800);
+                                Thread.Sleep(1000);
                             }).ContinueWith((task1) =>
                             {
                                 EnableQuestionAndAnswer(); //Hiện các câu trả lời và câu hỏi

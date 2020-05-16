@@ -115,7 +115,7 @@ namespace GameLearnEnlish.UserControls
                             {
 
                                 lblActivity.Content = "Look and Find";
-                                Uri uri = new Uri(@"\media\textures\global\actv9a.png", UriKind.Relative);
+                                Uri uri = new Uri(@"\media\textures\global\actv7a.png", UriKind.Relative);
                                 imgActv.Source = new BitmapImage(uri);
                                 HomeUC.homeUC.HiddenMenu();
                                 break;

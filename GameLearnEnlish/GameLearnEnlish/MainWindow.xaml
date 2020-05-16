@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:GameLearnEnlish"
         xmlns:us="clr-namespace:GameLearnEnlish.UserControls"
         mc:Ignorable="d"
-        Title="MainWindow" WindowState="Maximized" ResizeMode="NoResize" WindowStyle="None">
+        Title="MainWindow"  Height="768" Width="1366" ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen">
+
+    <!--WindowState="Maximized"-->
     <Window.Triggers>
         <EventTrigger RoutedEvent="Loaded">
             <BeginStoryboard>
@@ -68,7 +70,7 @@
         
         <!-- UC activity-->
         <Grid x:Name="grdUC_Activity" Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="9" Grid.RowSpan="11">
-            <!--<us:UC_Concentration HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="Visible"/>-->
+            <!--<us:UC_LookAndFind HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="Visible"/>-->
         </Grid>
 
         <Grid x:Name="grdBackgroudOpacityUC" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="12" Grid.RowSpan="17">
