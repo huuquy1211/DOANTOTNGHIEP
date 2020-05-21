@@ -46,6 +46,7 @@
                     <ColumnDefinition Width="2*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
+                
                 <Border x:Name="bor1" Padding="2 1 2 1" BorderThickness="5" Background="White" Width="50" Height="50" BorderBrush="Green" CornerRadius="8" Grid.Column="1" Grid.RowSpan="2" Margin="0 5 5 5">
                     <Image x:Name="Image1" Width="auto" MouseDown="Image_MouseDown" Height="auto" Source="..\media\textures\matching\guyaudio.png" ></Image>
                 </Border>
