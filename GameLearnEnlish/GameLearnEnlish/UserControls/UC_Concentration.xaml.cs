@@ -81,23 +81,25 @@ namespace GameLearnEnlish.UserControls
         public UC_Concentration(int unit)
         {
             Unit = unit;
+
             mediaTitle.Open(new Uri(@"..\..\media\audio\concentration\title.mp3", UriKind.Relative));
             mediaTitle.MediaEnded += MediaTitle_MediaEnded;
 
             mediaDescription.Open(new Uri(@"..\..\media\audio\concentration\description.mp3", UriKind.Relative));
             mediaDescription.MediaEnded += MediaDescription_MediaEnded;
 
-
             InitializeComponent();
-
             mediaTitle.Play();
-
-            CreateListImgAndVoice(unit);
-            AddStoryboardToCard();
+            CreateImgAndVoice(Unit);
+            AddStoryboard();
 
         }
 
-        public void AddStoryboardToCard()
+        public void Init()
+        {
+            
+        }
+        public void AddStoryboard()
         {
             #region {thêm storyboard lật hình và sự kiện mouseDown}
             ThuNho(myStoryboard1, "MyImage1");
@@ -143,7 +145,7 @@ namespace GameLearnEnlish.UserControls
         }
 
         //Khởi tạo vị trí các bức hình và file âm thanh
-        public void CreateListImgAndVoice(int Unit)
+        public void CreateImgAndVoice(int Unit)
         {
             Score = 0;
             ListImgWord.Clear();
@@ -156,6 +158,8 @@ namespace GameLearnEnlish.UserControls
                 {@"..\..\media\audio\concentration\act"+Unit+@"\sound1.mp3",
                  @"..\..\media\audio\concentration\act"+Unit+@"\sound2.mp3",
                  @"..\..\media\audio\concentration\act"+Unit+@"\sound3.mp3"};
+
+          
 
             mediaPlayerVoid1.Open(new Uri(ListVoiceWord[0], UriKind.Relative));
             mediaPlayerVoid2.Open(new Uri(ListVoiceWord[1], UriKind.Relative));
@@ -248,40 +252,81 @@ namespace GameLearnEnlish.UserControls
                     MessageBox.Show("Lỗi rồi nha, lo sửa đi!!!");
                     return;
                 }
-                switch (numImageClick)
-                {
-                    case 1:
-                        {
-                            myStoryboard1.Begin(this);
-                            break;
-                        }
+                BeginStoryBoard1(numImageClick);
+            }
+        }
 
-                    case 2:
-                        {
-                            myStoryboard3.Begin(this);
-                            break;
-                        }
-                    case 3:
-                        {
-                            myStoryboard5.Begin(this);
-                            break;
-                        }
-                    case 4:
-                        {
-                            myStoryboard7.Begin(this);
-                            break;
-                        }
-                    case 5:
-                        {
-                            myStoryboard9.Begin(this);
-                            break;
-                        }
-                    case 6:
-                        {
-                            myStoryboard11.Begin(this);
-                            break;
-                        }
-                }
+        public void BeginStoryBoard1(int index)
+        {
+            switch (index)
+            {
+                case 1:
+                    {
+                        myStoryboard1.Begin(this);
+                        break;
+                    }
+
+                case 2:
+                    {
+                        myStoryboard3.Begin(this);
+                        break;
+                    }
+                case 3:
+                    {
+                        myStoryboard5.Begin(this);
+                        break;
+                    }
+                case 4:
+                    {
+                        myStoryboard7.Begin(this);
+                        break;
+                    }
+                case 5:
+                    {
+                        myStoryboard9.Begin(this);
+                        break;
+                    }
+                case 6:
+                    {
+                        myStoryboard11.Begin(this);
+                        break;
+                    }
+            }
+        }
+        public void BeginStoryboard2(int index)
+        {
+            switch (index)
+            {
+                case 1:
+                    {
+                        myStoryboard2.Begin(this);
+                    }
+                    break;
+                case 2:
+                    {
+                        myStoryboard4.Begin(this);
+                    }
+                    break;
+                case 3:
+                    {
+                        myStoryboard6.Begin(this);
+                    }
+                    break;
+                case 4:
+                    {
+                        myStoryboard8.Begin(this);
+                    }
+                    break;
+                case 5:
+                    {
+                        myStoryboard10.Begin(this);
+                    }
+                    break;
+                case 6:
+                    {
+                        myStoryboard12.Begin(this);
+                    }
+                    break;
             }
         }
 
@@ -302,7 +347,7 @@ namespace GameLearnEnlish.UserControls
             Storyboard.SetTargetProperty(myDoubleAnimation, new PropertyPath(Rectangle.OpacityProperty));
 
             storyBoard.Completed += StoryBoard_Completed; //sau khi hình bị ẩn đi thì ẩn luôn cả gif ánh sáng.
-        }   
+        }
         public void ThuNho(Storyboard storyBoard, string name)
         {
             var myDoubleAnimation = new DoubleAnimation();
@@ -336,7 +381,6 @@ namespace GameLearnEnlish.UserControls
         }
         #endregion
 
-
         private void StoryBoard_Completed(object sender, EventArgs e)
         {
             Gif1.Visibility = Visibility.Hidden;
@@ -361,14 +405,14 @@ namespace GameLearnEnlish.UserControls
         {
             if (hasOpened[numImageClick - 1] == false)
             {
-                GetImageByIndex(numImageClick).Source = new BitmapImage(new Uri(ListImgWord[numImageClick-1], UriKind.Relative));
+                ChangeImageSource(GetImageByIndex(numImageClick), ListImgWord[numImageClick - 1]);
                 PlayVoice(ListImgSort[numImageClick - 1]);
             }
             else
             {
                 GetImageByIndex(numImageClick).Source = new BitmapImage(new Uri(LinkImgCloseCard, UriKind.Relative));
             }
-            GetMyStoryboard_2(numImageClick).Begin(this);
+            BeginStoryboard2(numImageClick);
         }
         //Lật hình xong thì kiểm tra đáp án
         public void StoryBoard_2_Completed(object sender, EventArgs e)
@@ -400,9 +444,7 @@ namespace GameLearnEnlish.UserControls
 
                     PlayVoice(4);//phát âm báo chính xác
                     //ẩn 2 hình đi
-                    GetStoryboardHiddenCardByIndexImage(ImgClick_1).Begin(this);
-                    GetStoryboardHiddenCardByIndexImage(ImgClick_2).Begin(this);
-
+                    VisibleImageCorrect(ImgClick_1, ImgClick_2);
                     Score++;
                 }
                 else
@@ -419,7 +461,7 @@ namespace GameLearnEnlish.UserControls
                 }
                 else
                 {
-                    GetImageByIndex(ImgClick_1).Source= new BitmapImage(new Uri(LinkImgCloseCard, UriKind.Relative));
+                    GetImageByIndex(ImgClick_1).Source = new BitmapImage(new Uri(LinkImgCloseCard, UriKind.Relative));
                     hasOpened[ImgClick_1 - 1] = false;
                     GetImageByIndex(ImgClick_2).Source = new BitmapImage(new Uri(LinkImgCloseCard, UriKind.Relative));
                     hasOpened[ImgClick_2 - 1] = false;
@@ -428,14 +470,19 @@ namespace GameLearnEnlish.UserControls
                 ImgClick_2 = 0;
             }
         }
-
+        //ẩn 2 hình ảnh giống nhau
+        public void VisibleImageCorrect(int index1, int index2)
+        {
+            GetStoryboardHiddenCardByIndexImage(index1).Begin(this);
+            GetStoryboardHiddenCardByIndexImage(index2).Begin(this);
+        }
         public void ShowGifCorrect(int index)
         {
             switch (index)
             {
                 case 1:
                     {
-                        Gif1.Visibility=Visibility.Visible;
+                        Gif1.Visibility = Visibility.Visible;
                     }
                     break;
                 case 2:
@@ -465,71 +512,12 @@ namespace GameLearnEnlish.UserControls
                     break;
             }
         }
-        public Storyboard GetMyStoryboard_1(int index)
+
+        public void ChangeImageSource(Image img, string path)
         {
-            switch (index)
-            {
-                case 1:
-                    {
-                        return myStoryboard1;
-                    }
-                case 2:
-                    {
-                        return myStoryboard3;
-                    }
-                case 3:
-                    {
-                        return myStoryboard5;
-                    }
-                case 4:
-                    {
-                        return myStoryboard7;
-                    }
-                case 5:
-                    {
-                        return myStoryboard9;
-                    }
-                case 6:
-                    {
-                        return myStoryboard11;
-                    }
-                default:
-                    return null;
-            }
+            img.Source = new BitmapImage(new Uri(path, UriKind.Relative));
         }
 
-        public Storyboard GetMyStoryboard_2(int index)
-        {
-            switch (index)
-            {
-                case 1:
-                    {
-                        return myStoryboard2;
-                    }
-                case 2:
-                    {
-                        return myStoryboard4;
-                    }
-                case 3:
-                    {
-                        return myStoryboard6;
-                    }
-                case 4:
-                    {
-                        return myStoryboard8;
-                    }
-                case 5:
-                    {
-                        return myStoryboard10;
-                    }
-                case 6:
-                    {
-                        return myStoryboard12;
-                    }
-                default:
-                    return null;
-            }
-        }
 
         public Storyboard GetStoryboardHiddenCardByIndexImage(int index)
         {
@@ -574,16 +562,16 @@ namespace GameLearnEnlish.UserControls
                 case 2:
                     {
                         return Image2;
-                    }    
+                    }
                 case 3:
                     {
                         return Image3;
-                    }         
+                    }
                 case 4:
                     {
                         return Image4;
                     }
-               case 5:
+                case 5:
                     {
                         return Image5;
                     }

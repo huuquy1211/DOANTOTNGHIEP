@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaterialDesignThemes.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -113,6 +114,7 @@ namespace GameLearnEnlish.UserControls
         public UC_StoryTime(int unit)
         {
             Unit = unit;
+
             mediaTitle.Open(new Uri(@"..\..\media\audio\storytime\title.mp3", UriKind.Relative));
             mediaTitle.MediaEnded += MediaTitle_MediaEnded;
             mediaDescription.Open(new Uri(@"..\..\media\audio\storytime\description.mp3", UriKind.Relative));
@@ -120,9 +122,9 @@ namespace GameLearnEnlish.UserControls
 
             InitializeComponent();
 
+            BigImage.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\img1.png", UriKind.Relative));
+
             mediaTitle.Play();
-
-
             CreateMedia();
             CreateUnit();
 
@@ -369,105 +371,51 @@ namespace GameLearnEnlish.UserControls
 
         private void MediaFullSound_MediaEnded(object sender, EventArgs e)
         {
+            MediaFullSound.Position = TimeSpan.FromSeconds(0);
             GridPanel.IsEnabled = true;
 
-            Image1.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb01_BW.png", UriKind.Relative));
-            Image2.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb02_BW.png", UriKind.Relative));
-            Image3.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb03_BW.png", UriKind.Relative));
-            Image4.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb04_BW.png", UriKind.Relative));
-            BigImage.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\img1.png", UriKind.Relative));
+
+            ChangePicShowing(-1);
             MediaFullSound.Stop();
             timer.Stop();
 
-            foreach (Label x in ListStack.Last().Children)
-            {
-                x.Foreground = Brushes.Black;
-            }
+            ChangeLineColor(-1);
+
+
+
         }
 
         private void Timer_Tick(object sender, EventArgs e)
         {
             if (MediaFullSound.Source != null)
             {
-                Timer.Content = MediaFullSound.Position.Seconds.ToString();
-                int a = int.Parse(Timer.Content.ToString().Trim());
+                int a = MediaFullSound.Position.Seconds;
                 for (int i = 0; i < 4; i++)
                 {
                     if (TimeChangePic[i] == a)
                     {
-                        switch (i)
-                        {
-                            case 0:
-                                {
-                                    Image1.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb01.png", UriKind.Relative));
-                                    Image2.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb02_BW.png", UriKind.Relative));
-                                    Image3.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb03_BW.png", UriKind.Relative));
-                                    Image4.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb04_BW.png", UriKind.Relative));
-                                    BigImage.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\img1.png", UriKind.Relative));
-                                }
-                                break;
-                            case 1:
-                                {
-                                    Image1.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb01_BW.png", UriKind.Relative));
-                                    Image2.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb02.png", UriKind.Relative));
-                                    Image3.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb03_BW.png", UriKind.Relative));
-                                    Image4.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb04_BW.png", UriKind.Relative));
-                                    BigImage.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\img2.png", UriKind.Relative));
-                                }
-                                break;
-                            case 2:
-                                {
-                                    Image1.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb01_BW.png", UriKind.Relative));
-                                    Image2.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb02_BW.png", UriKind.Relative));
-                                    Image3.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb03.png", UriKind.Relative));
-                                    Image4.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb04_BW.png", UriKind.Relative));
-                                    BigImage.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\img3.png", UriKind.Relative));
-                                }
-                                break;
-                            case 3:
-                                {
-                                    Image1.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb01_BW.png", UriKind.Relative));
-                                    Image2.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb02_BW.png", UriKind.Relative));
-                                    Image3.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb03_BW.png", UriKind.Relative));
-                                    Image4.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb04.png", UriKind.Relative));
-                                    BigImage.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\img4.png", UriKind.Relative));
-                                }
-                                break;
-                        }
+                        ChangePicShowing(i + 1);
+
                     }
                 }
                 for (int i = 0; i < ListStack.Count(); i++)
                 {
                     if (TimeChangePanel[i] == a)
                     {
-                        if (i != 0)
-                        {
-                            foreach (Label x in ListStack[i - 1].Children)
-                            {
-                                x.Foreground = Brushes.Black;
-                            }
-                        }
-
-                        foreach (Label x in ListStack[i].Children)
-                        {
-                            x.Foreground = Brushes.Red;
-                        }
-
+                        ChangeLineColor(i);
+                        break;
                     }
                 }
-
             }
             else
                 Timer.Content = "-1";
         }
-
         public void CreateLabel(List<string> lst)
         {
 
             StackPanel stackMain = new StackPanel();
             stackMain.Orientation = Orientation.Vertical;
             CanvasString.Children.Add(stackMain);
-            int IndexStack = 0;
             int indexLabel = 0;
             foreach (string ls in lst)
             {
@@ -476,8 +424,8 @@ namespace GameLearnEnlish.UserControls
                 stack.Orientation = Orientation.Horizontal;
 
                 Thickness margin = stack.Margin;
-                margin.Top = 20;
-                margin.Left = 20;
+                margin.Top = 0;
+                margin.Left = 10;
                 stack.Margin = margin;
 
                 if (str.IndexOf("@") == -1)//khong co xuong hang
@@ -532,8 +480,8 @@ namespace GameLearnEnlish.UserControls
                     StackPanel moreStack = new StackPanel(); //stPic
                     moreStack.Orientation = Orientation.Vertical;
                     Thickness margin2 = stack.Margin;
-                    margin2.Top = 20;
-                    margin2.Left = 20;
+                    margin2.Top = 0;
+                    margin2.Left = 10;
                     moreStack.Margin = margin;
 
                     foreach (string l in listString)
@@ -667,6 +615,16 @@ namespace GameLearnEnlish.UserControls
             media_yes.Stop();
             media_you.Stop();
             #endregion
+            //var lst = this.GetType().GetProperties();
+            //foreach (var prop in lst)
+            //{
+            //    if (prop.PropertyType.Name == typeof(MediaPlayer).Name && prop.Name.Contains("media_"))
+            //    {
+            //        var value = prop.GetValue(this, null);
+
+            //    }
+            //}
+
             switch (s)
             {
                 case "a":
@@ -1020,11 +978,149 @@ namespace GameLearnEnlish.UserControls
 
         private void ImageVoid_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
+            MediaFullSound.Stop();
             MediaFullSound.Play();
             timer.Start();
-
             GridPanel.IsEnabled = false;
+        }
+
+        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Image img = sender as Image;
+            switch (img.Name)
+            {
+                case "Image1":
+                    {
+                        for (int i = 0; i < TimeChangePanel.Count(); i++)
+                        {
+                            if (TimeChangePanel[i] == TimeChangePic[0])
+                            {
+                                ChangeLineColor(i);
+                            }
+                        }
+                        ChangePicShowing(1);
+                        MediaFullSound.Stop();
+                        MediaFullSound.Position = TimeSpan.FromSeconds(TimeChangePic[0]);
+                        MediaFullSound.Play();
+                        timer.Start();
+                    }
+                    break;
+                case "Image2":
+                    {
+                        for (int i = 0; i < TimeChangePanel.Count(); i++)
+                        {
+                            if (TimeChangePanel[i] == TimeChangePic[1])
+                            {
+                                ChangeLineColor(i);
+                            }
+                        }
+                        ChangePicShowing(2);
+                        MediaFullSound.Stop();
+                        MediaFullSound.Position = TimeSpan.FromSeconds(TimeChangePic[1]);
+                        MediaFullSound.Play();
+                        timer.Start();
+                    }
+                    break;
+                case "Image3":
+                    {
+                        for (int i = 0; i < TimeChangePanel.Count(); i++)
+                        {
+                            if (TimeChangePanel[i] == TimeChangePic[2])
+                            {
+                                ChangeLineColor(i);
+                            }
+                        }
+                        ChangePicShowing(3);
+                        MediaFullSound.Stop();
+                        MediaFullSound.Position = TimeSpan.FromSeconds(TimeChangePic[2]);
+                        MediaFullSound.Play();
+                        timer.Start();
+                    }
+                    break;
+                case "Image4":
+                    {
+                        for (int i = 0; i < TimeChangePanel.Count(); i++)
+                        {
+                            if (TimeChangePanel[i] == TimeChangePic[3])
+                            {
+                                ChangeLineColor(i);
+                            }
+                        }
+                        ChangePicShowing(4);
+                        MediaFullSound.Stop();
+                        MediaFullSound.Position = TimeSpan.FromSeconds(TimeChangePic[3]);
+                        MediaFullSound.Play();
+                        timer.Start();
+                    }
+                    break;
+            }
+        }
+
+        public void ChangeLineColor(int index)
+        {
+            for (int i = 0; i < ListStack.Count(); i++)
+            {
+                if (i != index)
+                {
+                    foreach (Label x in ListStack[i].Children)
+                    {
+                        x.Foreground = Brushes.Black;
+                    }
+                }
+                else
+                {
+                    foreach (Label x in ListStack[i].Children)
+                    {
+                        x.Foreground = Brushes.Red;
+                    }
+                }
+
+            }
+        }
+        public void ChangePicShowing(int index)
+        {
+            Image1.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb01_BW.png", UriKind.Relative));
+            Image2.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb02_BW.png", UriKind.Relative));
+            Image3.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb03_BW.png", UriKind.Relative));
+            Image4.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb04_BW.png", UriKind.Relative));
+            BigImage.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\img1.png", UriKind.Relative));
+
+            bor1.BorderBrush = Brushes.Green;
+            bor2.BorderBrush = Brushes.Green;
+            bor3.BorderBrush = Brushes.Green;
+            bor4.BorderBrush = Brushes.Green;
+
+            switch (index)
+            {
+                case 1:
+                    {
+                        Image1.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb01.png", UriKind.Relative));
+                        BigImage.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\img1.png", UriKind.Relative));
+                        bor1.BorderBrush = Brushes.Red;
+                    }
+                    break;
+                case 2:
+                    {
+                        Image2.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb02.png", UriKind.Relative));
+                        BigImage.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\img2.png", UriKind.Relative));
+                        bor2.BorderBrush = Brushes.Red;
+                    }
+                    break;
+                case 3:
+                    {
+                        Image3.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb03.png", UriKind.Relative));
+                        BigImage.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\img3.png", UriKind.Relative));
+                        bor3.BorderBrush = Brushes.Red;
+                    }
+                    break;
+                case 4:
+                    {
+                        Image4.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb04.png", UriKind.Relative));
+                        BigImage.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\img4.png", UriKind.Relative));
+                        bor4.BorderBrush = Brushes.Red;
+                    }
+                    break;
+            }
         }
     }
 }
