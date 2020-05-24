@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EnglishGameModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Sentence">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Sound" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="Image" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="Text" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Units" Relationship="Self.SentenceOfUnit" FromRole="Sentence" ToRole="Unit" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Unit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Number" Type="Int32" />
+    <NavigationProperty Name="Sentences" Relationship="Self.SentenceOfUnit" FromRole="Unit" ToRole="Sentence" />
+    <NavigationProperty Name="Words" Relationship="Self.WordOfUnit" FromRole="Unit" ToRole="Word" />
+  </EntityType>
+  <EntityType Name="Word">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Image" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="Voice" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Units" Relationship="Self.WordOfUnit" FromRole="Word" ToRole="Unit" />
+  </EntityType>
+  <Association Name="SentenceOfUnit">
+    <End Role="Sentence" Type="Self.Sentence" Multiplicity="*" />
+    <End Role="Unit" Type="Self.Unit" Multiplicity="*" />
+  </Association>
+  <Association Name="WordOfUnit">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="*" />
+    <End Role="Word" Type="Self.Word" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="EnglishGameEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Sentences" EntityType="Self.Sentence" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Units" EntityType="Self.Unit" />
+    <EntitySet Name="Words" EntityType="Self.Word" />
+    <AssociationSet Name="SentenceOfUnit" Association="Self.SentenceOfUnit">
+      <End Role="Sentence" EntitySet="Sentences" />
+      <End Role="Unit" EntitySet="Units" />
+    </AssociationSet>
+    <AssociationSet Name="WordOfUnit" Association="Self.WordOfUnit">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="Word" EntitySet="Words" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

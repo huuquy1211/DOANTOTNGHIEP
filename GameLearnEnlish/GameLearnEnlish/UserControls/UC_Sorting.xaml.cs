@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -47,6 +48,7 @@ namespace GameLearnEnlish.UserControls
         private Point PositionImage;
 
 
+        private List<Data.Word> lstWord = new List<Data.Word>();//danh sách các từ trong unit sẽ hiển thị trong activity
         private List<string> ListImgWord = new List<string>();//danh sách hình ảnh của từ
         private List<int> ListImgSort = new List<int>();//vị trí của 3 bức ảnh để xếp vào box.
         private List<string> ListVoid = new List<string>();//danh sách âm thanh của từ
@@ -135,6 +137,8 @@ namespace GameLearnEnlish.UserControls
 
         public void Create()
         {
+
+            lstWord = new WordBLL().GetWordsOfUser(Unit);
             Random rd = new Random();
             while (ListImgSort.Count < 3)
             {

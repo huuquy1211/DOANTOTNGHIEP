@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -27,8 +28,10 @@ namespace GameLearnEnlish.UserControls
 
         private readonly string VoiceCorrect = @"..\..\media\audio\concentration\correct.mp3";//âm khi chọn 2 thẻ giống giau
         private readonly string VoiceInCorrect = @"..\..\media\audio\concentration\wrong.mp3";//âm khi chọn 2 thẻ khác nhau
-
         private readonly string LinkImgCloseCard = @"..\..\media\textures\concentration\card_back.png";
+
+        private List<Data.Word> lstWord = new List<Data.Word>();
+
         private List<string> ListImgWord = new List<string>();//danh sách hình ảnh của từ
         private List<int> ListImgSort = new List<int>();//vị trí của 3 bức ảnh.
         private List<string> ListVoiceWord;//danh sách âm thanh của từ
@@ -40,7 +43,7 @@ namespace GameLearnEnlish.UserControls
         private int ImgClick_1 = 0;//vị trí hình chọn thứ 1
         private int ImgClick_2 = 0;//vị trí hình chọn thứ 2
 
-
+        #region 
         private Storyboard myStoryboard1 = new Storyboard();
         private Storyboard myStoryboard2 = new Storyboard();
         private Storyboard myStoryboard3 = new Storyboard();
@@ -74,7 +77,7 @@ namespace GameLearnEnlish.UserControls
         private MediaPlayer mediaVotay = new MediaPlayer();
 
         private int Score = 0;
-
+        #endregion
 
 
 
@@ -97,7 +100,7 @@ namespace GameLearnEnlish.UserControls
 
         public void Init()
         {
-            
+
         }
         public void AddStoryboard()
         {
@@ -153,13 +156,17 @@ namespace GameLearnEnlish.UserControls
             hasOpened = new bool[6] { false, false, false, false, false, false };
             isOpen = false;
 
-            #region media
-            ListVoiceWord = new List<string>()
-                {@"..\..\media\audio\concentration\act"+Unit+@"\sound1.mp3",
-                 @"..\..\media\audio\concentration\act"+Unit+@"\sound2.mp3",
-                 @"..\..\media\audio\concentration\act"+Unit+@"\sound3.mp3"};
+            lstWord = new WordBLL().GetWordsOfUser(Unit);
 
-          
+            #region media
+            //ListVoiceWord = new List<string>()
+            //    {@"..\..\media\audio\concentration\act"+Unit+@"\sound1.mp3",
+            //     @"..\..\media\audio\concentration\act"+Unit+@"\sound2.mp3",
+            //     @"..\..\media\audio\concentration\act"+Unit+@"\sound3.mp3"};
+
+            ListVoiceWord = new List<string>() { lstWord[0].Voice, lstWord[1].Voice, lstWord[2].Voice };
+
+
 
             mediaPlayerVoid1.Open(new Uri(ListVoiceWord[0], UriKind.Relative));
             mediaPlayerVoid2.Open(new Uri(ListVoiceWord[1], UriKind.Relative));
@@ -171,7 +178,8 @@ namespace GameLearnEnlish.UserControls
             mediaVotay.MediaEnded += MediaVotay_MediaEnded;
             #endregion
 
-            string pathLinkImg = @"..\..\media\textures\concentration\act" + Unit;
+            // string pathLinkImg = @"..\..\media\textures\concentration\act" + Unit;
+
             Random rd = new Random();
             int[] num = new int[3] { 0, 0, 0 };
             int rand = 0;
@@ -185,7 +193,7 @@ namespace GameLearnEnlish.UserControls
                     {
                         if (num[rand - 1] < 2)
                         {
-                            ListImgWord.Add(pathLinkImg + @"\img" + rand + ".png");
+                            ListImgWord.Add(lstWord[rand-1].Image);
                             ListImgSort.Add(rand);
                             num[rand - 1]++;
                             temp = true;
