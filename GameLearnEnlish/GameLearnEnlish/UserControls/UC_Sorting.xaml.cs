@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -28,6 +29,13 @@ namespace GameLearnEnlish.UserControls
 
         string Path = @"..\..\media";
 
+        private List<Data.Word> lstWord = new List<Data.Word>();//danh sách các từ trong unit sẽ hiển thị trong activity
+        private List<string> ListImgWord = new List<string>();//danh sách hình ảnh của từ
+        private List<int> ListImgSort = new List<int>();//vị trí của 3 bức ảnh để xếp vào box.
+        private List<string> ListVoid = new List<string>();//danh sách âm thanh của từ
+
+
+        #region
         const int left = 25;
         private Point BasePoint1 = new Point(2 * left, 5 * left);
         private Point BasePoint2 = new Point(10 * left, 5 * left);
@@ -47,11 +55,11 @@ namespace GameLearnEnlish.UserControls
         private bool moving = false;
         private Point PositionImage;
 
+        private MediaPlayer mediaOne = new MediaPlayer();
+        private MediaPlayer mediaTwo = new MediaPlayer();
+        private MediaPlayer mediaThree = new MediaPlayer();
 
-        private List<Data.Word> lstWord = new List<Data.Word>();//danh sách các từ trong unit sẽ hiển thị trong activity
-        private List<string> ListImgWord = new List<string>();//danh sách hình ảnh của từ
-        private List<int> ListImgSort = new List<int>();//vị trí của 3 bức ảnh để xếp vào box.
-        private List<string> ListVoid = new List<string>();//danh sách âm thanh của từ
+        private MediaPlayer mediaPut = new MediaPlayer();
 
         private MediaPlayer mediaTitle = new MediaPlayer();
         private MediaPlayer mediaDescription = new MediaPlayer();
@@ -98,26 +106,39 @@ namespace GameLearnEnlish.UserControls
             get { return BasePoint3.Y + DeltaY3; }
         }
 
+        public MediaPlayer MediaOne { get => mediaOne; set => mediaOne = value; }
+        public MediaPlayer MediaTwo { get => mediaTwo; set => mediaTwo = value; }
+        public MediaPlayer MediaThree { get => mediaThree; set => mediaThree = value; }
+        public MediaPlayer MediaPut { get => mediaPut; set => mediaPut = value; }
+        public MediaPlayer MediaTitle { get => mediaTitle; set => mediaTitle = value; }
+        public MediaPlayer MediaDescription { get => mediaDescription; set => mediaDescription = value; }
+        public MediaPlayer MediaCorrect { get => mediaCorrect; set => mediaCorrect = value; }
+        public MediaPlayer MediaInCorrect { get => mediaInCorrect; set => mediaInCorrect = value; }
+        public MediaPlayer MediaVoid1 { get => mediaVoid1; set => mediaVoid1 = value; }
+        public MediaPlayer MediaVoid2 { get => mediaVoid2; set => mediaVoid2 = value; }
+        public MediaPlayer MediaVoid3 { get => mediaVoid3; set => mediaVoid3 = value; }
+        public MediaPlayer MediaVotay { get => mediaVotay; set => mediaVotay = value; }
+
         public event PropertyChangedEventHandler PropertyChanged;
         private void RaisePropertyChanged(string prop)
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
-
+        #endregion
         public UC_Sorting(int unit)
         {
             Unit = unit;
-            mediaTitle.Open(new Uri(@"..\..\media\audio\sorting\title.mp3", UriKind.Relative));
-            mediaTitle.MediaEnded += MediaTitle_MediaEnded;
+            MediaTitle.Open(new Uri(@"..\..\media\audio\sorting\title.mp3", UriKind.Relative));
+            MediaTitle.MediaEnded += MediaTitle_MediaEnded;
 
-            mediaDescription.Open(new Uri(@"..\..\media\audio\sequence\description.mp3", UriKind.Relative));
-            mediaDescription.MediaEnded += MediaDescription_MediaEnded;
+            MediaDescription.Open(new Uri(@"..\..\media\audio\sequence\description.mp3", UriKind.Relative));
+            MediaDescription.MediaEnded += MediaDescription_MediaEnded;
 
 
             InitializeComponent();
 
-            mediaTitle.Play();
+            MediaTitle.Play();
             Create();
             this.DataContext = this;
         }
@@ -130,15 +151,15 @@ namespace GameLearnEnlish.UserControls
 
         private void MediaTitle_MediaEnded(object sender, EventArgs e)
         {
-            mediaTitle.Stop();
-            mediaDescription.Play();
+            MediaTitle.Stop();
+            MediaDescription.Play();
         }
 
-
+        private List<int> lstPosition = new List<int>();
         public void Create()
         {
 
-            lstWord = new WordBLL().GetWordsOfUser(Unit);
+            lstWord = new WordBLL().GetWordsOfUnit(Unit);
             Random rd = new Random();
             while (ListImgSort.Count < 3)
             {
@@ -161,78 +182,123 @@ namespace GameLearnEnlish.UserControls
             {
                 if (ListImgSort[i] == 1)
                 {
-                    ListImgWord.Add(Path + @"\textures\sequence\act" + Unit + @"\img" + 1 + @".png");
-                    ListVoid.Add(Path + @"\audio\sequence\act" + Unit + @"\sound" + 1 + @".mp3");
+                    ListImgWord.Add(lstWord[0].Image);
+                    ListVoid.Add(lstWord[0].Voice);
                 }
                 if (ListImgSort[i] == 2)
                 {
-                    ListImgWord.Add(Path + @"\textures\sequence\act" + Unit + @"\img" + 2 + @".png");
-                    ListVoid.Add(Path + @"\audio\sequence\act" + Unit + @"\sound" + 2 + @".mp3");
+                    ListImgWord.Add(lstWord[1].Image);
+                    ListVoid.Add(lstWord[1].Voice);
                 }
                 if (ListImgSort[i] == 3)
                 {
-                    ListImgWord.Add(Path + @"\textures\sequence\act" + Unit + @"\img" + 3 + @".png");
-                    ListVoid.Add(Path + @"\audio\sequence\act" + Unit + @"\sound" + 3 + @".mp3");
+                    ListImgWord.Add(lstWord[2].Image);
+                    ListVoid.Add(lstWord[2].Voice);
                 }
             }
             //khởi tạo âm thanh
-            mediaCorrect.Open(new Uri(Path + @"\audio\matching\right.mp3", UriKind.Relative));
-            mediaInCorrect.Open(new Uri(Path + @"\audio\matching\wrong.mp3", UriKind.Relative));
-            mediaVoid1.Open(new Uri(ListVoid[0], UriKind.Relative));
-            mediaVoid2.Open(new Uri(ListVoid[1], UriKind.Relative));
-            mediaVoid3.Open(new Uri(ListVoid[2], UriKind.Relative));
+            MediaOne.Open(new Uri(Path + @"\audio\sequence\Inboxone.mp3", UriKind.Relative));
+            MediaTwo.Open(new Uri(Path + @"\audio\sequence\Inboxtwo.mp3", UriKind.Relative));
+            MediaThree.Open(new Uri(Path + @"\audio\sequence\Inboxthree.mp3", UriKind.Relative));
 
-            mediaVotay.Open(new Uri(@"..\..\media\audio\tiengvotay.mp3", UriKind.Relative));
-            mediaVotay.MediaEnded += MediaVotay_MediaEnded;
+            MediaPut.Open(new Uri(Path + @"\audio\sequence\put.mp3", UriKind.Relative));
+            mediaPut.MediaEnded += MediaPut_MediaEnded;
+
+            MediaCorrect.Open(new Uri(Path + @"\audio\matching\right.mp3", UriKind.Relative));
+            MediaCorrect.MediaEnded += MediaCorrect_MediaEnded;
+
+            MediaInCorrect.Open(new Uri(Path + @"\audio\matching\wrong.mp3", UriKind.Relative));
+            MediaVoid1.Open(new Uri(ListVoid[0], UriKind.Relative));
+            MediaVoid2.Open(new Uri(ListVoid[1], UriKind.Relative));
+            MediaVoid3.Open(new Uri(ListVoid[2], UriKind.Relative));
+
+            mediaVoid1.MediaEnded += MediaVoid1_MediaEnded;
+            mediaVoid2.MediaEnded += MediaVoid1_MediaEnded;
+            mediaVoid3.MediaEnded += MediaVoid1_MediaEnded;
+
+            MediaVotay.Open(new Uri(@"..\..\media\audio\tiengvotay.mp3", UriKind.Relative));
+            MediaVotay.MediaEnded += MediaVotay_MediaEnded;
             Image1.Source = new BitmapImage(new Uri(ListImgWord[0], UriKind.Relative));
             Image2.Source = new BitmapImage(new Uri(ListImgWord[1], UriKind.Relative));
             Image3.Source = new BitmapImage(new Uri(ListImgWord[2], UriKind.Relative));
 
             //set hinh anh trong box (sẽ visible khi kéo ảnh vào đúng box)
-            ImageBase1.Source = new BitmapImage(new Uri(Path + @"\textures\sequence\act" + Unit + @"\img" + 1 + @".png", UriKind.Relative));
-            ImageBase2.Source = new BitmapImage(new Uri(Path + @"\textures\sequence\act" + Unit + @"\img" + 2 + @".png", UriKind.Relative));
-            ImageBase3.Source = new BitmapImage(new Uri(Path + @"\textures\sequence\act" + Unit + @"\img" + 3 + @".png", UriKind.Relative));
 
-
-            //set storyboard
-            VisibleImage(storyboardVisible1, "ImageBase1");
-            VisibleImage(storyboardVisible2, "ImageBase2");
-            VisibleImage(storyboardVisible3, "ImageBase3");
+            for (int i = 0; i < 3; i++)
+            {
+                if (ListImgSort[i] == 1)
+                {
+                    ImageBase1.Source = new BitmapImage(new Uri(ListImgWord[i], UriKind.Relative));
+                }
+                else if (ListImgSort[i] == 2)
+                {
+                    ImageBase2.Source = new BitmapImage(new Uri(ListImgWord[i], UriKind.Relative));
+                }
+                else
+                {
+                    ImageBase3.Source = new BitmapImage(new Uri(ListImgWord[i], UriKind.Relative));
+                }
+            }
         }
 
-        private void MediaVotay_MediaEnded(object sender, EventArgs e)
+        private void MediaVoid1_MediaEnded(object sender, EventArgs e)
         {
-            mediaVotay.Stop();
+            StopAllMedia();
+            switch (ListImgSort[indexPosition-1])
+            {
+                case 1:
+                    mediaOne.Play();
+                    break;
+                case 2:
+                    mediaTwo.Play();
+                    break;
+                case 3:
+                    mediaThree.Play();
+                    break;
+            }
+
         }
 
-        public void VisibleImage(Storyboard storyBoard, string name)
+        private void MediaPut_MediaEnded(object sender, EventArgs e)
         {
-            var myDoubleAnimation = new DoubleAnimation();
-            myDoubleAnimation.From = 0;
-            myDoubleAnimation.To = 1;
-            myDoubleAnimation.Duration = new Duration(TimeSpan.FromMilliseconds(1000));
-            myDoubleAnimation.AutoReverse = false;
-            storyBoard.Duration = new Duration(TimeSpan.FromMilliseconds(1000));
-            storyBoard.Children.Add(myDoubleAnimation);
-            Storyboard.SetTargetName(myDoubleAnimation, name);
-            Storyboard.SetTargetProperty(myDoubleAnimation, new PropertyPath(Rectangle.OpacityProperty));
-            storyBoard.Completed += StoryBoard_Completed; ; //sau khi hình hiển thị thì ẩn luôn gif ánh sáng.
+            StopAllMedia();
+            
+            switch (indexPosition)
+            {
+                case 1:
+                    mediaVoid1.Play();
+                    break;
+                case 2:
+                    mediaVoid2.Play();
+                    break;
+                case 3:
+                    mediaVoid3.Play();
+                    break;
+            }
         }
-        private void StoryBoard_Completed(object sender, EventArgs e)
+
+        private void MediaCorrect_MediaEnded(object sender, EventArgs e)
         {
             Gif1.Visibility = Visibility.Hidden;
             Gif2.Visibility = Visibility.Hidden;
             Gif3.Visibility = Visibility.Hidden;
-            Thread.Sleep(1500);
             if (score == 3)
             {
                 //ẩn main, hiện gif vỗ tay, phát âm thanh hoàn thành action
+                Thread.Sleep(1500);
                 Main.Visibility = Visibility.Hidden;
                 Votay.Visibility = Visibility.Visible;
-                mediaVotay.Play();
+                MediaVotay.Play();
                 score = 0;
             }
         }
+
+        private void MediaVotay_MediaEnded(object sender, EventArgs e)
+        {
+            MediaVotay.Stop();
+        }
+
+
         public void SetIndexImage(Grid gridImg)
         {
             Panel.SetZIndex(GridImg1, 1000);
@@ -281,7 +347,7 @@ namespace GameLearnEnlish.UserControls
                 }
             }
         }
- 
+
         private void Feast_MouseMove(object sender, MouseEventArgs e)
         {
             if (moving)
@@ -330,11 +396,7 @@ namespace GameLearnEnlish.UserControls
             Point p = new Point();
             if (l != null)
             {
-                mediaCorrect.Stop();
-                mediaInCorrect.Stop();
-                mediaVoid1.Stop();
-                mediaVoid2.Stop();
-                mediaVoid3.Stop();
+                StopAllMedia();
                 if (l.Name == "Image1")
                 {
                     p = GetPositionAnswer(ListImgSort[0]);
@@ -350,12 +412,12 @@ namespace GameLearnEnlish.UserControls
                         GridImg1.Visibility = Visibility.Hidden;
                         PutImageToCorrectPosition(ListImgSort[0]);
                         score++;
-                        mediaCorrect.Play();
+                        MediaCorrect.Play();
                     }
                     else
                     {
                         ResetImagePosition(1);
-                        mediaInCorrect.Play();
+                        MediaInCorrect.Play();
                     }
                 }
                 else if (l.Name == "Image2")
@@ -374,12 +436,12 @@ namespace GameLearnEnlish.UserControls
                         GridImg2.Visibility = Visibility.Hidden;
                         PutImageToCorrectPosition(ListImgSort[1]);
                         score++;
-                        mediaCorrect.Play();
+                        MediaCorrect.Play();
                     }
                     else
                     {
                         ResetImagePosition(2);
-                        mediaInCorrect.Play();
+                        MediaInCorrect.Play();
                     }
                 }
                 else if (l.Name == "Image3")
@@ -397,12 +459,12 @@ namespace GameLearnEnlish.UserControls
                         GridImg3.Visibility = Visibility.Hidden;
                         PutImageToCorrectPosition(ListImgSort[2]);
                         score++;
-                        mediaCorrect.Play();
+                        MediaCorrect.Play();
                     }
                     else
                     {
                         ResetImagePosition(3);
-                        mediaInCorrect.Play();
+                        MediaInCorrect.Play();
                     }
                 }
             }
@@ -440,19 +502,19 @@ namespace GameLearnEnlish.UserControls
         {
             if (index == 1)
             {
-                storyboardVisible1.Begin(this);
+                ImageBase1.Visibility = Visibility.Visible;
                 Gif1.Visibility = Visibility.Visible;
             }
             else
             if (index == 2)
             {
-                storyboardVisible2.Begin(this);
+                ImageBase2.Visibility = Visibility.Visible;
                 Gif2.Visibility = Visibility.Visible;
             }
             else
             if (index == 3)
             {
-                storyboardVisible3.Begin(this);
+                ImageBase3.Visibility = Visibility.Visible;
                 Gif3.Visibility = Visibility.Visible;
             }
         }
@@ -493,29 +555,52 @@ namespace GameLearnEnlish.UserControls
                     break;
             }
         }
+
+        private int indexVoice = 1;
+        private int indexPosition;
         private void VoidImage_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            if (score >= 3)
+                return;
             Image l = e.Source as Image;
             if (l != null)
             {
-                mediaCorrect.Stop();
-                mediaInCorrect.Stop();
-                mediaVoid1.Stop();
-                mediaVoid2.Stop();
-                mediaVoid3.Stop();
+                StopAllMedia();
                 if (l.Name == "ImageVoid1")
                 {
-                    mediaVoid1.Play();
+                    indexVoice = 1;
+                    indexPosition = 1;
                 }
                 else if (l.Name == "ImageVoid2")
                 {
-                    mediaVoid2.Play();
+                    indexVoice = 2;
+                    indexPosition =2;
                 }
                 else if (l.Name == "ImageVoid3")
                 {
-                    mediaVoid3.Play();
+                    indexVoice = 3;
+                    indexPosition = 3;
+                }
+                MediaPut.Play();
+            }
+        }
+
+
+        public void StopAllMedia()
+        {
+            var lst = this.GetType().GetProperties();
+            Gif1.Visibility = Visibility.Hidden;
+            Gif2.Visibility = Visibility.Hidden;
+            Gif3.Visibility = Visibility.Hidden;
+            foreach (var prop in lst)
+            {
+                if (prop.PropertyType.Name == typeof(MediaPlayer).Name)
+                {
+                    var childValue = ((MediaPlayer)prop.GetValue(this));
+                    childValue.Stop();
                 }
             }
         }
+
     }
 }

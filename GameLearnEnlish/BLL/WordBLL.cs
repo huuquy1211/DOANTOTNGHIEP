@@ -17,7 +17,7 @@ namespace BLL
 
         }
 
-        public List<Data.Word> GetWordsOfUser(int Unit)
+        public List<Data.Word> GetWordsOfUnit(int Unit)
         {
             List<Data.Word> lst = db.Words.Where(x=>x.Units.Where(t=>t.Id==Unit).Count()!=0).ToList().Select(z=>new Data.Word(z.Id,z.Image,z.Voice)).ToList();
 

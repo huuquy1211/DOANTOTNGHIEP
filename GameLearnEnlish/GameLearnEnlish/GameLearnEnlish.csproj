@@ -517,6 +517,10 @@
     <Content Include="media\audio\global\clickbutton.mp3" />
     <Content Include="media\audio\global\right.mp3" />
     <Content Include="media\audio\global\wrong.mp3" />
+    <Content Include="media\audio\sequence\Inboxone.mp3" />
+    <Content Include="media\audio\sequence\Inboxthree.mp3" />
+    <Content Include="media\audio\sequence\Inboxtwo.mp3" />
+    <Content Include="media\audio\sequence\put.mp3" />
     <Content Include="media\audio\tiengvotay.mp3" />
     <Content Include="media\audio\lookandfind\act1\description.mp3" />
     <Content Include="media\audio\lookandfind\act1\title.mp3" />

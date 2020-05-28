@@ -27,7 +27,7 @@
             <Grid x:Name="GridBox1" Canvas.Top="300" Canvas.Left="50">
                 <Border CornerRadius="20" BorderThickness="10" BorderBrush="Green"  Width="auto" Height="auto" >
                     <Grid Width="140" Height="140">
-                        <Image Name="ImageBase1" Opacity="0" MouseMove="Feast_MouseMove" MouseDown="Feast_MouseDown" MouseUp="Feast_MouseUp" Stretch="Fill" Width="auto" Height="auto" Source="..\media\textures\concentration\card_back.png"/>
+                        <Image Name="ImageBase1" Visibility="Hidden"  MouseMove="Feast_MouseMove" MouseDown="Feast_MouseDown" MouseUp="Feast_MouseUp" Stretch="Fill" Width="auto" Height="auto" Source="..\media\textures\concentration\card_back.png"/>
                     </Grid>
                 </Border>
                 <Image x:Name="Gif1" Width="130" Height="130" Stretch="Fill"  Visibility="Hidden" gif:AnimationBehavior.SourceUri="..\media\textures\saosang.gif" ></Image>
@@ -37,7 +37,7 @@
             <Grid x:Name="GridBox2" Canvas.Top="300" Canvas.Left="250">
                 <Border CornerRadius="20" BorderThickness="10" BorderBrush="Green"  Width="auto" Height="auto" >
                     <Grid Width="140" Height="140">
-                        <Image Name="ImageBase2" Opacity="0" MouseMove="Feast_MouseMove" MouseDown="Feast_MouseDown" MouseUp="Feast_MouseUp" Stretch="Fill" Width="auto" Height="auto" Source="..\media\textures\concentration\card_back.png"/>
+                        <Image Name="ImageBase2" Visibility="Hidden" MouseMove="Feast_MouseMove" MouseDown="Feast_MouseDown" MouseUp="Feast_MouseUp" Stretch="Fill" Width="auto" Height="auto" Source="..\media\textures\concentration\card_back.png"/>
                     </Grid>
                 </Border>
                 <Image x:Name="Gif2" Stretch="Fill" Width="130" Height="130"  Visibility="Hidden" gif:AnimationBehavior.SourceUri="..\media\textures\saosang.gif"   ></Image>
@@ -46,7 +46,7 @@
             <Grid x:Name="GridBox3" Canvas.Top="300" Canvas.Left="450">
                 <Border CornerRadius="20" BorderThickness="10" BorderBrush="Green"  Width="auto" Height="auto" >
                     <Grid Width="140" Height="140">
-                        <Image Name="ImageBase3" Opacity="0" MouseMove="Feast_MouseMove" MouseDown="Feast_MouseDown" MouseUp="Feast_MouseUp" Stretch="Fill" Width="auto" Height="auto" Source="..\media\textures\concentration\card_back.png"/>
+                        <Image Name="ImageBase3" Visibility="Hidden" MouseMove="Feast_MouseMove" MouseDown="Feast_MouseDown" MouseUp="Feast_MouseUp" Stretch="Fill" Width="auto" Height="auto" Source="..\media\textures\concentration\card_back.png"/>
                     </Grid>
                 </Border>
                 <Image x:Name="Gif3" Stretch="Fill" Width="130" Height="130" Visibility="Hidden" gif:AnimationBehavior.SourceUri="..\media\textures\saosang.gif"   ></Image>

@@ -156,7 +156,7 @@ namespace GameLearnEnlish.UserControls
             hasOpened = new bool[6] { false, false, false, false, false, false };
             isOpen = false;
 
-            lstWord = new WordBLL().GetWordsOfUser(Unit);
+            lstWord = new WordBLL().GetWordsOfUnit(Unit);
 
             #region media
             //ListVoiceWord = new List<string>()
