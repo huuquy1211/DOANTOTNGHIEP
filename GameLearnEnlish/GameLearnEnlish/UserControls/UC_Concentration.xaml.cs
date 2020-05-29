@@ -138,7 +138,7 @@ namespace GameLearnEnlish.UserControls
             mediaPlayerVoiInCorrect.Open(new Uri(VoidInCorrect, UriKind.Relative));
             #endregion
 
-            string pathLinkImg = @"..\..\media\textures\matching\act" + Unit;
+            string pathLinkImg = @"..\..\media\textures\concentration\act" + Unit;
             Random rd = new Random();
             int[] num = new int[3] { 0, 0, 0 };
             int rand = 0;

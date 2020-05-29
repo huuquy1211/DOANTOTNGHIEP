@@ -32,9 +32,7 @@ namespace GameLearnEnlish.UserControls
         MediaPlayer mplayer4 = new MediaPlayer();
         MediaPlayer mplayer5 = new MediaPlayer();
         MediaPlayer mplayer6 = new MediaPlayer();
-        MediaPlayer mplayer7 = new MediaPlayer();
-        MediaPlayer mplayer8 = new MediaPlayer();
-        MediaPlayer mplayer9 = new MediaPlayer(); //Âm thanh cho các nút
+        MediaPlayer mplayer7 = new MediaPlayer(); //Âm thanh cho các nút
         #endregion
         #region [Khởi tạo Uri hình ảnh các Menu_Globe]
         Uri uriImg1;
@@ -61,9 +59,7 @@ namespace GameLearnEnlish.UserControls
             mplayer4.Open(new Uri(@"..\..\media\audio\global\Activity_4.mp3", UriKind.Relative));
             mplayer5.Open(new Uri(@"..\..\media\audio\global\Activity_5.mp3", UriKind.Relative));
             mplayer6.Open(new Uri(@"..\..\media\audio\global\Activity_6.mp3", UriKind.Relative));
-            mplayer7.Open(new Uri(@"..\..\media\audio\global\Activity_7.mp3", UriKind.Relative));
-            mplayer8.Open(new Uri(@"..\..\media\audio\global\Activity_8.mp3", UriKind.Relative));
-            mplayer9.Open(new Uri(@"..\..\media\audio\global\Activity_9.mp3", UriKind.Relative));
+            mplayer7.Open(new Uri(@"..\..\media\audio\global\Activity_9.mp3", UriKind.Relative));
             #endregion
 
             #region [Hình ảnh các Menu_Globe]
@@ -108,8 +104,6 @@ namespace GameLearnEnlish.UserControls
             mplayer5.Stop();
             mplayer6.Stop();
             mplayer7.Stop();
-            mplayer8.Stop();
-            mplayer9.Stop();
 
         }
         public void ChangeUnit(string NameBtn) // Đổi tiêu đề khi nhấn vào từng nút unit ở Menu
@@ -194,8 +188,6 @@ namespace GameLearnEnlish.UserControls
                             lblActivity5.Content = "Unit 5: A Suprise";
                             lblActivity6.Content = "Unit 6: Let's Play";
                             lblActivity7.Content = "Unit 7: Where's Lucy?";
-                            lblActivity8.Content = "Unit 8: Hospital";
-                            lblActivity9.Content = "";
 
                             imgMenu_Globe_U.Source = new BitmapImage(uriImgAs);
                             break;
@@ -211,8 +203,6 @@ namespace GameLearnEnlish.UserControls
                             lblActivity5.Content = "";
                             lblActivity6.Content = "";
                             lblActivity7.Content = "";
-                            lblActivity8.Content = "";
-                            lblActivity9.Content = "";
 
                             imgMenu_Globe_U.Source = new BitmapImage(uriImgPhonics);
                             break;
@@ -273,19 +263,6 @@ namespace GameLearnEnlish.UserControls
                             mplayer7.Play();//Phat âm lable
                             break;
                         }
-                    case "lblActivity8":
-                        {
-                            lblActivity8.Foreground = new SolidColorBrush(Colors.Red);
-                            mplayer8.Play();//Phat âm lable
-                            break;
-                        }
-                    case "lblActivity9":
-                        {
-                            lblActivity9.Foreground = new SolidColorBrush(Colors.Red);
-                            mplayer9.Play();//Phat âm lable
-                            break;
-                        }
-
 
                     default:
                         break;
@@ -336,25 +313,13 @@ namespace GameLearnEnlish.UserControls
                             lblActivity7.Foreground = new SolidColorBrush(Colors.Black);
                             break;
                         }
-                    case "lblActivity8":
-                        {
-                            lblActivity8.Foreground = new SolidColorBrush(Colors.Black);
-                            break;
-                        }
-                    case "lblActivity9":
-                        {
-                            lblActivity9.Foreground = new SolidColorBrush(Colors.Black);
-                            break;
-                        }
-
-
                     default:
                         break;
                 }
             }
         }
 
-        private void CallChangeActivity(string nameTbl, SelectElementUC ButtonIsSelect)
+        public void CallChangeActivity(string nameTbl, SelectElementUC ButtonIsSelect)
         {
             Global.Instance.WindowMain.grdPlacard.Children.Clear();
             Global.Instance.WindowMain.grdPlacard.Children.Add(new PlacardUC());
@@ -362,7 +327,7 @@ namespace GameLearnEnlish.UserControls
 
         }
 
-        private void UnitUCActivity(Unit unit, string Activity)//Gọi các UC activity theo từng Unit khi MouseDown lable
+        public void UnitUCActivity(Unit unit, string Activity)//Gọi các UC activity theo từng Unit khi MouseDown lable
         {
             //Xóa UC cũ
             Global.Instance.WindowMain.grdUC_Activity.Children.Clear();
@@ -416,20 +381,6 @@ namespace GameLearnEnlish.UserControls
                                     break;
                                 }
                             case "lblActivity7":
-                                {
-                                    //Add uc vào main
-                                    UC_MultipleChoice UC_Activity = new UC_MultipleChoice(1);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity8":
-                                {
-                                    //Add uc vào main
-                                    UC_MultipleChoice UC_Activity = new UC_MultipleChoice(1);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity9":
                                 {
                                     //Add uc vào main
                                     UC_LookAndFind UC_Activity = new UC_LookAndFind(1);
@@ -493,20 +444,6 @@ namespace GameLearnEnlish.UserControls
                             case "lblActivity7":
                                 {
                                     //Add uc vào main
-                                    UC_MultipleChoice UC_Activity = new UC_MultipleChoice(2);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity8":
-                                {
-                                    //Add uc vào main
-                                    UC_MultipleChoice UC_Activity = new UC_MultipleChoice(2);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity9":
-                                {
-                                    //Add uc vào main
                                     UC_LookAndFind UC_Activity = new UC_LookAndFind(2);
                                     Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
                                     break;
@@ -565,20 +502,6 @@ namespace GameLearnEnlish.UserControls
                                     break;
                                 }
                             case "lblActivity7":
-                                {
-                                    //Add uc vào main
-                                    UC_MultipleChoice UC_Activity = new UC_MultipleChoice(3);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity8":
-                                {
-                                    //Add uc vào main
-                                    UC_MultipleChoice UC_Activity = new UC_MultipleChoice(3);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity9":
                                 {
                                     //Add uc vào main
                                     UC_LookAndFind UC_Activity = new UC_LookAndFind(3);
@@ -641,20 +564,6 @@ namespace GameLearnEnlish.UserControls
                             case "lblActivity7":
                                 {
                                     //Add uc vào main
-                                    UC_MultipleChoice UC_Activity = new UC_MultipleChoice(4);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity8":
-                                {
-                                    //Add uc vào main
-                                    UC_MultipleChoice UC_Activity = new UC_MultipleChoice(4);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity9":
-                                {
-                                    //Add uc vào main
                                     UC_LookAndFind UC_Activity = new UC_LookAndFind(4);
                                     Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
                                     break;
@@ -712,21 +621,7 @@ namespace GameLearnEnlish.UserControls
                                     Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
                                     break;
                                 }
-                            case "lblActivity7":
-                                {
-                                    //Add uc vào main
-                                    UC_MultipleChoice UC_Activity = new UC_MultipleChoice(5);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity8":
-                                {
-                                    //Add uc vào main
-                                    UC_MultipleChoice UC_Activity = new UC_MultipleChoice(5);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity9":
+                                case "lblActivity7":
                                 {
                                     //Add uc vào main
                                     UC_LookAndFind UC_Activity = new UC_LookAndFind(5);
@@ -789,20 +684,6 @@ namespace GameLearnEnlish.UserControls
                             case "lblActivity7":
                                 {
                                     //Add uc vào main
-                                    UC_MultipleChoice UC_Activity = new UC_MultipleChoice(6);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity8":
-                                {
-                                    //Add uc vào main
-                                    UC_MultipleChoice UC_Activity = new UC_MultipleChoice(6);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity9":
-                                {
-                                    //Add uc vào main
                                     UC_LookAndFind UC_Activity = new UC_LookAndFind(6);
                                     Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
                                     break;
@@ -861,20 +742,6 @@ namespace GameLearnEnlish.UserControls
                                     break;
                                 }
                             case "lblActivity7":
-                                {
-                                    //Add uc vào main
-                                    UC_MultipleChoice UC_Activity = new UC_MultipleChoice(7);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity8":
-                                {
-                                    //Add uc vào main
-                                    UC_MultipleChoice UC_Activity = new UC_MultipleChoice(7);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity9":
                                 {
                                     //Add uc vào main
                                     UC_LookAndFind UC_Activity = new UC_LookAndFind(7);
@@ -937,20 +804,6 @@ namespace GameLearnEnlish.UserControls
                             case "lblActivity7":
                                 {
                                     //Add uc vào main
-                                    UC_MultipleChoice UC_Activity = new UC_MultipleChoice(8);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity8":
-                                {
-                                    //Add uc vào main
-                                    UC_MultipleChoice UC_Activity = new UC_MultipleChoice(8);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity9":
-                                {
-                                    //Add uc vào main
                                     UC_LookAndFind UC_Activity = new UC_LookAndFind(8);
                                     Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
                                     break;
@@ -996,55 +849,49 @@ namespace GameLearnEnlish.UserControls
                     {
                         case "lblActivity1":
                             {
-
+                                Global.Instance.indexSelectActivity = 1;//Set index chọn lable activity
                                 CallChangeActivity(nameTbl.Name, ButtonSelect);// Đổi placard theo unit 
                                 UnitUCActivity(Global.Instance.UnitSelect, nameTbl.Name);//Gọi các UC activity của từng Unit
                                 break;
                             }
                         case "lblActivity2":
                             {
+                                Global.Instance.indexSelectActivity = 2;//Set index chọn lable activity
                                 CallChangeActivity(nameTbl.Name, ButtonSelect);// Đổi placard theo unit 
                                 UnitUCActivity(Global.Instance.UnitSelect, nameTbl.Name);//Gọi các UC activity của từng Unit
                                 break;
                             }
                         case "lblActivity3":
                             {
+                                Global.Instance.indexSelectActivity = 3;//Set index chọn lable activity
                                 CallChangeActivity(nameTbl.Name, ButtonSelect);// Đổi placard theo unit 
                                 UnitUCActivity(Global.Instance.UnitSelect, nameTbl.Name);//Gọi các UC activity của từng Unit
                                 break;
                             }
                         case "lblActivity4":
                             {
+                                Global.Instance.indexSelectActivity = 4;//Set index chọn lable activity
                                 CallChangeActivity(nameTbl.Name, ButtonSelect);// Đổi placard theo unit 
                                 UnitUCActivity(Global.Instance.UnitSelect, nameTbl.Name);//Gọi các UC activity của từng Unit
                                 break;
                             }
                         case "lblActivity5":
                             {
+                                Global.Instance.indexSelectActivity = 5;//Set index chọn lable activity
                                 CallChangeActivity(nameTbl.Name, ButtonSelect);// Đổi placard theo unit 
                                 UnitUCActivity(Global.Instance.UnitSelect, nameTbl.Name);//Gọi các UC activity của từng Unit
                                 break;
                             }
                         case "lblActivity6":
                             {
+                                Global.Instance.indexSelectActivity = 6;//Set index chọn lable activity
                                 CallChangeActivity(nameTbl.Name, ButtonSelect);// Đổi placard theo unit 
                                 UnitUCActivity(Global.Instance.UnitSelect, nameTbl.Name);//Gọi các UC activity của từng Unit
                                 break;
                             }
                         case "lblActivity7":
                             {
-                                CallChangeActivity(nameTbl.Name, ButtonSelect);// Đổi placard theo unit 
-                                UnitUCActivity(Global.Instance.UnitSelect, nameTbl.Name);//Gọi các UC activity của từng Unit
-                                break;
-                            }
-                        case "lblActivity8":
-                            {
-                                CallChangeActivity(nameTbl.Name, ButtonSelect);// Đổi placard theo unit 
-                                UnitUCActivity(Global.Instance.UnitSelect, nameTbl.Name);//Gọi các UC activity của từng Unit
-                                break;
-                            }
-                        case "lblActivity9":
-                            {
+                                Global.Instance.indexSelectActivity = 7;//Set index chọn lable activity
                                 CallChangeActivity(nameTbl.Name, ButtonSelect);// Đổi placard theo unit 
                                 UnitUCActivity(Global.Instance.UnitSelect, nameTbl.Name);//Gọi các UC activity của từng Unit
                                 break;

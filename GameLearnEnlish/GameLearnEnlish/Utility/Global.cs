@@ -26,13 +26,6 @@ namespace GameLearnEnlish.Utility
         public  MainWindow WindowMain;
         public  SelectElementUC ButtonMenuSelect;
         public  Unit UnitSelect;
-        //public void StopVoid()
-        //{
-        //    HomeUC.homeUC.StopVoid();
-        //    MenuUC.menuUC.StopVoid();
-        //    BoxSubMenuUC.boxSubMenuUC.StopVoid();
-        //    UC_Matching.uC_Matching.StopVoid();
-        //    UC_Description.uC_Description.StopVoid();
-        //}
+        public int indexSelectActivity = 1;
     }
 }

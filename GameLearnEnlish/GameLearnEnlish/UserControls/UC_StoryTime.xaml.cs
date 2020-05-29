@@ -502,7 +502,7 @@ namespace GameLearnEnlish.UserControls
                         x.FontWeight = FontWeights.Bold;
                         indexLabel++;
                         x.Content = s + " ";
-                        x.FontSize = 20;
+                        x.FontSize = 25;
 
                         x.MouseDown += X_MouseDown;
                         x.MouseEnter += X_MouseEnter;
@@ -559,7 +559,7 @@ namespace GameLearnEnlish.UserControls
                             Label x = new Label();
                             x.Name = "lb" + indexLabel;
                             indexLabel++;
-                            x.FontSize = 20;
+                            x.FontSize = 25;
                             x.FontWeight = FontWeights.Bold;
                             x.Content = s2 + " ";
                             x.MouseDown += X_MouseDown;

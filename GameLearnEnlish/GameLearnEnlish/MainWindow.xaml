@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:GameLearnEnlish"
         xmlns:us="clr-namespace:GameLearnEnlish.UserControls"
         mc:Ignorable="d"
-        Title="MainWindow"  Height="768" Width="1366" ResizeMode="NoResize" WindowStyle="None">
+        Title="MainWindow"  Height="768" Width="1366" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" HorizontalAlignment="Center" VerticalAlignment="Center">
 
     <!--WindowState="Maximized"-->
     <Window.Triggers>

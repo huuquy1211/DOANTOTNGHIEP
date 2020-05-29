@@ -96,24 +96,6 @@ namespace GameLearnEnlish.UserControls
                         case "lblActivity7":
                             {
 
-                                lblActivity.Content = "Sequence";
-                                Uri uri = new Uri(@"\media\textures\global\actv7a.png", UriKind.Relative);
-                                imgActv.Source = new BitmapImage(uri);
-                                HomeUC.homeUC.HiddenMenu();
-                                break;
-                            }
-                        case "lblActivity8":
-                            {
-
-                                lblActivity.Content = "Drag and Drop";
-                                Uri uri = new Uri(@"\media\textures\global\actv8a.png", UriKind.Relative);
-                                imgActv.Source = new BitmapImage(uri);
-                                HomeUC.homeUC.HiddenMenu();
-                                break;
-                            }
-                        case "lblActivity9":
-                            {
-
                                 lblActivity.Content = "Look and Find";
                                 Uri uri = new Uri(@"\media\textures\global\actv7a.png", UriKind.Relative);
                                 imgActv.Source = new BitmapImage(uri);
