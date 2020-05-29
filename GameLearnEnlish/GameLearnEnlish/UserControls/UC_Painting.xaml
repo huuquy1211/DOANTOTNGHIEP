@@ -4,64 +4,78 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GameLearnEnlish.UserControls"
+             xmlns:gif ="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
              mc:Ignorable="d" 
            >
-    <Canvas x:Name="Main" Width="650" Height="500" IsEnabled="False" Opacity="0.4">
-        <Grid Width="70" Canvas.Left="296" Canvas.Top="23">
-            <Image Source="..\media\textures\painting\play.png">
-                <Image.Effect>
-                    <DropShadowEffect Direction="-40" Color="#FFB6C2CB" ShadowDepth="5" BlurRadius="10"/>
-                </Image.Effect>
-            </Image>
-        </Grid>
+    <Grid>
+        <Canvas x:Name="Main" Width="650" Height="500" IsEnabled="False" Opacity="0.4">
+            <Grid Width="70" Canvas.Left="296" Canvas.Top="23">
+                <Image Source="..\media\textures\painting\play.png">
+                    <Image.Effect>
+                        <DropShadowEffect Direction="-40" Color="#FFB6C2CB" ShadowDepth="5" BlurRadius="10"/>
+                    </Image.Effect>
+                </Image>
+            </Grid>
 
-        <Grid x:Name="GridPic1" Width="120" Canvas.Left="60" Canvas.Top="120">
-            <Image x:Name="Pic1" Source="..\media\textures\painting\act1\img1.png">
-                <Image.Effect>
-                    <DropShadowEffect Direction="-40" Color="#FFB6C2CB" ShadowDepth="5" BlurRadius="10"/>
-                </Image.Effect>
-            </Image>
-        </Grid>
-        <Grid x:Name="GridPic2" Width="120" Canvas.Left="270" Canvas.Top="120">
-            <Image  x:Name="Pic2" Source="..\media\textures\painting\act1\img1.png">
-                <Image.Effect>
-                    <DropShadowEffect Direction="-40" Color="#FFB6C2CB" ShadowDepth="5" BlurRadius="10"/>
-                </Image.Effect>
-            </Image>
-        </Grid>
-        <Grid x:Name="GridPic3" Width="120" Canvas.Left="470" Canvas.Top="120">
-            <Image  x:Name="Pic3"  Source="..\media\textures\painting\act1\img1.png">
-                <Image.Effect>
-                    <DropShadowEffect Direction="-40" Color="#FFB6C2CB" ShadowDepth="5" BlurRadius="10"/>
-                </Image.Effect>
-            </Image>
-        </Grid>
+            <Grid x:Name="GridPic1" Width="120" Canvas.Left="60" Canvas.Top="120">
+                <Image x:Name="PicBG1" Source="..\media\textures\painting\act1\img1.png">
+                    <Image.Effect>
+                        <DropShadowEffect Direction="-40" Color="#FFB6C2CB" ShadowDepth="5" BlurRadius="10"/>
+                    </Image.Effect>
+                </Image>
+                <Image  x:Name="Pic1" Opacity="0" Source="..\media\textures\painting\act1\img1.png"/>
 
-        <Image Source="..\media\textures\painting\foreground.png" Width="600" Canvas.Left="24" Canvas.Top="420"></Image>
+                <Image x:Name="Gif1" Stretch="Fill"  Visibility="Hidden" gif:AnimationBehavior.SourceUri="..\media\textures\saosang.gif"   ></Image>
 
-        <Grid Width="100"  Canvas.Left="{Binding XPosition1}" Canvas.Top="{Binding YPosition1}" Name="GridColor1">
-            <Image x:Name="Image1" MouseDown="Feast_MouseDown" MouseMove="Feast_MouseMove" MouseUp="Feast_MouseUp" Source="..\media\textures\painting\act1\pot_red.png"></Image>
-        </Grid>
-        <Grid Width="100"  Canvas.Left="{Binding XPosition2}" Canvas.Top="{Binding YPosition2}" Name="GridColor2">
-            <Image x:Name="Image2" MouseDown="Feast_MouseDown" MouseUp="Feast_MouseUp" MouseMove="Feast_MouseMove" Source="..\media\textures\painting\act1\pot_yellow.png">
-                <Image.Effect>
-                    <DropShadowEffect Direction="-40" Color="#FFB6C2CB" ShadowDepth="5" BlurRadius="10"/>
-                </Image.Effect>
-            </Image>
-        </Grid>
-        <Grid Width="100"  Canvas.Left="{Binding XPosition3}" Canvas.Top="{Binding YPosition3}" Name="GridColor3">
-            <Image x:Name="Image3" MouseDown="Feast_MouseDown" MouseMove="Feast_MouseMove" MouseUp="Feast_MouseUp" Source="..\media\textures\painting\act1\pot_blue.png">
-                <Image.Effect>
-                    <DropShadowEffect Direction="-40" Color="#FFB6C2CB" ShadowDepth="5" BlurRadius="10"/>
-                </Image.Effect>
-            </Image>
-        </Grid>
-        <Grid Width="100"  Canvas.Left="{Binding XPosition4}" Canvas.Top="{Binding YPosition4}" Name="GridColor4">
-            <Image x:Name="Image4" MouseDown="Feast_MouseDown" MouseMove="Feast_MouseMove" MouseUp="Feast_MouseUp" Source="..\media\textures\painting\act1\pot_green.png">
-                <Image.Effect>
-                    <DropShadowEffect Direction="-40" Color="#FFB6C2CB" ShadowDepth="5" BlurRadius="10"/>
-                </Image.Effect>
-            </Image>
-        </Grid>
-    </Canvas>
+            </Grid>
+            <Grid x:Name="GridPic2" Width="120" Canvas.Left="270" Canvas.Top="120">
+                <Image  x:Name="PicBG2" Source="..\media\textures\painting\act1\img1.png">
+                    <Image.Effect>
+                        <DropShadowEffect Direction="-40" Color="#FFB6C2CB" ShadowDepth="5" BlurRadius="10"/>
+                    </Image.Effect>
+                </Image>
+                <Image  x:Name="Pic2" Opacity="0" Source="..\media\textures\painting\act1\img1.png"/>
+
+                <Image x:Name="Gif2" Stretch="Fill"  Visibility="Hidden" gif:AnimationBehavior.SourceUri="..\media\textures\saosang.gif"   ></Image>
+
+            </Grid>
+            <Grid x:Name="GridPic3" Width="120" Canvas.Left="470" Canvas.Top="120">
+                <Image  x:Name="PicBG3" Source="..\media\textures\painting\act1\img1.png">
+                    <Image.Effect>
+                        <DropShadowEffect Direction="-40" Color="#FFB6C2CB" ShadowDepth="5" BlurRadius="10"/>
+                    </Image.Effect>
+                </Image>
+                <Image  x:Name="Pic3" Opacity="0" Source="..\media\textures\painting\act1\img1.png"/>
+                <Image x:Name="Gif3" Stretch="Fill"  Visibility="Hidden" gif:AnimationBehavior.SourceUri="..\media\textures\saosang.gif"   ></Image>
+            </Grid>
+
+            <Image Source="..\media\textures\painting\foreground.png" Width="600" Canvas.Left="24" Canvas.Top="420"></Image>
+
+            <Grid Width="100"  Canvas.Left="{Binding XPosition1}" Canvas.Top="{Binding YPosition1}" Name="GridColor1">
+                <Image x:Name="Image1" MouseDown="Feast_MouseDown" MouseMove="Feast_MouseMove" MouseUp="Feast_MouseUp" Source="..\media\textures\painting\act1\pot_red.png"></Image>
+            </Grid>
+            <Grid Width="100"  Canvas.Left="{Binding XPosition2}" Canvas.Top="{Binding YPosition2}" Name="GridColor2">
+                <Image x:Name="Image2" MouseDown="Feast_MouseDown" MouseUp="Feast_MouseUp" MouseMove="Feast_MouseMove" Source="..\media\textures\painting\act1\pot_yellow.png">
+                    <Image.Effect>
+                        <DropShadowEffect Direction="-40" Color="#FFB6C2CB" ShadowDepth="5" BlurRadius="10"/>
+                    </Image.Effect>
+                </Image>
+            </Grid>
+            <Grid Width="100"  Canvas.Left="{Binding XPosition3}" Canvas.Top="{Binding YPosition3}" Name="GridColor3">
+                <Image x:Name="Image3" MouseDown="Feast_MouseDown" MouseMove="Feast_MouseMove" MouseUp="Feast_MouseUp" Source="..\media\textures\painting\act1\pot_blue.png">
+                    <Image.Effect>
+                        <DropShadowEffect Direction="-40" Color="#FFB6C2CB" ShadowDepth="5" BlurRadius="10"/>
+                    </Image.Effect>
+                </Image>
+            </Grid>
+            <Grid Width="100"  Canvas.Left="{Binding XPosition4}" Canvas.Top="{Binding YPosition4}" Name="GridColor4">
+                <Image x:Name="Image4" MouseDown="Feast_MouseDown" MouseMove="Feast_MouseMove" MouseUp="Feast_MouseUp" Source="..\media\textures\painting\act1\pot_green.png">
+                    <Image.Effect>
+                        <DropShadowEffect Direction="-40" Color="#FFB6C2CB" ShadowDepth="5" BlurRadius="10"/>
+                    </Image.Effect>
+                </Image>
+            </Grid>
+        </Canvas>
+        <Image x:Name="Votay" Visibility="Hidden" Stretch="Fill" Width="256" Height="256" gif:AnimationBehavior.SourceUri="..\media\textures\global\votay256x256.gif" ></Image>
+    </Grid>
 </UserControl>

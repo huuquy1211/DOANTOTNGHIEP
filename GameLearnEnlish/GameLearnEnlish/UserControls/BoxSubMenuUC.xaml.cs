@@ -90,7 +90,7 @@ namespace GameLearnEnlish.UserControls
             //{
             //    UC_Matching.uC_Matching.StopVoid();
             //}
-           
+
             if (MenuUC.menuUC != null)
             {
                 MenuUC.menuUC.StopVoid();
@@ -346,8 +346,6 @@ namespace GameLearnEnlish.UserControls
                                 }
                             case "lblActivity2":
                                 {
-                                    //Add uc vào main
-                                   
                                     UC_Matching UC_Activity = new UC_Matching(1);
                                     Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
                                     break;
@@ -819,12 +817,12 @@ namespace GameLearnEnlish.UserControls
                         {
                             case "lblActivity1":
                                 {
-                                    
+
                                     break;
                                 }
                             case "lblActivity2":
                                 {
-                                    
+
                                     break;
                                 }
                             default:

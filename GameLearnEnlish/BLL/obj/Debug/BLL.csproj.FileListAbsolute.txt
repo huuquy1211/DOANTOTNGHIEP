@@ -1,0 +1,17 @@
+C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\BLL\bin\Debug\BLL.dll.config
+C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\BLL\bin\Debug\BLL.dll
+C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\BLL\bin\Debug\BLL.pdb
+C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\BLL\bin\Debug\DAL.dll
+C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\BLL\bin\Debug\Data.dll
+C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\BLL\bin\Debug\EntityFramework.dll
+C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\BLL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\BLL\bin\Debug\DAL.pdb
+C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\BLL\bin\Debug\DAL.dll.config
+C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\BLL\bin\Debug\Data.pdb
+C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\BLL\bin\Debug\EntityFramework.xml
+C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\BLL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\BLL\obj\Debug\BLL.csproj.CopyComplete
+C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\BLL\obj\Debug\BLL.dll
+C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\BLL\obj\Debug\BLL.pdb

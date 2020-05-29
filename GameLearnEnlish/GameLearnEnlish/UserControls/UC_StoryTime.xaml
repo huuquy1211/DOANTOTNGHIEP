@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:GameLearnEnlish.UserControls"
              mc:Ignorable="d" 
              >
+
     <Grid x:Name="GridMain" IsEnabled="False" Opacity="0.4">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -45,11 +46,20 @@
                     <ColumnDefinition Width="2*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
+                
+                <Border x:Name="bor1" Padding="2 1 2 1" BorderThickness="5" Background="White" Width="50" Height="50" BorderBrush="Green" CornerRadius="8" Grid.Column="1" Grid.RowSpan="2" Margin="0 5 5 5">
+                    <Image x:Name="Image1" Width="auto" MouseDown="Image_MouseDown" Height="auto" Source="..\media\textures\matching\guyaudio.png" ></Image>
+                </Border>
+                <Border x:Name="bor2" Padding="2 1 2 1" BorderThickness="5" Background="White" Width="50" Height="50" BorderBrush="Green" CornerRadius="8" Grid.Column="2" Grid.RowSpan="2" Margin="0 5 5 5">
+                    <Image x:Name="Image2" Width="auto" MouseDown="Image_MouseDown" Height="auto"  Source="..\media\textures\matching\guyaudio.png" ></Image>
+                </Border>
 
-                <Image x:Name="Image1" Width="auto" Height="auto" Margin="0 5 5 5" Source="..\media\textures\matching\guyaudio.png" Grid.Column="1" Grid.RowSpan="2"></Image>
-                <Image x:Name="Image2" Width="auto" Height="auto" Margin="0 5 5 5" Source="..\media\textures\matching\guyaudio.png" Grid.Column="2" Grid.RowSpan="2"></Image>
-                <Image x:Name="Image3" Width="auto" Height="auto" Margin="0 5 5 5" Source="..\media\textures\matching\guyaudio.png" Grid.Column="3" Grid.RowSpan="2"></Image>
-                <Image x:Name="Image4" Width="auto" Height="auto" Margin="0 5 0 5" Source="..\media\textures\matching\guyaudio.png" Grid.Column="4" Grid.RowSpan="2"></Image>
+                <Border x:Name="bor3" Padding="2 1 2 1" BorderThickness="5" Background="White" Width="50" Height="50" BorderBrush="Green" CornerRadius="8"  Grid.Column="3" Grid.RowSpan="2" Margin="0 5 5 5">
+                    <Image x:Name="Image3" Width="auto" MouseDown="Image_MouseDown" Height="auto"  Source="..\media\textures\matching\guyaudio.png"></Image>
+                </Border>
+                <Border x:Name="bor4" Padding="2 1 2 1" BorderThickness="5" Background="White" Width="50" Height="50" BorderBrush="Green" CornerRadius="8"  Grid.Column="4" Grid.RowSpan="2"  Margin="0 5 0 5">
+                    <Image x:Name="Image4" Width="auto" MouseDown="Image_MouseDown" Height="auto" Source="..\media\textures\matching\guyaudio.png"></Image>
+                </Border>
             </Grid>
         </Grid>
 
@@ -59,14 +69,14 @@
                 <RowDefinition ></RowDefinition>
                 <RowDefinition Height="20"></RowDefinition>
             </Grid.RowDefinitions>
-            <Grid Margin="10 10 10 10" Grid.Row="1" Name="GridPanel">
-                <Grid.Background>
+            <Border Margin="10 10 10 10" Grid.Row="1" Name="GridPanel" Padding="0 30 0 0">
+                <Border.Background>
                     <ImageBrush ImageSource="..\media\textures\storytime\ST_text_box.png" Stretch="Fill"/>
-                </Grid.Background>
+                </Border.Background>
                 <Grid x:Name="CanvasString">
 
                 </Grid>
-            </Grid>
+            </Border>
         </Grid>
 
 

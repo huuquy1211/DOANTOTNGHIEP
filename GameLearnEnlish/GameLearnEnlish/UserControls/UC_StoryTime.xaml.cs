@@ -1,6 +1,10 @@
-﻿using System;
+﻿using BLL;
+using Data;
+using MaterialDesignThemes.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -24,17 +28,19 @@ namespace GameLearnEnlish.UserControls
     {
         private int Unit;
         int[] TimeChangePic;
-
-        string Path = @"..\..\media";
-        private string FullSound = "";
-        private MediaPlayer MediaFullSound = new MediaPlayer();
-        DispatcherTimer timer = new DispatcherTimer();
+        private List<Sentence> lstSentence = new List<Sentence>();
 
         private MediaPlayer mediaTitle = new MediaPlayer();
         private MediaPlayer mediaDescription = new MediaPlayer();
 
+        private List<MediaPlayer> mediaSoundWord = new List<MediaPlayer>();
+        private List<BitmapImage> bitmapImages = new List<BitmapImage>();
+        private List<string> lstText = new List<string>();
+
+
+
+
         private List<StackPanel> ListStack = new List<StackPanel>();
-        int[] TimeChangePanel;
 
         #region MediaBank
         MediaPlayer media_a = new MediaPlayer();
@@ -113,6 +119,25 @@ namespace GameLearnEnlish.UserControls
         public UC_StoryTime(int unit)
         {
             Unit = unit;
+            lstSentence = new SentenceBLL().GetSentencesOfUnit(Unit);
+
+            foreach (Sentence x in lstSentence)
+            {
+                bitmapImages.Add(new BitmapImage(new Uri(x.Image, UriKind.Relative)));
+                MediaPlayer media = new MediaPlayer();
+                media.Open(new Uri(x.Sound, UriKind.Relative));
+                mediaSoundWord.Add(media);
+                lstText.Add(x.Text.Trim());
+            }
+
+            if (mediaSoundWord.Count == 4)
+            {
+                mediaSoundWord[0].MediaEnded += UC_StoryTime_MediaEnded;
+                mediaSoundWord[1].MediaEnded += UC_StoryTime_MediaEnded1;
+                mediaSoundWord[2].MediaEnded += UC_StoryTime_MediaEnded2;
+                mediaSoundWord[3].MediaEnded += UC_StoryTime_MediaEnded3;
+            }
+
             mediaTitle.Open(new Uri(@"..\..\media\audio\storytime\title.mp3", UriKind.Relative));
             mediaTitle.MediaEnded += MediaTitle_MediaEnded;
             mediaDescription.Open(new Uri(@"..\..\media\audio\storytime\description.mp3", UriKind.Relative));
@@ -120,12 +145,61 @@ namespace GameLearnEnlish.UserControls
 
             InitializeComponent();
 
+            BigImage.Source = bitmapImages[0];
+
             mediaTitle.Play();
-
-
-
             CreateMedia();
-            CreateUnit();
+            CreateLabel(lstText);
+
+        }
+        private bool isFullVoidClick = true;
+        private void UC_StoryTime_MediaEnded3(object sender, EventArgs e)
+        {
+            mediaSoundWord[3].Stop();
+            ChangePicShowing(1);
+            GridPanel.IsEnabled = true;
+
+            if (!isFullVoidClick)
+            {
+                GridPanel.IsEnabled = false;
+                return;
+            }
+        }
+
+        private void UC_StoryTime_MediaEnded2(object sender, EventArgs e)
+        {
+            mediaSoundWord[2].Stop();
+            if (!isFullVoidClick)
+            {
+                GridPanel.IsEnabled = false;
+                return;
+            }
+            mediaSoundWord[3].Play();
+            ChangePicShowing(4);
+        }
+
+        private void UC_StoryTime_MediaEnded1(object sender, EventArgs e)
+        {
+            mediaSoundWord[1].Stop();
+            if (!isFullVoidClick)
+            {
+                GridPanel.IsEnabled = false;
+                return;
+            }
+            mediaSoundWord[2].Play();
+            ChangePicShowing(3);
+        }
+
+        private void UC_StoryTime_MediaEnded(object sender, EventArgs e)
+        {
+            mediaSoundWord[0].Stop();
+            if (!isFullVoidClick)
+            {
+                GridPanel.IsEnabled = false;
+                return;
+            }
+            mediaSoundWord[1].Play();
+            ChangePicShowing(2);
 
         }
 
@@ -141,77 +215,8 @@ namespace GameLearnEnlish.UserControls
             mediaDescription.Play();
         }
 
-        public void CreateUnit()
-        {
-            switch (Unit)
-            {
-                case 1:
-                    {
-                        TimeChangePic = new int[] { 0, 4, 8, 13 };
-                        TimeChangePanel = new int[] { 0, 4, 8, 13 };
-                        CreateLabel(new List<string> { "School Days", "-What is this?", "-It is a puppet.", "-Oh! It's a puppet." });
-                    }
-                    break;
-                case 2:
-                    {
-                        TimeChangePic = new int[] { 0, 11, 15, 19 };
-                        TimeChangePanel = new int[] { 0, 5, 8, 11, 15, 19 };
-                        CreateLabel(new List<string> { "What Is This?", "-What is this?@-It is a square.", "-They are Circles.", "-They are Circles.", "-It is a face!" });
-                    }
-                    break;
-                case 3:
-                    {
-                        TimeChangePic = new int[] { 0, 8, 13, 18 };
-                        TimeChangePanel = new int[] { 0, 4, 8, 10, 13, 15, 18 };
-                        CreateLabel(new List<string> { "My Family", "-This is my mother.", "-This is my sister.@-Hello!", "-This is my brother.@-What?", "-Hi!" });
-                    }
-                    break;
-                case 4:
-                    {
-                        TimeChangePic = new int[] { 0, 11, 16, 22 };
-                        TimeChangePanel = new int[] { 0, 4, 7, 11, 12, 16, 18, 22 };
-                        CreateLabel(new List<string> { "Dollhouse", "-I want dolls.@-Let find dolls.", "-Look!@-Yay!", "-This is the mother.@-I want a doll family!", "-We have BIG baby dolls!" });
-                    }
-                    break;
-                case 5:
-                    {
-                        TimeChangePic = new int[] { 0, 8, 12, 16 };
-                        TimeChangePanel = new int[] { 0, 4, 8, 12, 15, };
-                        CreateLabel(new List<string> { "A Surprise", "-I have milk.", "-I have carrots.", "-What do you have?", "-We have lunch and... a surprise!" });
-                    }
-                    break;
-                case 6:
-                    {
-                        TimeChangePic = new int[] { 0, 10, 16, 19 };
-                        TimeChangePanel = new int[] { 0, 4, 6, 11, 13, 17, 21 };
-                        CreateLabel(new List<string> { "Let's Play", "-Let's play.@-Yes! Yes!", "-I want it!@-No! I want it!", "-Look at you!", "-I want a picture, please!" });
-                    }
-                    break;
-                case 7:
-                    {
-                        TimeChangePic = new int[] { 0, 10, 13, 19 };
-                        TimeChangePanel = new int[] { 0, 3, 6, 9, 13, 19 };
-                        CreateLabel(new List<string> { "Where's Lucy?", "-Where's Lucy?@-I don't know.", "-I see a crayon.", "-I see a fish, but where's Lucy?.", "-I see Lucy. I see her new puppies, too!" });
-                    }
-                    break;
-                case 8:
-                    {
-                        TimeChangePic = new int[] { 0, 7, 11, 14 };
-                        TimeChangePanel = new int[] { 0, 3, 6, 11, 14 };
-                        CreateLabel(new List<string> { "Hospital", "-I see one doctor.", "-I see two nurses.", "-I see...", "-One, two, three balloons!" });
-                    }
-                    break;
-            }
-        }
         public void CreateMedia()
         {
-            FullSound = Path + @"\audio\storytime\act" + Unit + @"\fullsound.mp3";
-            MediaFullSound.Open(new Uri(FullSound, UriKind.Relative));
-            MediaFullSound.MediaEnded += MediaFullSound_MediaEnded;
-            MediaFullSound.Play();
-            MediaFullSound.Stop();
-
-
             #region MediaBank
             media_a.Open(new Uri(@"..\..\media\audio\storytime\audiobank\a.mp3", UriKind.Relative));
             media_and.Open(new Uri(@"..\..\media\audio\storytime\audiobank\and.mp3", UriKind.Relative));
@@ -351,15 +356,11 @@ namespace GameLearnEnlish.UserControls
             media_you.MediaEnded += Media_a_MediaEnded;
             #endregion
 
-            //timer
-            timer.Interval = TimeSpan.FromMilliseconds(100);
-            timer.Tick += Timer_Tick;
-
             //pic
-            Image1.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb01_BW.png", UriKind.Relative));
-            Image2.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb02_BW.png", UriKind.Relative));
-            Image3.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb03_BW.png", UriKind.Relative));
-            Image4.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb04_BW.png", UriKind.Relative));
+            Image1.Source = bitmapImages[0];
+            Image2.Source = bitmapImages[1];
+            Image3.Source = bitmapImages[2];
+            Image4.Source = bitmapImages[3];
         }
 
         private void Media_a_MediaEnded(object sender, EventArgs e)
@@ -368,107 +369,12 @@ namespace GameLearnEnlish.UserControls
             media.Stop();
         }
 
-        private void MediaFullSound_MediaEnded(object sender, EventArgs e)
-        {
-            GridPanel.IsEnabled = true;
-
-            Image1.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb01_BW.png", UriKind.Relative));
-            Image2.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb02_BW.png", UriKind.Relative));
-            Image3.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb03_BW.png", UriKind.Relative));
-            Image4.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb04_BW.png", UriKind.Relative));
-            BigImage.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\img1.png", UriKind.Relative));
-            MediaFullSound.Stop();
-            timer.Stop();
-
-            foreach (Label x in ListStack.Last().Children)
-            {
-                x.Foreground = Brushes.Black;
-            }
-        }
-
-        private void Timer_Tick(object sender, EventArgs e)
-        {
-            if (MediaFullSound.Source != null)
-            {
-                Timer.Content = MediaFullSound.Position.Seconds.ToString();
-                int a = int.Parse(Timer.Content.ToString().Trim());
-                for (int i = 0; i < 4; i++)
-                {
-                    if (TimeChangePic[i] == a)
-                    {
-                        switch (i)
-                        {
-                            case 0:
-                                {
-                                    Image1.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb01.png", UriKind.Relative));
-                                    Image2.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb02_BW.png", UriKind.Relative));
-                                    Image3.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb03_BW.png", UriKind.Relative));
-                                    Image4.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb04_BW.png", UriKind.Relative));
-                                    BigImage.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\img1.png", UriKind.Relative));
-                                }
-                                break;
-                            case 1:
-                                {
-                                    Image1.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb01_BW.png", UriKind.Relative));
-                                    Image2.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb02.png", UriKind.Relative));
-                                    Image3.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb03_BW.png", UriKind.Relative));
-                                    Image4.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb04_BW.png", UriKind.Relative));
-                                    BigImage.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\img2.png", UriKind.Relative));
-                                }
-                                break;
-                            case 2:
-                                {
-                                    Image1.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb01_BW.png", UriKind.Relative));
-                                    Image2.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb02_BW.png", UriKind.Relative));
-                                    Image3.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb03.png", UriKind.Relative));
-                                    Image4.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb04_BW.png", UriKind.Relative));
-                                    BigImage.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\img3.png", UriKind.Relative));
-                                }
-                                break;
-                            case 3:
-                                {
-                                    Image1.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb01_BW.png", UriKind.Relative));
-                                    Image2.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb02_BW.png", UriKind.Relative));
-                                    Image3.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb03_BW.png", UriKind.Relative));
-                                    Image4.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\st_thumb04.png", UriKind.Relative));
-                                    BigImage.Source = new BitmapImage(new Uri(@"..\..\media\textures\storytime\act" + Unit + @"\img4.png", UriKind.Relative));
-                                }
-                                break;
-                        }
-                    }
-                }
-                for (int i = 0; i < ListStack.Count(); i++)
-                {
-                    if (TimeChangePanel[i] == a)
-                    {
-                        if (i != 0)
-                        {
-                            foreach (Label x in ListStack[i - 1].Children)
-                            {
-                                x.Foreground = Brushes.Black;
-                            }
-                        }
-
-                        foreach (Label x in ListStack[i].Children)
-                        {
-                            x.Foreground = Brushes.Red;
-                        }
-
-                    }
-                }
-
-            }
-            else
-                Timer.Content = "-1";
-        }
-
         public void CreateLabel(List<string> lst)
         {
 
             StackPanel stackMain = new StackPanel();
             stackMain.Orientation = Orientation.Vertical;
             CanvasString.Children.Add(stackMain);
-            int IndexStack = 0;
             int indexLabel = 0;
             foreach (string ls in lst)
             {
@@ -477,8 +383,8 @@ namespace GameLearnEnlish.UserControls
                 stack.Orientation = Orientation.Horizontal;
 
                 Thickness margin = stack.Margin;
-                margin.Top = 20;
-                margin.Left = 20;
+                margin.Top = 0;
+                margin.Left = 10;
                 stack.Margin = margin;
 
                 if (str.IndexOf("@") == -1)//khong co xuong hang
@@ -533,8 +439,8 @@ namespace GameLearnEnlish.UserControls
                     StackPanel moreStack = new StackPanel(); //stPic
                     moreStack.Orientation = Orientation.Vertical;
                     Thickness margin2 = stack.Margin;
-                    margin2.Top = 20;
-                    margin2.Left = 20;
+                    margin2.Top = 0;
+                    margin2.Left = 10;
                     moreStack.Margin = margin;
 
                     foreach (string l in listString)
@@ -1021,11 +927,177 @@ namespace GameLearnEnlish.UserControls
 
         private void ImageVoid_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
-            MediaFullSound.Play();
-            timer.Start();
-
+            StopAllMedia();
+            isFullVoidClick = true;
+            mediaSoundWord[0].Play();
+            ChangePicShowing(1);
             GridPanel.IsEnabled = false;
+        }
+
+        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Image img = sender as Image;
+            isFullVoidClick = false;
+            StopAllMedia();
+            switch (img.Name)
+            {
+                case "Image1":
+                    {
+                       
+                        ChangePicShowing(1);
+                        mediaSoundWord[0].Play();
+
+                    }
+                    break;
+                case "Image2":
+                    {
+                       
+                        ChangePicShowing(2);
+                        mediaSoundWord[1].Play();
+                    }
+                    break;
+                case "Image3":
+                    {
+                     
+                        ChangePicShowing(3);
+                        mediaSoundWord[2].Play();
+                    }
+                    break;
+                case "Image4":
+                    {
+                        
+                        ChangePicShowing(4);
+                        mediaSoundWord[3].Play();
+                    }
+                    break;
+            }
+        }
+
+        public void ChangePicShowing(int index)
+        {
+            Image1.Opacity = 0.5;
+            Image2.Opacity = 0.5;
+            Image3.Opacity = 0.5;
+            Image4.Opacity = 0.5;
+
+            BigImage.Source = bitmapImages[0];
+
+            bor1.BorderBrush = Brushes.Green;
+            bor2.BorderBrush = Brushes.Green;
+            bor3.BorderBrush = Brushes.Green;
+            bor4.BorderBrush = Brushes.Green;
+
+            switch (index)
+            {
+                case 1:
+                    {
+                        Image1.Opacity = 1;
+                        BigImage.Source = bitmapImages[0];
+                        bor1.BorderBrush = Brushes.Red;
+                    }
+                    break;
+                case 2:
+                    {
+                        Image2.Opacity = 1;
+                        BigImage.Source = bitmapImages[1];
+                        bor2.BorderBrush = Brushes.Red;
+                    }
+                    break;
+                case 3:
+                    {
+                        Image3.Opacity = 1;
+                        BigImage.Source = bitmapImages[2];
+                        bor3.BorderBrush = Brushes.Red;
+                    }
+                    break;
+                case 4:
+                    {
+                        Image4.Opacity = 1;
+                        BigImage.Source = bitmapImages[3];
+                        bor4.BorderBrush = Brushes.Red;
+                    }
+                    break;
+            }
+        }
+
+
+
+        public void StopAllMedia()
+        {
+            foreach (MediaPlayer x in mediaSoundWord)
+            {
+                x.Stop();
+            }
+
+            media_a.Stop();
+            media_and.Stop();
+            media_are.Stop();
+            media_at.Stop();
+            media_baby.Stop();
+            media_balloons.Stop();
+            media_big.Stop();
+            media_brother.Stop();
+            media_but.Stop();
+            media_carrots.Stop();
+            media_circles.Stop();
+            media_crayon.Stop();
+            media_days.Stop();
+            media_do.Stop();
+            media_doctor.Stop();
+            media_doll.Stop();
+            media_dollhouse.Stop();
+            media_dolls.Stop();
+            media_dont.Stop();
+            media_face.Stop();
+            media_family.Stop();
+            media_find.Stop();
+            media_fish.Stop();
+            media_have.Stop();
+            media_hello.Stop();
+            media_her.Stop();
+            media_hi.Stop();
+            media_hospital.Stop();
+            media_i.Stop();
+            media_is.Stop();
+            media_it.Stop();
+            media_its.Stop();
+            media_know.Stop();
+            media_lets.Stop();
+            media_look.Stop();
+            media_lucy.Stop();
+            media_lunch.Stop();
+            media_milk.Stop();
+            media_mother.Stop();
+            media_my.Stop();
+            media_new.Stop();
+            media_no.Stop();
+            media_nurses.Stop();
+            media_oh.Stop();
+            media_one.Stop();
+            media_picture.Stop();
+            media_play.Stop();
+            media_please.Stop();
+            media_puppet.Stop();
+            media_puppies.Stop();
+            media_school.Stop();
+            media_see.Stop();
+            media_sister.Stop();
+            media_square.Stop();
+            media_surprise.Stop();
+            media_the.Stop();
+            media_they.Stop();
+            media_this.Stop();
+            media_three.Stop();
+            media_too.Stop();
+            media_two.Stop();
+            media_want.Stop();
+            media_we.Stop();
+            media_what.Stop();
+            media_wheres.Stop();
+            media_yay.Stop();
+            media_yes.Stop();
+            media_you.Stop();
+
         }
     }
 }
