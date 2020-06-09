@@ -10,7 +10,7 @@
     <Grid x:Name="GridMain" IsEnabled="False" Opacity="0.4">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0">
@@ -32,12 +32,8 @@
             </Grid>
             <Grid x:Name="GridListImage" Grid.Row="1" Margin="0 20 0 0">
                 <Grid.Background>
-                    <ImageBrush ImageSource="..\media\textures\storytime\ST_scroll_back.png" Stretch="UniformToFill"/>
+                    <ImageBrush Opacity="0.8" ImageSource="..\media\textures\storytime\ST_scroll_back.png" Stretch="UniformToFill"/>
                 </Grid.Background>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="29*"/>
-                    <RowDefinition Height="6*"/>
-                </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="2*"></ColumnDefinition>
@@ -46,7 +42,10 @@
                     <ColumnDefinition Width="2*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                
+
+                <Image x:Name="ImagePre" Width="auto" MouseDown="Image_MouseDown" Height="auto" Source="..\media\textures\storytime\ST_scroll_left.png"  Grid.Column="0" Grid.RowSpan="2"></Image>
+
+
                 <Border x:Name="bor1" Padding="2 1 2 1" BorderThickness="5" Background="White" Width="50" Height="50" BorderBrush="Green" CornerRadius="8" Grid.Column="1" Grid.RowSpan="2" Margin="0 5 5 5">
                     <Image x:Name="Image1" Width="auto" MouseDown="Image_MouseDown" Height="auto" Source="..\media\textures\matching\guyaudio.png" ></Image>
                 </Border>
@@ -60,6 +59,8 @@
                 <Border x:Name="bor4" Padding="2 1 2 1" BorderThickness="5" Background="White" Width="50" Height="50" BorderBrush="Green" CornerRadius="8"  Grid.Column="4" Grid.RowSpan="2"  Margin="0 5 0 5">
                     <Image x:Name="Image4" Width="auto" MouseDown="Image_MouseDown" Height="auto" Source="..\media\textures\matching\guyaudio.png"></Image>
                 </Border>
+                <Image x:Name="ImageNext" Width="auto" MouseDown="Image_MouseDown" Height="auto" Source="..\media\textures\storytime\ST_scroll_left.png"  Grid.Column="5" Grid.RowSpan="2"></Image>
+
             </Grid>
         </Grid>
 

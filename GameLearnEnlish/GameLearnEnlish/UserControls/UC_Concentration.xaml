@@ -68,6 +68,7 @@
             </Grid>
         </Grid>
         <Image x:Name="Votay" Visibility="Hidden" Stretch="Fill" Width="256" Height="256" gif:AnimationBehavior.SourceUri="..\media\textures\global\votay256x256.gif"   ></Image>
+        <Image x:Name="ImageCorrect" Visibility="Hidden" Stretch="Fill"  Width="200" Height="200" Panel.ZIndex="100000" Source="..\media\textures\concentration\card_back.png"></Image>
     </Grid>
 
 </UserControl>

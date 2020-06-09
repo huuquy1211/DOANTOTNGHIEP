@@ -366,615 +366,68 @@ namespace GameLearnEnlish.UserControls
         {
             //Xóa UC cũ
             Global.Instance.WindowMain.grdUC_Activity.Children.Clear();
-            switch (unit)
+            switch (Activity)
             {
-                case Unit._unit1: //Nếu là unit 1
+                case "lblActivity1":
                     {
-                        switch (Activity)
-                        {
-                            case "lblActivity1":
-                                {
-                                    //Add uc vào main
-                                    UC_Concentration UC_Activity = new UC_Concentration(1);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity); //Gọi UC với đối số truyền vào là 1
-                                    break;
-                                }
-                            case "lblActivity2":
-                                {
-                                    UC_Matching UC_Activity = new UC_Matching(1);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity3":
-                                {
-                                    //Add uc vào main
-                                    UC_Sorting UC_Activity = new UC_Sorting(1);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity4":
-                                {
-                                    //Add uc vào main
-                                    UC_MultipleChoice UC_Activity = new UC_MultipleChoice(1);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity5":
-                                {
-                                    //Add uc vào main
-                                    UC_Painting UC_Activity = new UC_Painting(1);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity6":
-                                {
-                                    //Add uc vào main
-                                    UC_StoryTime UC_Activity = new UC_StoryTime(1);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity7":
-                                {
-                                    //Add uc vào main
-                                    UC_MultipleChoice UC_Activity = new UC_MultipleChoice(1);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity8":
-                                {
-                                    //Add uc vào main
-                                    UC_MultipleChoice UC_Activity = new UC_MultipleChoice(1);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity9":
-                                {
-                                    //Add uc vào main
-                                    UC_LookAndFind UC_Activity = new UC_LookAndFind(1);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            default:
-                                break;
-                        }
-
+                        //Add uc vào main
+                        UC_Concentration UC_Activity = new UC_Concentration((int)unit);
+                        Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity); //Gọi UC với đối số truyền vào là 1
                         break;
                     }
-                case Unit._unit2:
+                case "lblActivity2":
                     {
-
-                        switch (Activity)
-                        {
-                            case "lblActivity1":
-                                {
-                                    //Add uc vào main
-                                    UC_Concentration UC_Activity = new UC_Concentration(2);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity); //Gọi UC với đối số truyền vào là 1
-                                    break;
-                                }
-                            case "lblActivity2":
-                                {
-                                    //Add uc vào main
-
-                                    UC_Matching UC_Activity = new UC_Matching(2);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity3":
-                                {
-                                    //Add uc vào main
-                                    UC_Sorting UC_Activity = new UC_Sorting(2);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity4":
-                                {
-                                    //Add uc vào main
-                                    UC_MultipleChoice UC_Activity = new UC_MultipleChoice(2);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity5":
-                                {
-                                    //Add uc vào main
-                                    UC_Painting UC_Activity = new UC_Painting(2);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity6":
-                                {
-                                    //Add uc vào main
-                                    UC_StoryTime UC_Activity = new UC_StoryTime(2);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity7":
-                                {
-                                    //Add uc vào main
-                                    UC_MultipleChoice UC_Activity = new UC_MultipleChoice(2);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity8":
-                                {
-                                    //Add uc vào main
-                                    UC_MultipleChoice UC_Activity = new UC_MultipleChoice(2);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity9":
-                                {
-                                    //Add uc vào main
-                                    UC_LookAndFind UC_Activity = new UC_LookAndFind(2);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            default:
-                                break;
-                        }
+                        UC_Matching UC_Activity = new UC_Matching((int)unit);
+                        Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
                         break;
                     }
-                case Unit._unit3:
+                case "lblActivity3":
                     {
-
-                        switch (Activity)
-                        {
-                            case "lblActivity1":
-                                {
-                                    //Add uc vào main
-                                    UC_Concentration UC_Activity = new UC_Concentration(3);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity); //Gọi UC với đối số truyền vào là 1
-                                    break;
-                                }
-                            case "lblActivity2":
-                                {
-                                    //Add uc vào main
-
-                                    UC_Matching UC_Activity = new UC_Matching(3);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity3":
-                                {
-                                    //Add uc vào main
-                                    UC_Sorting UC_Activity = new UC_Sorting(3);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity4":
-                                {
-                                    //Add uc vào main
-                                    UC_MultipleChoice UC_Activity = new UC_MultipleChoice(3);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity5":
-                                {
-                                    //Add uc vào main
-                                    UC_Painting UC_Activity = new UC_Painting(3);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity6":
-                                {
-                                    //Add uc vào main
-                                    UC_StoryTime UC_Activity = new UC_StoryTime(3);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity7":
-                                {
-                                    //Add uc vào main
-                                    UC_MultipleChoice UC_Activity = new UC_MultipleChoice(3);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity8":
-                                {
-                                    //Add uc vào main
-                                    UC_MultipleChoice UC_Activity = new UC_MultipleChoice(3);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity9":
-                                {
-                                    //Add uc vào main
-                                    UC_LookAndFind UC_Activity = new UC_LookAndFind(3);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            default:
-                                break;
-                        }
+                        //Add uc vào main
+                        UC_Sorting UC_Activity = new UC_Sorting((int)unit);
+                        Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
                         break;
                     }
-                case Unit._unit4:
+                case "lblActivity4":
                     {
-
-                        switch (Activity)
-                        {
-                            case "lblActivity1":
-                                {
-                                    //Add uc vào main
-                                    UC_Concentration UC_Activity = new UC_Concentration(4);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity); //Gọi UC với đối số truyền vào là 1
-                                    break;
-                                }
-                            case "lblActivity2":
-                                {
-                                    //Add uc vào main
-
-                                    UC_Matching UC_Activity = new UC_Matching(4);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity3":
-                                {
-                                    //Add uc vào main
-                                    UC_Sorting UC_Activity = new UC_Sorting(4);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity4":
-                                {
-                                    //Add uc vào main
-                                    UC_MultipleChoice UC_Activity = new UC_MultipleChoice(4);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity5":
-                                {
-                                    //Add uc vào main
-                                    UC_Painting UC_Activity = new UC_Painting(4);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity6":
-                                {
-                                    //Add uc vào main
-                                    UC_StoryTime UC_Activity = new UC_StoryTime(4);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity7":
-                                {
-                                    //Add uc vào main
-                                    UC_MultipleChoice UC_Activity = new UC_MultipleChoice(4);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity8":
-                                {
-                                    //Add uc vào main
-                                    UC_MultipleChoice UC_Activity = new UC_MultipleChoice(4);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity9":
-                                {
-                                    //Add uc vào main
-                                    UC_LookAndFind UC_Activity = new UC_LookAndFind(4);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            default:
-                                break;
-                        }
+                        //Add uc vào main
+                        UC_MultipleChoice UC_Activity = new UC_MultipleChoice((int)unit);
+                        Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
                         break;
                     }
-                case Unit._unit5:
+                case "lblActivity5":
                     {
-
-                        switch (Activity)
-                        {
-                            case "lblActivity1":
-                                {
-                                    //Add uc vào main
-                                    UC_Concentration UC_Activity = new UC_Concentration(5);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity); //Gọi UC với đối số truyền vào là 1
-                                    break;
-                                }
-                            case "lblActivity2":
-                                {
-                                    //Add uc vào main
-
-                                    UC_Matching UC_Activity = new UC_Matching(5);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity3":
-                                {
-                                    //Add uc vào main
-                                    UC_Sorting UC_Activity = new UC_Sorting(5);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity4":
-                                {
-                                    //Add uc vào main
-                                    UC_MultipleChoice UC_Activity = new UC_MultipleChoice(5);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity5":
-                                {
-                                    //Add uc vào main
-                                    UC_Painting UC_Activity = new UC_Painting(5);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity6":
-                                {
-                                    //Add uc vào main
-                                    UC_StoryTime UC_Activity = new UC_StoryTime(5);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity7":
-                                {
-                                    //Add uc vào main
-                                    UC_MultipleChoice UC_Activity = new UC_MultipleChoice(5);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity8":
-                                {
-                                    //Add uc vào main
-                                    UC_MultipleChoice UC_Activity = new UC_MultipleChoice(5);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity9":
-                                {
-                                    //Add uc vào main
-                                    UC_LookAndFind UC_Activity = new UC_LookAndFind(5);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            default:
-                                break;
-                        }
+                        //Add uc vào main
+                        UC_Painting UC_Activity = new UC_Painting((int)unit);
+                        Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
                         break;
                     }
-                case Unit._unit6:
+                case "lblActivity6":
                     {
-
-                        switch (Activity)
-                        {
-                            case "lblActivity1":
-                                {
-                                    //Add uc vào main
-                                    UC_Concentration UC_Activity = new UC_Concentration(6);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity); //Gọi UC với đối số truyền vào là 1
-                                    break;
-                                }
-                            case "lblActivity2":
-                                {
-                                    //Add uc vào main
-
-                                    UC_Matching UC_Activity = new UC_Matching(6);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity3":
-                                {
-                                    //Add uc vào main
-                                    UC_Sorting UC_Activity = new UC_Sorting(6);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity4":
-                                {
-                                    //Add uc vào main
-                                    UC_MultipleChoice UC_Activity = new UC_MultipleChoice(6);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity5":
-                                {
-                                    //Add uc vào main
-                                    UC_Painting UC_Activity = new UC_Painting(6);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity6":
-                                {
-                                    //Add uc vào main
-                                    UC_StoryTime UC_Activity = new UC_StoryTime(6);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity7":
-                                {
-                                    //Add uc vào main
-                                    UC_MultipleChoice UC_Activity = new UC_MultipleChoice(6);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity8":
-                                {
-                                    //Add uc vào main
-                                    UC_MultipleChoice UC_Activity = new UC_MultipleChoice(6);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity9":
-                                {
-                                    //Add uc vào main
-                                    UC_LookAndFind UC_Activity = new UC_LookAndFind(6);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            default:
-                                break;
-                        }
+                        //Add uc vào main
+                        Story UC_Activity = new Story((int)unit);
+                        Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
                         break;
                     }
-                case Unit._unit7:
+                case "lblActivity7":
                     {
-
-                        switch (Activity)
-                        {
-                            case "lblActivity1":
-                                {
-                                    //Add uc vào main
-                                    UC_Concentration UC_Activity = new UC_Concentration(7);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity); //Gọi UC với đối số truyền vào là 1
-                                    break;
-                                }
-                            case "lblActivity2":
-                                {
-                                    //Add uc vào main
-
-                                    UC_Matching UC_Activity = new UC_Matching(7);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity3":
-                                {
-                                    //Add uc vào main
-                                    UC_Sorting UC_Activity = new UC_Sorting(7);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity4":
-                                {
-                                    //Add uc vào main
-                                    UC_MultipleChoice UC_Activity = new UC_MultipleChoice(7);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity5":
-                                {
-                                    //Add uc vào main
-                                    UC_Painting UC_Activity = new UC_Painting(7);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity6":
-                                {
-                                    //Add uc vào main
-                                    UC_StoryTime UC_Activity = new UC_StoryTime(7);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity7":
-                                {
-                                    //Add uc vào main
-                                    UC_MultipleChoice UC_Activity = new UC_MultipleChoice(7);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity8":
-                                {
-                                    //Add uc vào main
-                                    UC_MultipleChoice UC_Activity = new UC_MultipleChoice(7);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity9":
-                                {
-                                    //Add uc vào main
-                                    UC_LookAndFind UC_Activity = new UC_LookAndFind(7);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            default:
-                                break;
-                        }
+                        //Add uc vào main
+                        UC_MultipleChoice UC_Activity = new UC_MultipleChoice((int)unit);
+                        Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
                         break;
                     }
-                case Unit._unit8:
+                case "lblActivity8":
                     {
-
-                        switch (Activity)
-                        {
-                            case "lblActivity1":
-                                {
-                                    //Add uc vào main
-                                    UC_Concentration UC_Activity = new UC_Concentration(8);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity); //Gọi UC với đối số truyền vào là 1
-                                    break;
-                                }
-                            case "lblActivity2":
-                                {
-                                    //Add uc vào main
-
-                                    UC_Matching UC_Activity = new UC_Matching(8);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity3":
-                                {
-                                    //Add uc vào main
-                                    UC_Sorting UC_Activity = new UC_Sorting(8);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity4":
-                                {
-                                    //Add uc vào main
-                                    UC_MultipleChoice UC_Activity = new UC_MultipleChoice(8);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity5":
-                                {
-                                    //Add uc vào main
-                                    UC_Painting UC_Activity = new UC_Painting(8);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity6":
-                                {
-                                    //Add uc vào main
-                                    UC_StoryTime UC_Activity = new UC_StoryTime(8);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity7":
-                                {
-                                    //Add uc vào main
-                                    UC_MultipleChoice UC_Activity = new UC_MultipleChoice(8);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity8":
-                                {
-                                    //Add uc vào main
-                                    UC_MultipleChoice UC_Activity = new UC_MultipleChoice(8);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            case "lblActivity9":
-                                {
-                                    //Add uc vào main
-                                    UC_LookAndFind UC_Activity = new UC_LookAndFind(8);
-                                    Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
-                                    break;
-                                }
-                            default:
-                                break;
-                        }
+                        //Add uc vào main
+                        UC_MultipleChoice UC_Activity = new UC_MultipleChoice((int)unit);
+                        Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
                         break;
                     }
-                case Unit._AS:
+                case "lblActivity9":
                     {
-                        switch (Activity)
-                        {
-                            case "lblActivity1":
-                                {
-
-                                    break;
-                                }
-                            case "lblActivity2":
-                                {
-
-                                    break;
-                                }
-                            default:
-                                break;
-                        }
+                        //Add uc vào main
+                        UC_LookAndFind UC_Activity = new UC_LookAndFind((int)unit);
+                        Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
                         break;
                     }
                 default:
