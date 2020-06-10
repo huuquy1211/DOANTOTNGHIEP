@@ -27,7 +27,7 @@ namespace GameLearnEnlish.UserControls
     public partial class UC_StoryTime : UserControl
     {
         private int Unit;
-        int[] TimeChangePic;
+
         private List<Sentence> lstSentence = new List<Sentence>();
 
         private MediaPlayer mediaTitle = new MediaPlayer();
@@ -1019,9 +1019,6 @@ namespace GameLearnEnlish.UserControls
                     break;
             }
         }
-
-
-
         public void StopAllMedia()
         {
             foreach (MediaPlayer x in mediaSoundWord)
@@ -1099,5 +1096,9 @@ namespace GameLearnEnlish.UserControls
             media_you.Stop();
 
         }
+
+
+
+    
     }
 }

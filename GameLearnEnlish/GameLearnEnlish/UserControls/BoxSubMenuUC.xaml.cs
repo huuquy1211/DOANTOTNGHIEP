@@ -331,9 +331,9 @@ namespace GameLearnEnlish.UserControls
         {
             //Xóa UC cũ
             Global.Instance.WindowMain.grdUC_Activity.Children.Clear();
-            switch (unit)
+            switch (Activity)
             {
-                case Unit._unit1: //Nếu là unit 1
+                case "lblActivity1":
                     {
                         switch (Activity)
                         {
@@ -388,10 +388,9 @@ namespace GameLearnEnlish.UserControls
                             default:
                                 break;
                         }
-
                         break;
                     }
-                case Unit._unit2:
+                case "lblActivity2":
                     {
 
                         switch (Activity)
@@ -449,11 +448,11 @@ namespace GameLearnEnlish.UserControls
                             default:
                                 break;
                         }
+
                         break;
                     }
-                case Unit._unit3:
+                case "lblActivity3":
                     {
-
                         switch (Activity)
                         {
                             case "lblActivity1":
@@ -509,10 +508,12 @@ namespace GameLearnEnlish.UserControls
                             default:
                                 break;
                         }
+
                         break;
                     }
-                case Unit._unit4:
+                case "lblActivity4":
                     {
+
 
                         switch (Activity)
                         {
@@ -569,10 +570,12 @@ namespace GameLearnEnlish.UserControls
                             default:
                                 break;
                         }
+
                         break;
                     }
-                case Unit._unit5:
+                case "lblActivity5":
                     {
+
 
                         switch (Activity)
                         {
@@ -629,10 +632,12 @@ namespace GameLearnEnlish.UserControls
                             default:
                                 break;
                         }
+
                         break;
                     }
-                case Unit._unit6:
+                case "lblActivity6":
                     {
+
 
                         switch (Activity)
                         {
@@ -689,10 +694,12 @@ namespace GameLearnEnlish.UserControls
                             default:
                                 break;
                         }
+
                         break;
                     }
-                case Unit._unit7:
+                case "lblActivity7":
                     {
+
 
                         switch (Activity)
                         {
@@ -749,10 +756,12 @@ namespace GameLearnEnlish.UserControls
                             default:
                                 break;
                         }
+
                         break;
                     }
-                case Unit._unit8:
+                case "lblActivity8":
                     {
+
 
                         switch (Activity)
                         {
@@ -809,25 +818,14 @@ namespace GameLearnEnlish.UserControls
                             default:
                                 break;
                         }
+
                         break;
                     }
-                case Unit._AS:
+                case "lblActivity9":
                     {
-                        switch (Activity)
-                        {
-                            case "lblActivity1":
-                                {
-
-                                    break;
-                                }
-                            case "lblActivity2":
-                                {
-
-                                    break;
-                                }
-                            default:
-                                break;
-                        }
+                        //Add uc vào main
+                        UC_LookAndFind UC_Activity = new UC_LookAndFind((int)unit);
+                        Global.Instance.WindowMain.grdUC_Activity.Children.Add(UC_Activity);
                         break;
                     }
                 default:

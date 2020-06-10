@@ -75,6 +75,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+
+    <Compile Include="MediaBank.cs" />
+    <Compile Include="Model\AnswerModel.cs" />
+    <Compile Include="Model\MatchingModel.cs" />
+    <Compile Include="Model\QuestionModel.cs" />
+    <Compile Include="UserControls\Story.xaml.cs">
+      <DependentUpon>Story.xaml</DependentUpon>
+    </Compile>
+
     <Compile Include="UserControls\UC_Concentration.xaml.cs">
       <DependentUpon>UC_Concentration.xaml</DependentUpon>
     </Compile>
@@ -138,6 +147,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UserControls\Story.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\UC_Concentration.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -253,6 +266,43 @@
     <Folder Include="Model\" />
   </ItemGroup>
   <ItemGroup>
+
+    <Resource Include="Images\Animals\cat1.png" />
+    <Resource Include="Images\Animals\dog1.png" />
+    <Resource Include="Images\Animals\elephant1.png" />
+    <Resource Include="Images\Animals\fly1.png" />
+    <Resource Include="Images\Animals\giraffe1.png" />
+    <Resource Include="Images\Animals\horse1.png" />
+    <Resource Include="Images\Animals\pig1.png" />
+    <Resource Include="Images\Animals\sheep1.png" />
+    <Resource Include="Images\Animals\snake1.png" />
+    <Resource Include="Images\Animals\tiger1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\System\clothes1.png" />
+    <Resource Include="Images\System\computer1.png" />
+    <Resource Include="Images\System\jobs1.png" />
+    <Resource Include="Images\System\music1.png" />
+    <Resource Include="Images\System\nature1.png" />
+    <Resource Include="Images\System\photo1.png" />
+    <Resource Include="Images\System\playvideo1.png" />
+    <Resource Include="Images\System\sports1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\System\food1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\System\animal1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\System\play1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="backgroud.mp4" />
+    <Content Include="backgroud.wmv" />
+    <Resource Include="Images\DownArrow.png" />
+    <Resource Include="Images\UpArrow.png" />
+
     <Content Include="media\audio\concentration\act1\sound1.mp3" />
     <Content Include="media\audio\concentration\act1\sound2.mp3" />
     <Content Include="media\audio\concentration\act1\sound3.mp3" />
