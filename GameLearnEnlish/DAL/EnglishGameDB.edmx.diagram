@@ -4,13 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0d633844a3934cf3a4a00518de449292" Name="Diagram1">
-        <EntityTypeShape EntityType="EnglishGameModel.Sentence" Width="1.5" PointX="2.125" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EnglishGameModel.sysdiagram" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EnglishGameModel.Unit" Width="1.5" PointX="5" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EnglishGameModel.Word" Width="1.5" PointX="7.375" PointY="1" IsExpanded="true" />
+      <Diagram DiagramId="4c75e2d43d764b688739099343401982" Name="Diagram1">
+        <EntityTypeShape EntityType="EnglishGameModel.Sentence" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EnglishGameModel.Unit" Width="1.5" PointX="3.625" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EnglishGameModel.Word" Width="1.5" PointX="6.875" PointY="1.125" IsExpanded="true" />
         <AssociationConnector Association="EnglishGameModel.SentenceOfUnit" ManuallyRouted="false" />
         <AssociationConnector Association="EnglishGameModel.WordOfUnit" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="EnglishGameModel.LookAndFind" Width="1.5" PointX="5" PointY="4.25" />
+        <AssociationConnector Association="EnglishGameModel.LookAndFindOfUnit" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

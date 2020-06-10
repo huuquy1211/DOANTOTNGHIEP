@@ -1,41 +1,12 @@
-D:\STUDY\HOCTAP\HK_CUOI\GameLearnEnlish\GameLearnEnlish\bin\Debug\GameLearnEnlish.exe.config
-D:\STUDY\HOCTAP\HK_CUOI\GameLearnEnlish\GameLearnEnlish\bin\Debug\GameLearnEnlish.exe
-D:\STUDY\HOCTAP\HK_CUOI\GameLearnEnlish\GameLearnEnlish\bin\Debug\GameLearnEnlish.pdb
-D:\STUDY\HOCTAP\HK_CUOI\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish.csprojAssemblyReference.cache
-D:\STUDY\HOCTAP\HK_CUOI\GameLearnEnlish\GameLearnEnlish\obj\Debug\MainWindow.g.cs
-D:\STUDY\HOCTAP\HK_CUOI\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\HomUC.g.cs
-D:\STUDY\HOCTAP\HK_CUOI\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\MapUC.g.cs
-D:\STUDY\HOCTAP\HK_CUOI\GameLearnEnlish\GameLearnEnlish\obj\Debug\App.g.cs
-D:\STUDY\HOCTAP\HK_CUOI\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish_Content.g.cs
-D:\STUDY\HOCTAP\HK_CUOI\GameLearnEnlish\GameLearnEnlish\obj\Debug\GeneratedInternalTypeHelper.g.cs
-D:\STUDY\HOCTAP\HK_CUOI\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish_MarkupCompile.cache
-D:\STUDY\HOCTAP\HK_CUOI\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish_MarkupCompile.lref
-D:\STUDY\HOCTAP\HK_CUOI\GameLearnEnlish\GameLearnEnlish\obj\Debug\MainWindow.baml
-D:\STUDY\HOCTAP\HK_CUOI\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\HomUC.baml
-D:\STUDY\HOCTAP\HK_CUOI\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\MapUC.baml
-D:\STUDY\HOCTAP\HK_CUOI\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish.g.resources
-D:\STUDY\HOCTAP\HK_CUOI\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish.Properties.Resources.resources
-D:\STUDY\HOCTAP\HK_CUOI\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish.csproj.GenerateResource.cache
-D:\STUDY\HOCTAP\HK_CUOI\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish.exe
-D:\STUDY\HOCTAP\HK_CUOI\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish.pdb
-D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\GameLearnEnlish.exe
-D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\GameLearnEnlish.pdb
-D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\MaterialDesignThemes.Wpf.dll
-D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\GameLearnEnlish.exe.config
-D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\MaterialDesignColors.dll
-D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\MaterialDesignColors.pdb
-D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\MaterialDesignThemes.Wpf.pdb
-D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish.csprojAssemblyReference.cache
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\MainWindow.g.cs
-D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\UC_Concentration.g.cs
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\UC_Description.g.cs
-D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\UC_DragAndDrop.g.cs
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\UC_LookAndFind.g.cs
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\UC_Matching.g.cs
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\BackgroudOpacityUC.g.cs
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\Box_helpUC.g.cs
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\Exit_bg_boxUC.g.cs
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\HomeUC.g.cs
-D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\ImageMissonUC.g.cs
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\BoxSubMenuUC.g.cs
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\MenuUC.g.cs
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\Menu_GlobeUC.g.cs
@@ -44,98 +15,53 @@ D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\UC_StoryTime.g.cs
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\App.g.cs
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish_Content.g.cs
-D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish_MarkupCompile.cache
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish_MarkupCompile.lref
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\GameLearnEnlish.exe.config
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\GameLearnEnlish.exe
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\GameLearnEnlish.pdb
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\BLL.dll
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\Data.dll
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\EntityFramework.dll
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\EntityFramework.SqlServer.dll
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\MaterialDesignColors.dll
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\XamlAnimatedGif.dll
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\DAL.dll
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\BLL.pdb
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\BLL.dll.config
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\Data.pdb
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\EntityFramework.xml
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\EntityFramework.SqlServer.xml
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\MaterialDesignColors.pdb
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\DAL.pdb
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\DAL.dll.config
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\UC_Concentration.g.cs
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\UC_Painting.g.cs
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\UC_Sorting.g.cs
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\MainWindow.baml
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\UC_Concentration.baml
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\UC_Description.baml
-D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\UC_DragAndDrop.baml
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\UC_LookAndFind.baml
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\UC_Matching.baml
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\BackgroudOpacityUC.baml
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\Box_helpUC.baml
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\Exit_bg_boxUC.baml
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\HomeUC.baml
-D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\ImageMissonUC.baml
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\BoxSubMenuUC.baml
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\MenuUC.baml
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\Menu_GlobeUC.baml
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\PlacardUC.baml
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\UC_MultipleChoice.baml
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\UC_Painting.baml
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\UC_Sorting.baml
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\UC_StoryTime.baml
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish.g.resources
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish.Properties.Resources.resources
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish.csproj.GenerateResource.cache
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish.csproj.CoreCompileInputs.cache
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish.csproj.CopyComplete
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish.exe
 D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish.pdb
-D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish.csprojAssemblyReference.cache
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\GameLearnEnlish.exe
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\GameLearnEnlish.exe.config
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\GameLearnEnlish.pdb
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\MaterialDesignColors.dll
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\MaterialDesignThemes.Wpf.dll
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\XamlAnimatedGif.dll
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\MaterialDesignColors.pdb
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\MaterialDesignThemes.Wpf.pdb
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\MaterialDesignThemes.Wpf.xml
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\MainWindow.g.cs
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\UC_Concentration.g.cs
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\UC_Description.g.cs
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\UC_LookAndFind.g.cs
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\UC_Matching.g.cs
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\BackgroudOpacityUC.g.cs
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\Box_helpUC.g.cs
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\Exit_bg_boxUC.g.cs
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\HomeUC.g.cs
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\ImageMissonUC.g.cs
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\BoxSubMenuUC.g.cs
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\MenuUC.g.cs
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\Menu_GlobeUC.g.cs
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\PlacardUC.g.cs
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\UC_MultipleChoice.g.cs
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\UC_Painting.g.cs
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\UC_Sorting.g.cs
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\UC_StoryTime.g.cs
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\App.g.cs
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish_Content.g.cs
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish_MarkupCompile.cache
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish_MarkupCompile.lref
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\MainWindow.baml
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\UC_Concentration.baml
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\UC_Description.baml
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\UC_LookAndFind.baml
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\UC_Matching.baml
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\BackgroudOpacityUC.baml
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\Box_helpUC.baml
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\Exit_bg_boxUC.baml
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\HomeUC.baml
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\ImageMissonUC.baml
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\BoxSubMenuUC.baml
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\MenuUC.baml
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\Menu_GlobeUC.baml
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\PlacardUC.baml
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\UC_MultipleChoice.baml
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\UC_Painting.baml
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\UC_Sorting.baml
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\UserControls\UC_StoryTime.baml
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish.g.resources
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish.Properties.Resources.resources
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish.csproj.GenerateResource.cache
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish.csproj.CoreCompileInputs.cache
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish.csproj.CopyComplete
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish.exe
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish.pdb
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\obj\Debug\GameLearnEnlish.csprojAssemblyReference.cache
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\BLL.dll
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\Data.dll
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\DAL.dll
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\EntityFramework.dll
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\BLL.pdb
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\BLL.dll.config
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\Data.pdb
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\DAL.pdb
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\DAL.dll.config
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\EntityFramework.xml
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\GameLearnEnlish\bin\Debug\EntityFramework.SqlServer.xml

@@ -26,8 +26,8 @@ namespace DAL
         }
     
         public virtual DbSet<Sentence> Sentences { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Unit> Units { get; set; }
         public virtual DbSet<Word> Words { get; set; }
+        public virtual DbSet<LookAndFind> LookAndFinds { get; set; }
     }
 }

@@ -220,7 +220,7 @@ namespace GameLearnEnlish.UserControls
 
         private void imgbtnNext_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (Global.Instance.indexSelectActivity < 8)
+            if (Global.Instance.indexSelectActivity < 7)
             {
                 Task.Run(() =>
                 {
@@ -247,8 +247,6 @@ namespace GameLearnEnlish.UserControls
                         string nameTbl = "lblActivity" + Global.Instance.indexSelectActivity;
                         BoxSubMenuUC.boxSubMenuUC.CallChangeActivity(nameTbl, SelectElementUC._Bt_unit);
                         BoxSubMenuUC.boxSubMenuUC.UnitUCActivity(Global.Instance.UnitSelect, nameTbl);
-
-
                     });
                     Thread.Sleep(6000);
                 }).ContinueWith((task) =>

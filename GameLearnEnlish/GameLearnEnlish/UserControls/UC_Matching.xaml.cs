@@ -1,4 +1,5 @@
-﻿using GameLearnEnlish.Model;
+﻿using BLL;
+using GameLearnEnlish.Model;
 using GameLearnEnlish.Utility;
 using System;
 using System.Collections.Generic;
@@ -64,6 +65,8 @@ namespace GameLearnEnlish.UserControls
         private MediaPlayer mediaPlayerVoidClickCard = new MediaPlayer();
         private MediaPlayer mediaPlayerVoiInCorrect = new MediaPlayer();
 
+        private List<Data.Word> lstWord = new List<Data.Word>();
+
         private List<string> ListImgWord = new List<string>();//danh sách hình ảnh của từ
         private List<int> ListImgSort = new List<int>();//vị trí của 3 bức ảnh.
         private List<int> ListVoidSort = new List<int>();//vị trí của 3 âm thanh.
@@ -120,7 +123,7 @@ namespace GameLearnEnlish.UserControls
         //Khởi tạo list câu hỏi và câu trả lời
         public void CreateQuestionAndAnswer()
         {
-
+            lstWord = new WordBLL().GetWordsOfUnit(Unit);
             ListImgWord.Clear();
             ListImgSort.Clear();
 
@@ -138,7 +141,6 @@ namespace GameLearnEnlish.UserControls
             string pathLinkImg = @"..\..\media\textures\matching\act" + Unit;
             string pathVoidWord = @"..\..\media\audio\matching\act" + Unit;
             Random rd = new Random();
-            int[] num = new int[3] { 0, 0, 0 };
             int rand = 0;
             for (int i = 1; i <= 3; i++)
             {
@@ -160,9 +162,9 @@ namespace GameLearnEnlish.UserControls
                         }
                         if (flag == false)
                         {
-                            ListImgWord.Add(pathLinkImg + @"\img" + rand + ".png");
+                            //ListImgWord.Add(pathLinkImg + @"\img" + rand + ".png");
+                            ListImgWord.Add(lstWord[rand - 1].Image);
                             ListImgSort.Add(rand);
-                            num[rand - 1]++;
                             temp = true;
                         }
 
@@ -192,9 +194,9 @@ namespace GameLearnEnlish.UserControls
                         }
                         if (flag == false)
                         {
-                            ListVoidWord.Add(pathVoidWord + @"\sound" + rand + ".mp3");
+                            //ListVoidWord.Add(pathVoidWord + @"\sound" + rand + ".mp3");
+                            ListVoidWord.Add(lstWord[rand - 1].Voice);
                             ListVoidSort.Add(rand);
-                            num[rand - 1]++;
                             temp = true;
                         }
 

@@ -8,8 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("backgroud.mp4")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("backgroud.wmv")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("media/audio/concentration/act1/sound1.mp3")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("media/audio/concentration/act1/sound2.mp3")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("media/audio/concentration/act1/sound3.mp3")]

@@ -850,6 +850,7 @@ namespace GameLearnEnlish.UserControls
                                 Global.Instance.indexSelectActivity = 1;//Set index chọn lable activity
                                 CallChangeActivity(nameTbl.Name, ButtonSelect);// Đổi placard theo unit 
                                 UnitUCActivity(Global.Instance.UnitSelect, nameTbl.Name);//Gọi các UC activity của từng Unit
+                                
                                 break;
                             }
                         case "lblActivity2":
@@ -894,8 +895,6 @@ namespace GameLearnEnlish.UserControls
                                 UnitUCActivity(Global.Instance.UnitSelect, nameTbl.Name);//Gọi các UC activity của từng Unit
                                 break;
                             }
-
-
                         default:
                             break;
                     }

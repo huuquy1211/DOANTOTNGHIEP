@@ -1,6 +1,6 @@
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\Data\bin\Debug\Data.dll
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\Data\bin\Debug\Data.pdb
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\Data\obj\Debug\Data.csprojAssemblyReference.cache
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\Data\obj\Debug\Data.csproj.CoreCompileInputs.cache
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\Data\obj\Debug\Data.dll
-C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\Data\obj\Debug\Data.pdb
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\Data\bin\Debug\Data.dll
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\Data\bin\Debug\Data.pdb
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\Data\obj\Debug\Data.csproj.CoreCompileInputs.cache
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\Data\obj\Debug\Data.dll
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\Data\obj\Debug\Data.pdb
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\Data\obj\Debug\Data.csprojAssemblyReference.cache

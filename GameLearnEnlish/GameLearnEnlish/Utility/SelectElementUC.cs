@@ -22,7 +22,14 @@ namespace GameLearnEnlish.Model
         _imgBt_unit_7,
         _imgBt_unit_8,
         _imgBt_AS,
-        _imgBt_Phonics
+        _imgBt_Phonics,
+        _activity1,
+        _activity2,
+        _activity3,
+        _activity4,
+        _activity5,
+        _activity6,
+        _activity7,
 
     }
 }

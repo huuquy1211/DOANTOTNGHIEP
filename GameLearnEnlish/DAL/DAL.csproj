@@ -65,11 +65,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EnglishGameDB.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sentence.cs">
+    <Compile Include="LookAndFind.cs">
       <DependentUpon>EnglishGameDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagram.cs">
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sentence.cs">
       <DependentUpon>EnglishGameDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Unit.cs">
@@ -80,32 +80,30 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
     <EntityDeploy Include="EnglishGameDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>EnglishGameDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
     <None Include="EnglishGameDB.edmx.diagram">
       <DependentUpon>EnglishGameDB.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="EnglishGameDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>EnglishGameDB.Context.cs</LastGenOutput>
       <DependentUpon>EnglishGameDB.edmx</DependentUpon>
+      <LastGenOutput>EnglishGameDB.Context.cs</LastGenOutput>
     </Content>
     <Content Include="EnglishGameDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>EnglishGameDB.edmx</DependentUpon>
       <LastGenOutput>EnglishGameDB.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

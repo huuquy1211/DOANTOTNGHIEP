@@ -10,16 +10,6 @@
     <Property Name="Text" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Units" Relationship="Self.SentenceOfUnit" FromRole="Sentence" ToRole="Unit" />
   </EntityType>
-  <EntityType Name="sysdiagram">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
   <EntityType Name="Unit">
     <Key>
       <PropertyRef Name="Id" />
@@ -28,6 +18,7 @@
     <Property Name="Number" Type="Int32" />
     <NavigationProperty Name="Sentences" Relationship="Self.SentenceOfUnit" FromRole="Unit" ToRole="Sentence" />
     <NavigationProperty Name="Words" Relationship="Self.WordOfUnit" FromRole="Unit" ToRole="Word" />
+    <NavigationProperty Name="LookAndFinds" Relationship="EnglishGameModel.LookAndFindOfUnit" FromRole="Unit" ToRole="LookAndFind" />
   </EntityType>
   <EntityType Name="Word">
     <Key>
@@ -48,7 +39,6 @@
   </Association>
   <EntityContainer Name="EnglishGameEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Sentences" EntityType="Self.Sentence" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <EntitySet Name="Units" EntityType="Self.Unit" />
     <EntitySet Name="Words" EntityType="Self.Word" />
     <AssociationSet Name="SentenceOfUnit" Association="Self.SentenceOfUnit">
@@ -59,5 +49,22 @@
       <End Role="Unit" EntitySet="Units" />
       <End Role="Word" EntitySet="Words" />
     </AssociationSet>
+    <EntitySet Name="LookAndFinds" EntityType="EnglishGameModel.LookAndFind" />
+    <AssociationSet Name="LookAndFindOfUnit" Association="EnglishGameModel.LookAndFindOfUnit">
+      <End Role="LookAndFind" EntitySet="LookAndFinds" />
+      <End Role="Unit" EntitySet="Units" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="LookAndFind">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Image" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Units" Relationship="EnglishGameModel.LookAndFindOfUnit" FromRole="LookAndFind" ToRole="Unit" />
+  </EntityType>
+  <Association Name="LookAndFindOfUnit">
+    <End Type="EnglishGameModel.LookAndFind" Role="LookAndFind" Multiplicity="*" />
+    <End Type="EnglishGameModel.Unit" Role="Unit" Multiplicity="*" />
+  </Association>
 </Schema>
