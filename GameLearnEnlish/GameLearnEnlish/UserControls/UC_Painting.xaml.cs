@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -15,6 +16,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BLL;
 
 namespace GameLearnEnlish.UserControls
 {
@@ -48,8 +50,11 @@ namespace GameLearnEnlish.UserControls
         private Point PositionImage;
 
         private List<string> ListImage = new List<string>();
-        private int[] ListImageColor; //mau cua 3 hinh anh
-        private int[] ListImagePosition;
+        private List<int> ListImageColor = new List<int>(); //mau cua 3 hinh anh
+
+        private List<int> ListColor = new List<int>() { 1, 2, 3, 4 }; // màu của 4 hộp sơn
+
+        private List<int> ListImagePosition = new List<int>();
 
         private MediaPlayer mediaTitle = new MediaPlayer();
         private MediaPlayer mediaDescription = new MediaPlayer();
@@ -66,6 +71,7 @@ namespace GameLearnEnlish.UserControls
         private Storyboard storyboardVisible1 = new Storyboard();
         private Storyboard storyboardVisible2 = new Storyboard();
         private Storyboard storyboardVisible3 = new Storyboard();
+        private List<Painting> DataPainting = new List<Painting>();
 
         private int Index = 0;
 
@@ -116,6 +122,7 @@ namespace GameLearnEnlish.UserControls
         public UC_Painting(int unit)
         {
             Unit = unit;
+            DataPainting = new PaintingBLL().GetPaintingDataOfUnit(Unit);
             mediaTitle.Open(new Uri(@"..\..\media\audio\painting\title.mp3", UriKind.Relative));
             mediaTitle.MediaEnded += MediaTitle_MediaEnded;
 
@@ -123,10 +130,10 @@ namespace GameLearnEnlish.UserControls
             mediaDescription.MediaEnded += MediaDescription_MediaEnded;
 
             InitializeComponent();
-            Create();
+            CreateData();
             mediaTitle.Play();
 
-            VisibleImage(storyboardVisible1,"Pic1");
+            VisibleImage(storyboardVisible1, "Pic1");
             VisibleImage(storyboardVisible2, "Pic2");
             VisibleImage(storyboardVisible3, "Pic3");
 
@@ -167,12 +174,12 @@ namespace GameLearnEnlish.UserControls
         }
         private void MediaDescription_MediaEnded(object sender, EventArgs e)
         {
-
-            Main.Opacity = 1;
+            Main.Opacity = 0.7;
 
             voice1.Stop();
             voice2.Stop();
             voice3.Stop();
+            mediaCorrect.Stop();
 
             Main.IsEnabled = false; //khóa màn hình khi phát âm thanh
             if (Index >= 3)
@@ -190,86 +197,110 @@ namespace GameLearnEnlish.UserControls
                     voice3.Play();
                     break;
             }
-
         }
+        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Main.Opacity = 0.7;
+
+            voice1.Stop();
+            voice2.Stop();
+            voice3.Stop();
+            mediaCorrect.Stop();
+
+            Main.IsEnabled = false; //khóa màn hình khi phát âm thanh
+            if (Index >= 3)
+                return;
+
+            switch (ListImagePosition[Index])
+            {
+                case 1:
+                    voice1.Play();
+                    break;
+                case 2:
+                    voice2.Play();
+                    break;
+                case 3:
+                    voice3.Play();
+                    break;
+            }
+        }
+
+
+
         private void MediaTitle_MediaEnded(object sender, EventArgs e)
         {
             mediaTitle.Stop();
             mediaDescription.Play();
         }
-        public void Create()
+
+
+        public void CreateData()
         {
             score = 0;
-            switch (Unit)
+
+            Random rd = new Random();
+            int[] num = new int[3] { 0, 0, 0 };
+            int rand = 0;
+
+            while (ListImagePosition.Count < 3)
             {
-                case 1:
-                    {
-                        ListImageColor = new int[] { 1, 1, 1 }; // do do do
-                        ListImagePosition = new int[] { 3, 1, 2 };
-                    }
-                    break;
-                case 2:
-                    {
-                        ListImageColor = new int[] { 2, 2, 1 }; // vang vang do, 3 1 2
-                        ListImagePosition = new int[] { 3, 1, 2 };
-                    }
-                    break;
-                case 3:
-                    {
-                        ListImageColor = new int[] { 1, 2, 3 }; //do vang xanhduong
-                        ListImagePosition = new int[] { 2, 1, 3 };
-                    }
-                    break;
-                case 4:
-                    {
-                        ListImageColor = new int[] { 3, 2, 4 };
-                        ListImagePosition = new int[] { 3, 1, 2 };
-                    }
-                    break;
-                case 5:
-                    {
-                        Image1.Source = new BitmapImage(new Uri(@"..\..\media\textures\painting\act5\pot_red.png", UriKind.Relative));
-                        Image2.Source = new BitmapImage(new Uri(@"..\..\media\textures\painting\act5\pot_yellow.png", UriKind.Relative));
-                        Image3.Source = new BitmapImage(new Uri(@"..\..\media\textures\painting\act5\pot_orange.png", UriKind.Relative));
-                        Image4.Source = new BitmapImage(new Uri(@"..\..\media\textures\painting\act5\pot_purple.png", UriKind.Relative));
-
-                        ListImageColor = new int[] { 1, 4, 3 };
-                        ListImagePosition = new int[] { 3, 1, 2 };
-                    }
-                    break;
-                case 6:
-                    {
-                        Image1.Source = new BitmapImage(new Uri(@"..\..\media\textures\painting\act6\pot_brown.png", UriKind.Relative));
-                        Image2.Source = new BitmapImage(new Uri(@"..\..\media\textures\painting\act6\pot_pink.png", UriKind.Relative));
-                        Image3.Source = new BitmapImage(new Uri(@"..\..\media\textures\painting\act6\pot_orange.png", UriKind.Relative));
-                        Image4.Source = new BitmapImage(new Uri(@"..\..\media\textures\painting\act6\pot_purple.png", UriKind.Relative));
-
-                        ListImageColor = new int[] { 2, 3, 1 };
-                        ListImagePosition = new int[] { 2, 1, 3 };
-                    }
-                    break;
-                case 7:
-                    {
-                        Image1.Source = new BitmapImage(new Uri(@"..\..\media\textures\painting\act7\pot_brown.png", UriKind.Relative));
-                        Image2.Source = new BitmapImage(new Uri(@"..\..\media\textures\painting\act7\pot_orange.png", UriKind.Relative));
-                        Image3.Source = new BitmapImage(new Uri(@"..\..\media\textures\painting\act7\pot_black.png", UriKind.Relative));
-                        Image4.Source = new BitmapImage(new Uri(@"..\..\media\textures\painting\act7\pot_green.png", UriKind.Relative));
-
-                        ListImageColor = new int[] { 3, 4, 2 };
-                        ListImagePosition = new int[] { 2, 1, 3 };
-                    }
-                    break;
-                case 8:
-                    {
-                        ListImageColor = new int[] { 1, 3, 4 };
-                        ListImagePosition = new int[] { 2, 1, 3 };
-                    }
-                    break;
+                rand = rd.Next(1, 4);
+                if (!ListImagePosition.Exists(x => x == rand))
+                {
+                    ListImagePosition.Add(rand);
+                }
             }
 
-            PicBG1.Source = new BitmapImage(new Uri(@"..\..\media\textures\painting\act" + Unit + @"\img1.png", UriKind.Relative));
-            PicBG2.Source = new BitmapImage(new Uri(@"..\..\media\textures\painting\act" + Unit + @"\img2.png", UriKind.Relative));
-            PicBG3.Source = new BitmapImage(new Uri(@"..\..\media\textures\painting\act" + Unit + @"\img3.png", UriKind.Relative));
+            ListImageColor = new List<int>() { DataPainting[ListImagePosition[0] - 1].Color, DataPainting[ListImagePosition[1] - 1].Color, DataPainting[ListImagePosition[2] - 1].Color };
+
+
+
+
+
+            List<int> color = new List<int>();
+
+            for (int i = 0; i < 3; i++)
+            {
+                if (!color.Exists(x => x == ListImageColor[i]))
+                {
+                    color.Add(DataPainting[i].Color);
+                }
+            }
+
+            while (color.Count < 4)
+            {
+                do
+                {
+                    rand = rd.Next(1, 10);
+                } while (color.Exists(x => x == rand));
+
+                color.Add(rand);
+            }
+            ListColor = color;
+
+            for (int i = 0; i < 4; i++)
+            {
+                switch (i + 1)
+                {
+                    case 1:
+                        Image1.Source = GetImageColorByIndex(ListColor[i]);
+                        break;
+                    case 2:
+                        Image2.Source = GetImageColorByIndex(ListColor[i]);
+                        break;
+                    case 3:
+                        Image3.Source = GetImageColorByIndex(ListColor[i]);
+                        break;
+                    case 4:
+                        Image4.Source = GetImageColorByIndex(ListColor[i]);
+                        break;
+                }
+            }
+
+
+            PicBG1.Source = new BitmapImage(new Uri(DataPainting[0].Image, UriKind.Relative));
+            PicBG2.Source = new BitmapImage(new Uri(DataPainting[1].Image, UriKind.Relative));
+            PicBG3.Source = new BitmapImage(new Uri(DataPainting[2].Image, UriKind.Relative));
 
 
             mediaCorrect.Open(new Uri(@"..\..\media\audio\global\right.mp3", UriKind.Relative));
@@ -281,17 +312,44 @@ namespace GameLearnEnlish.UserControls
             mediaInCorrect.MediaEnded += MediaDescription_MediaEnded;
 
 
-            voice1.Open(new Uri(@"..\..\media\audio\painting\act" + Unit + @"\sound1.mp3", UriKind.Relative));
-            voice2.Open(new Uri(@"..\..\media\audio\painting\act" + Unit + @"\sound2.mp3", UriKind.Relative));
-            voice3.Open(new Uri(@"..\..\media\audio\painting\act" + Unit + @"\sound3.mp3", UriKind.Relative));
+            voice1.Open(new Uri(DataPainting[0].Request, UriKind.Relative));
+            voice2.Open(new Uri(DataPainting[1].Request, UriKind.Relative));
+            voice3.Open(new Uri(DataPainting[2].Request, UriKind.Relative));
 
             voice1.MediaEnded += voice_MediaEnded;
             voice2.MediaEnded += voice_MediaEnded;
             voice3.MediaEnded += voice_MediaEnded;
         }
+        public BitmapImage GetImageColorByIndex(int index)
+        {
+            switch (index)
+            {
+                case 1:
+                    return new BitmapImage(new Uri(@"..\..\media\textures\painting\act1\pot_red.png", UriKind.Relative));
+                case 2:
+                    return new BitmapImage(new Uri(@"..\..\media\textures\painting\act1\pot_yellow.png", UriKind.Relative));
+                case 3:
+                    return new BitmapImage(new Uri(@"..\..\media\textures\painting\act1\pot_blue.png", UriKind.Relative));
+                case 4:
+                    return new BitmapImage(new Uri(@"..\..\media\textures\painting\act1\pot_green.png", UriKind.Relative));
+                case 5:
+                    return new BitmapImage(new Uri(@"..\..\media\textures\painting\act5\pot_orange.png", UriKind.Relative));
+                case 6:
+                    return new BitmapImage(new Uri(@"..\..\media\textures\painting\act5\pot_purple.png", UriKind.Relative));
+                case 7:
+                    return new BitmapImage(new Uri(@"..\..\media\textures\painting\act6\pot_brown.png", UriKind.Relative));
+                case 8:
+                    return new BitmapImage(new Uri(@"..\..\media\textures\painting\act6\pot_pink.png", UriKind.Relative));
+                case 9:
+                    return new BitmapImage(new Uri(@"..\..\media\textures\painting\act7\pot_black.png", UriKind.Relative));
+                default:
+                    return null;
+            }
+        }
 
         private void voice_MediaEnded(object sender, EventArgs e)
         {
+            Main.Opacity = 1;
             Main.IsEnabled = true;
         }
 
@@ -347,7 +405,7 @@ namespace GameLearnEnlish.UserControls
             }
         }
 
-        public void ColorImage(Image img,string path)
+        public void ColorImage(Image img, string path)
         {
             img.Source = new BitmapImage(new Uri(path, UriKind.Relative));
 
@@ -392,7 +450,7 @@ namespace GameLearnEnlish.UserControls
                 {
                     mediaCorrect.Stop();
                     mediaInCorrect.Stop();
-                    if (ListImageColor[Index] == 1)//chọn đúng màu
+                    if (ListImageColor[Index] == ListColor[0])//chọn đúng màu
                     {
                         Image image = new Image();
                         positionCorrect = GetPointCorrectAnswer(ListImagePosition[Index]);
@@ -404,12 +462,12 @@ namespace GameLearnEnlish.UserControls
                         DeltaY1 = 0.0;
 
                         //đúng vị trí
-                        if ((((BasePoint1.X - 100) < positionCorrect.X) && (BasePoint1.X + 100) > positionCorrect.X) && (((BasePoint1.Y - 100) < positionCorrect.Y) && ((BasePoint1.Y + 100) > positionCorrect.Y))) 
+                        if ((((BasePoint1.X - 100) < positionCorrect.X) && (BasePoint1.X + 100) > positionCorrect.X) && (((BasePoint1.Y - 100) < positionCorrect.Y) && ((BasePoint1.Y + 100) > positionCorrect.Y)))
                         {
                             Main.IsEnabled = false;
                             mediaCorrect.Play();
 
-                            ColorImage(image, @"..\..\media\textures\painting\act" + Unit + @"\coloredimg" + ListImagePosition[Index] + ".png");
+                            ColorImage(image, DataPainting[ListImagePosition[Index] - 1].ImagePainted);
 
                             ResetImageColor(1);
                             Index++;
@@ -424,7 +482,7 @@ namespace GameLearnEnlish.UserControls
                 }
                 else if (l.Name == "Image2")
                 {
-                    if (ListImageColor[Index] == 2)//chọn đúng màu
+                    if (ListImageColor[Index] == ListColor[1])//chọn đúng màu
                     {
                         Image image = new Image();
                         positionCorrect = GetPointCorrectAnswer(ListImagePosition[Index]);
@@ -438,7 +496,7 @@ namespace GameLearnEnlish.UserControls
                         {
                             Main.IsEnabled = false;
                             mediaCorrect.Play();
-                            ColorImage(image, @"..\..\media\textures\painting\act" + Unit + @"\coloredimg" + ListImagePosition[Index] + ".png");
+                            ColorImage(image, DataPainting[ListImagePosition[Index] - 1].ImagePainted);
 
                             ResetImageColor(2);
                             Index++;
@@ -453,7 +511,7 @@ namespace GameLearnEnlish.UserControls
                 }
                 else if (l.Name == "Image3")
                 {
-                    if (ListImageColor[Index] == 3)//chọn đúng màu
+                    if (ListImageColor[Index] == ListColor[2])//chọn đúng màu
                     {
                         Image image = new Image();
                         positionCorrect = GetPointCorrectAnswer(ListImagePosition[Index]);
@@ -468,7 +526,7 @@ namespace GameLearnEnlish.UserControls
                         {
                             Main.IsEnabled = false;
                             mediaCorrect.Play();
-                            ColorImage(image, @"..\..\media\textures\painting\act" + Unit + @"\coloredimg" + ListImagePosition[Index] + ".png");
+                            ColorImage(image, DataPainting[ListImagePosition[Index] - 1].ImagePainted);
                             ResetImageColor(3);
                             Index++;
                             score++;
@@ -482,7 +540,7 @@ namespace GameLearnEnlish.UserControls
                 }
                 else if (l.Name == "Image4")
                 {
-                    if (ListImageColor[Index] == 4)//chọn đúng màu
+                    if (ListImageColor[Index] == ListColor[3])//chọn đúng màu
                     {
                         Image image = new Image();
                         positionCorrect = GetPointCorrectAnswer(ListImagePosition[Index]);
@@ -497,7 +555,7 @@ namespace GameLearnEnlish.UserControls
                         {
                             Main.IsEnabled = false;
                             mediaCorrect.Play();
-                            ColorImage(image, @"..\..\media\textures\painting\act" + Unit + @"\coloredimg" + ListImagePosition[Index] + ".png");
+                            ColorImage(image, DataPainting[ListImagePosition[Index] - 1].ImagePainted);
                             ResetImageColor(4);
                             Index++;
                             score++;
@@ -691,8 +749,6 @@ namespace GameLearnEnlish.UserControls
 
             Panel.SetZIndex(img, 2000);
         }
-
-
 
 
     }

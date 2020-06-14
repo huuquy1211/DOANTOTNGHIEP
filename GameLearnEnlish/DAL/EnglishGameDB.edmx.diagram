@@ -11,6 +11,8 @@
         <EntityTypeShape EntityType="EnglishGameModel.Word" Width="1.5" PointX="7.375" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="EnglishGameModel.SentenceOfUnit" ManuallyRouted="false" />
         <AssociationConnector Association="EnglishGameModel.WordOfUnit" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="EnglishGameModel.Painting" Width="1.5" PointX="3.375" PointY="3.875" />
+        <AssociationConnector Association="EnglishGameModel.PaintingOfUnit" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -1,5 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="EnglishGameModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Painting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Image" Type="varchar" MaxLength="128" />
+    <Property Name="ImagePainted" Type="varchar" MaxLength="128" />
+    <Property Name="Request" Type="varchar" MaxLength="128" />
+    <Property Name="Color" Type="int" />
+  </EntityType>
+  <EntityType Name="PaintingOfUnit">
+    <Key>
+      <PropertyRef Name="Id_Painting" />
+      <PropertyRef Name="Id_Unit" />
+    </Key>
+    <Property Name="Id_Painting" Type="int" Nullable="false" />
+    <Property Name="Id_Unit" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="Sentence">
     <Key>
       <PropertyRef Name="Id" />
@@ -50,6 +68,30 @@
     <Property Name="Id_Unit" Type="int" Nullable="false" />
     <Property Name="Id_Word" Type="int" Nullable="false" />
   </EntityType>
+  <Association Name="FK_PaintingOfUnit_Painting">
+    <End Role="Painting" Type="Self.Painting" Multiplicity="1" />
+    <End Role="PaintingOfUnit" Type="Self.PaintingOfUnit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Painting">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PaintingOfUnit">
+        <PropertyRef Name="Id_Painting" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PaintingOfUnit_Unit">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="PaintingOfUnit" Type="Self.PaintingOfUnit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PaintingOfUnit">
+        <PropertyRef Name="Id_Unit" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_SentenceOfUnit_Sentence">
     <End Role="Sentence" Type="Self.Sentence" Multiplicity="1" />
     <End Role="SentenceOfUnit" Type="Self.SentenceOfUnit" Multiplicity="*" />
@@ -99,12 +141,22 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="EnglishGameModelStoreContainer">
+    <EntitySet Name="Painting" EntityType="Self.Painting" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PaintingOfUnit" EntityType="Self.PaintingOfUnit" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Sentence" EntityType="Self.Sentence" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SentenceOfUnit" EntityType="Self.SentenceOfUnit" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Unit" EntityType="Self.Unit" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Word" EntityType="Self.Word" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="WordOfUnit" EntityType="Self.WordOfUnit" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_PaintingOfUnit_Painting" Association="Self.FK_PaintingOfUnit_Painting">
+      <End Role="Painting" EntitySet="Painting" />
+      <End Role="PaintingOfUnit" EntitySet="PaintingOfUnit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PaintingOfUnit_Unit" Association="Self.FK_PaintingOfUnit_Unit">
+      <End Role="Unit" EntitySet="Unit" />
+      <End Role="PaintingOfUnit" EntitySet="PaintingOfUnit" />
+    </AssociationSet>
     <AssociationSet Name="FK_SentenceOfUnit_Sentence" Association="Self.FK_SentenceOfUnit_Sentence">
       <End Role="Sentence" EntitySet="Sentence" />
       <End Role="SentenceOfUnit" EntitySet="SentenceOfUnit" />

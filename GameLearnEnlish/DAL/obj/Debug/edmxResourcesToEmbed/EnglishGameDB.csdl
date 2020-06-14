@@ -28,6 +28,7 @@
     <Property Name="Number" Type="Int32" />
     <NavigationProperty Name="Sentences" Relationship="Self.SentenceOfUnit" FromRole="Unit" ToRole="Sentence" />
     <NavigationProperty Name="Words" Relationship="Self.WordOfUnit" FromRole="Unit" ToRole="Word" />
+    <NavigationProperty Name="Paintings" Relationship="EnglishGameModel.PaintingOfUnit" FromRole="Unit" ToRole="Painting" />
   </EntityType>
   <EntityType Name="Word">
     <Key>
@@ -59,5 +60,25 @@
       <End Role="Unit" EntitySet="Units" />
       <End Role="Word" EntitySet="Words" />
     </AssociationSet>
+    <EntitySet Name="Paintings" EntityType="EnglishGameModel.Painting" />
+    <AssociationSet Name="PaintingOfUnit" Association="EnglishGameModel.PaintingOfUnit">
+      <End Role="Painting" EntitySet="Paintings" />
+      <End Role="Unit" EntitySet="Units" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="Painting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Image" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="ImagePainted" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="Request" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="Color" Type="Int32" />
+    <NavigationProperty Name="Units" Relationship="EnglishGameModel.PaintingOfUnit" FromRole="Painting" ToRole="Unit" />
+  </EntityType>
+  <Association Name="PaintingOfUnit">
+    <End Type="EnglishGameModel.Painting" Role="Painting" Multiplicity="*" />
+    <End Type="EnglishGameModel.Unit" Role="Unit" Multiplicity="*" />
+  </Association>
 </Schema>

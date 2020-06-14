@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PaintingBLL.cs" />
     <Compile Include="SentenceBLL.cs" />
     <Compile Include="WordBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -337,9 +337,6 @@ namespace GameLearnEnlish.UserControls
 
         }
 
-
-
-
         //Slide images in Up or Down direction
         private void Play_Image_Slider(string strDirection)
         {

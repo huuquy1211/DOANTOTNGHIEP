@@ -19,6 +19,7 @@ namespace DAL
         {
             this.Sentences = new HashSet<Sentence>();
             this.Words = new HashSet<Word>();
+            this.Paintings = new HashSet<Painting>();
         }
     
         public int Id { get; set; }
@@ -28,5 +29,7 @@ namespace DAL
         public virtual ICollection<Sentence> Sentences { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Word> Words { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Painting> Paintings { get; set; }
     }
 }

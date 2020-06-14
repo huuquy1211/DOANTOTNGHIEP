@@ -10,7 +10,7 @@
     <Grid>
         <Canvas x:Name="Main" Width="650" Height="500" IsEnabled="False" Opacity="0.4">
             <Grid Width="70" Canvas.Left="296" Canvas.Top="23">
-                <Image Source="..\media\textures\painting\play.png">
+                <Image Source="..\media\textures\painting\play.png" MouseDown="Image_MouseDown">
                     <Image.Effect>
                         <DropShadowEffect Direction="-40" Color="#FFB6C2CB" ShadowDepth="5" BlurRadius="10"/>
                     </Image.Effect>

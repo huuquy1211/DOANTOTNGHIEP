@@ -65,6 +65,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EnglishGameDB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Painting.cs">
+      <DependentUpon>EnglishGameDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sentence.cs">
       <DependentUpon>EnglishGameDB.tt</DependentUpon>

@@ -29,5 +29,6 @@ namespace DAL
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Unit> Units { get; set; }
         public virtual DbSet<Word> Words { get; set; }
+        public virtual DbSet<Painting> Paintings { get; set; }
     }
 }
