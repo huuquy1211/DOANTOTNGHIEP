@@ -45,6 +45,7 @@ namespace GameLearnEnlish.UserControls
                                 Uri uri = new Uri(@"\media\textures\global\actv1a.png", UriKind.Relative);
                                 imgActv.Source = new BitmapImage(uri);
                                 HomeUC.homeUC.HiddenMenu();
+                                Global.Instance.ActivitySelect = SelectElementUC._activity1;//Gán activity
                                 break;
                             }
                         case "lblActivity2":
@@ -55,6 +56,7 @@ namespace GameLearnEnlish.UserControls
                                 Uri uri = new Uri(@"\media\textures\global\actv2a.png", UriKind.Relative);
                                 imgActv.Source = new BitmapImage(uri);
                                 HomeUC.homeUC.HiddenMenu();
+                                Global.Instance.ActivitySelect = SelectElementUC._activity2;//Gán activity
                                 break;
                             }
                         case "lblActivity3":
@@ -64,6 +66,7 @@ namespace GameLearnEnlish.UserControls
                                 Uri uri = new Uri(@"\media\textures\global\actv3a.png", UriKind.Relative);
                                 imgActv.Source = new BitmapImage(uri);
                                 HomeUC.homeUC.HiddenMenu();
+                                Global.Instance.ActivitySelect = SelectElementUC._activity3;//Gán activity
                                 break;
                             }
                         case "lblActivity4":
@@ -73,6 +76,7 @@ namespace GameLearnEnlish.UserControls
                                 Uri uri = new Uri(@"\media\textures\global\actv4a.png", UriKind.Relative);
                                 imgActv.Source = new BitmapImage(uri);
                                 HomeUC.homeUC.HiddenMenu();
+                                Global.Instance.ActivitySelect = SelectElementUC._activity4;//Gán activity
                                 break;
                             }
                         case "lblActivity5":
@@ -82,6 +86,7 @@ namespace GameLearnEnlish.UserControls
                                 Uri uri = new Uri(@"\media\textures\global\actv5a.png", UriKind.Relative);
                                 imgActv.Source = new BitmapImage(uri);
                                 HomeUC.homeUC.HiddenMenu();
+                                Global.Instance.ActivitySelect = SelectElementUC._activity5;//Gán activity
                                 break;
                             }
                         case "lblActivity6":
@@ -91,33 +96,17 @@ namespace GameLearnEnlish.UserControls
                                 Uri uri = new Uri(@"\media\textures\global\actv6a.png", UriKind.Relative);
                                 imgActv.Source = new BitmapImage(uri);
                                 HomeUC.homeUC.HiddenMenu();
+                                Global.Instance.ActivitySelect = SelectElementUC._activity6;//Gán activity
                                 break;
                             }
                         case "lblActivity7":
-                            {
-
-                                lblActivity.Content = "Sequence";
-                                Uri uri = new Uri(@"\media\textures\global\actv7a.png", UriKind.Relative);
-                                imgActv.Source = new BitmapImage(uri);
-                                HomeUC.homeUC.HiddenMenu();
-                                break;
-                            }
-                        case "lblActivity8":
-                            {
-
-                                lblActivity.Content = "Drag and Drop";
-                                Uri uri = new Uri(@"\media\textures\global\actv8a.png", UriKind.Relative);
-                                imgActv.Source = new BitmapImage(uri);
-                                HomeUC.homeUC.HiddenMenu();
-                                break;
-                            }
-                        case "lblActivity9":
                             {
 
                                 lblActivity.Content = "Look and Find";
                                 Uri uri = new Uri(@"\media\textures\global\actv7a.png", UriKind.Relative);
                                 imgActv.Source = new BitmapImage(uri);
                                 HomeUC.homeUC.HiddenMenu();
+                                Global.Instance.ActivitySelect = SelectElementUC._activity7;//Gán activity
                                 break;
                             }
 

@@ -1,6 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="EnglishGameModelStoreContainer" CdmEntityContainer="EnglishGameEntities">
+    <EntitySetMapping Name="LookAndFinds">
+      <EntityTypeMapping TypeName="EnglishGameModel.LookAndFind">
+        <MappingFragment StoreEntitySet="LookAndFind">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Paintings">
+      <EntityTypeMapping TypeName="EnglishGameModel.Painting">
+        <MappingFragment StoreEntitySet="Painting">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="ImagePainted" ColumnName="ImagePainted" />
+          <ScalarProperty Name="Request" ColumnName="Request" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Sentences">
       <EntityTypeMapping TypeName="EnglishGameModel.Sentence">
         <MappingFragment StoreEntitySet="Sentence">
@@ -39,6 +58,22 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <AssociationSetMapping Name="LookAndFindOfUnit" TypeName="EnglishGameModel.LookAndFindOfUnit" StoreEntitySet="LookAndFindOfUnit">
+      <EndProperty Name="LookAndFind">
+        <ScalarProperty Name="Id" ColumnName="Id_LookAndFind" />
+      </EndProperty>
+      <EndProperty Name="Unit">
+        <ScalarProperty Name="Id" ColumnName="Id_Unit" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PaintingOfUnit" TypeName="EnglishGameModel.PaintingOfUnit" StoreEntitySet="PaintingOfUnit">
+      <EndProperty Name="Painting">
+        <ScalarProperty Name="Id" ColumnName="Id_Painting" />
+      </EndProperty>
+      <EndProperty Name="Unit">
+        <ScalarProperty Name="Id" ColumnName="Id_Unit" />
+      </EndProperty>
+    </AssociationSetMapping>
     <AssociationSetMapping Name="SentenceOfUnit" TypeName="EnglishGameModel.SentenceOfUnit" StoreEntitySet="SentenceOfUnit">
       <EndProperty Name="Sentence">
         <ScalarProperty Name="Id" ColumnName="Id_Sentence" />
@@ -53,25 +88,6 @@
       </EndProperty>
       <EndProperty Name="Word">
         <ScalarProperty Name="Id" ColumnName="Id_Word" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <EntitySetMapping Name="Paintings">
-      <EntityTypeMapping TypeName="EnglishGameModel.Painting">
-        <MappingFragment StoreEntitySet="Painting">
-          <ScalarProperty Name="Color" ColumnName="Color" />
-          <ScalarProperty Name="Request" ColumnName="Request" />
-          <ScalarProperty Name="ImagePainted" ColumnName="ImagePainted" />
-          <ScalarProperty Name="Image" ColumnName="Image" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <AssociationSetMapping Name="PaintingOfUnit" TypeName="EnglishGameModel.PaintingOfUnit" StoreEntitySet="PaintingOfUnit">
-      <EndProperty Name="Unit">
-        <ScalarProperty Name="Id" ColumnName="Id_Unit" />
-      </EndProperty>
-      <EndProperty Name="Painting">
-        <ScalarProperty Name="Id" ColumnName="Id_Painting" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>

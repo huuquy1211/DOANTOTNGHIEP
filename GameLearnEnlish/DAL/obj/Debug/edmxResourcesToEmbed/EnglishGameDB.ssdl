@@ -1,5 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="EnglishGameModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="LookAndFind">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Image" Type="varchar" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="LookAndFindOfUnit">
+    <Key>
+      <PropertyRef Name="Id_Unit" />
+      <PropertyRef Name="Id_LookAndFind" />
+    </Key>
+    <Property Name="Id_Unit" Type="int" Nullable="false" />
+    <Property Name="Id_LookAndFind" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="Painting">
     <Key>
       <PropertyRef Name="Id" />
@@ -68,6 +83,30 @@
     <Property Name="Id_Unit" Type="int" Nullable="false" />
     <Property Name="Id_Word" Type="int" Nullable="false" />
   </EntityType>
+  <Association Name="FK_LookAndFindOfUnit_LookAndFind">
+    <End Role="LookAndFind" Type="Self.LookAndFind" Multiplicity="1" />
+    <End Role="LookAndFindOfUnit" Type="Self.LookAndFindOfUnit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LookAndFind">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LookAndFindOfUnit">
+        <PropertyRef Name="Id_LookAndFind" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LookAndFindOfUnit_Unit">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="LookAndFindOfUnit" Type="Self.LookAndFindOfUnit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LookAndFindOfUnit">
+        <PropertyRef Name="Id_Unit" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_PaintingOfUnit_Painting">
     <End Role="Painting" Type="Self.Painting" Multiplicity="1" />
     <End Role="PaintingOfUnit" Type="Self.PaintingOfUnit" Multiplicity="*" />
@@ -141,6 +180,8 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="EnglishGameModelStoreContainer">
+    <EntitySet Name="LookAndFind" EntityType="Self.LookAndFind" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LookAndFindOfUnit" EntityType="Self.LookAndFindOfUnit" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Painting" EntityType="Self.Painting" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PaintingOfUnit" EntityType="Self.PaintingOfUnit" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Sentence" EntityType="Self.Sentence" Schema="dbo" store:Type="Tables" />
@@ -149,6 +190,14 @@
     <EntitySet Name="Unit" EntityType="Self.Unit" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Word" EntityType="Self.Word" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="WordOfUnit" EntityType="Self.WordOfUnit" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_LookAndFindOfUnit_LookAndFind" Association="Self.FK_LookAndFindOfUnit_LookAndFind">
+      <End Role="LookAndFind" EntitySet="LookAndFind" />
+      <End Role="LookAndFindOfUnit" EntitySet="LookAndFindOfUnit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LookAndFindOfUnit_Unit" Association="Self.FK_LookAndFindOfUnit_Unit">
+      <End Role="Unit" EntitySet="Unit" />
+      <End Role="LookAndFindOfUnit" EntitySet="LookAndFindOfUnit" />
+    </AssociationSet>
     <AssociationSet Name="FK_PaintingOfUnit_Painting" Association="Self.FK_PaintingOfUnit_Painting">
       <End Role="Painting" EntitySet="Painting" />
       <End Role="PaintingOfUnit" EntitySet="PaintingOfUnit" />

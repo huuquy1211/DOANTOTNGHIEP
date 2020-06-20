@@ -52,6 +52,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -65,7 +67,7 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="XamlAnimatedGif">
-      <HintPath>..\..\..\..\..\..\Downloads\XamlAnimatedGif.1.2.2\XamlAnimatedGif.1.2.2\lib\net45\XamlAnimatedGif.dll</HintPath>
+      <HintPath>C:\Users\huuqu\Downloads\XamlAnimatedGif.1.2.2 (1)\XamlAnimatedGif.1.2.2\lib\net45\XamlAnimatedGif.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -74,9 +76,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="MediaBank.cs" />
-    <Compile Include="Model\AnswerModel.cs" />
-    <Compile Include="Model\MatchingModel.cs" />
-    <Compile Include="Model\QuestionModel.cs" />
     <Compile Include="UserControls\Story.xaml.cs">
       <DependentUpon>Story.xaml</DependentUpon>
     </Compile>
@@ -129,9 +128,6 @@
     <Compile Include="UserControls\HomeUC.xaml.cs">
       <DependentUpon>HomeUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\ImageMissonUC.xaml.cs">
-      <DependentUpon>ImageMissonUC.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Utility\Global.cs" />
     <Compile Include="Utility\Unit.cs" />
     <Page Include="MainWindow.xaml">
@@ -179,10 +175,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\HomeUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControls\ImageMissonUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -265,158 +257,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\System\boder1.png" />
-    <Resource Include="Images\System\boder.png" />
-    <Resource Include="Images\System\misson.jpg" />
-    <Resource Include="Images\System\backgroud.png" />
-    <Resource Include="Images\System\backgroud1.png" />
-    <Resource Include="Images\System\home.jpg" />
-    <Resource Include="Images\System\map.png" />
-    <Resource Include="Images\System\mission.png" />
-    <Resource Include="Images\System\play.png" />
-    <Resource Include="Images\System\playhover.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\System\boder2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\System\boder3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\System\boder4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\System\boder5.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\System\persion3.png" />
-    <Resource Include="Images\System\persion4.png" />
-    <Resource Include="Images\System\persion5.png" />
-    <Resource Include="Images\System\persion6.png" />
-    <Resource Include="Images\System\persion1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\System\boder6.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\System\persion2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\System\chest.png" />
-    <Resource Include="Images\System\chestout.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\System\lable.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Animals\elephant.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Animals\cat.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Animals\dog.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Animals\sheep.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Animals\snake.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Animals\horse.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Animals\giraffe.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Animals\tiger.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Animals\fly.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Animals\pig.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\System\photo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\System\playvideo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\System\boder7.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\System\lablecategory.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\System\animal.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\System\clothes.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\System\food.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\System\jobs.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\System\computer.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\System\sports.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\System\music.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\System\nature.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\System\back.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\System\back1.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="media\audio\animatedstory\act1\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Animals\cat1.png" />
-    <Resource Include="Images\Animals\dog1.png" />
-    <Resource Include="Images\Animals\elephant1.png" />
-    <Resource Include="Images\Animals\fly1.png" />
-    <Resource Include="Images\Animals\giraffe1.png" />
-    <Resource Include="Images\Animals\horse1.png" />
-    <Resource Include="Images\Animals\pig1.png" />
-    <Resource Include="Images\Animals\sheep1.png" />
-    <Resource Include="Images\Animals\snake1.png" />
-    <Resource Include="Images\Animals\tiger1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\System\clothes1.png" />
-    <Resource Include="Images\System\computer1.png" />
-    <Resource Include="Images\System\jobs1.png" />
-    <Resource Include="Images\System\music1.png" />
-    <Resource Include="Images\System\nature1.png" />
-    <Resource Include="Images\System\photo1.png" />
-    <Resource Include="Images\System\playvideo1.png" />
-    <Resource Include="Images\System\sports1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\System\food1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\System\animal1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\System\play1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="backgroud.mp4" />
-    <Content Include="backgroud.wmv" />
     <Resource Include="Images\DownArrow.png" />
     <Resource Include="Images\UpArrow.png" />
     <Content Include="media\audio\concentration\act1\sound1.mp3" />
@@ -1445,102 +1288,6 @@
     <Resource Include="media\textures\storytime\ST_text_box.png" />
     <Resource Include="media\textures\storytime\ST_text_scroll_bar.png" />
     <Resource Include="media\textures\storytime\ST_text_scroll_button.png" />
-    <Resource Include="Images\Global\Bt_AS_click.png" />
-    <Resource Include="Images\Global\Bt_Phonics_click.png" />
-    <Resource Include="Images\Global\Bt_unit_click.png" />
-    <Resource Include="Images\Global\actv1.png" />
-    <Resource Include="Images\Global\actv1a.png" />
-    <Resource Include="Images\Global\actv2.png" />
-    <Resource Include="Images\Global\actv2a.png" />
-    <Resource Include="Images\Global\actv3.png" />
-    <Resource Include="Images\Global\actv3a.png" />
-    <Resource Include="Images\Global\actv4.png" />
-    <Resource Include="Images\Global\actv4a.png" />
-    <Resource Include="Images\Global\actv5.png" />
-    <Resource Include="Images\Global\actv5a.png" />
-    <Resource Include="Images\Global\actv6.png" />
-    <Resource Include="Images\Global\actv6a.png" />
-    <Resource Include="Images\Global\actv7.png" />
-    <Resource Include="Images\Global\actv7a.png" />
-    <Resource Include="Images\Global\actv8.png" />
-    <Resource Include="Images\Global\actv8a.png" />
-    <Resource Include="Images\Global\actv9.png" />
-    <Resource Include="Images\Global\actv9a.png" />
-    <Resource Include="Images\Global\Bg_BF_vol1.jpg" />
-    <Resource Include="Images\Global\BG_Menu.png" />
-    <Resource Include="Images\Global\Box_help.png" />
-    <Resource Include="Images\Global\Box_sub_menu.png" />
-    <Resource Include="Images\Global\Bt_AS.png" />
-    <Resource Include="Images\Global\Bt_AS_over.png" />
-    <Resource Include="Images\Global\Bt_AS_sel.png" />
-    <Resource Include="Images\Global\Bt_back.png" />
-    <Resource Include="Images\Global\Bt_back_over.png" />
-    <Resource Include="Images\Global\Bt_close.png" />
-    <Resource Include="Images\Global\Bt_close_over.png" />
-    <Resource Include="Images\Global\Bt_Help.png" />
-    <Resource Include="Images\Global\Bt_help_close.png" />
-    <Resource Include="Images\Global\Bt_help_close_over.png" />
-    <Resource Include="Images\Global\Bt_Help_over.png" />
-    <Resource Include="Images\Global\Bt_Menu.png" />
-    <Resource Include="Images\Global\Bt_Menu_over.png" />
-    <Resource Include="Images\Global\Bt_next.png" />
-    <Resource Include="Images\Global\Bt_next_over.png" />
-    <Resource Include="Images\Global\Bt_Phonics.png" />
-    <Resource Include="Images\Global\Bt_Phonics_over.png" />
-    <Resource Include="Images\Global\Bt_Phonics_sel.png" />
-    <Resource Include="Images\Global\Bt_unit_1.png" />
-    <Resource Include="Images\Global\Bt_unit_1_over.png" />
-    <Resource Include="Images\Global\Bt_unit_1_sel.png" />
-    <Resource Include="Images\Global\Bt_unit_2.png" />
-    <Resource Include="Images\Global\Bt_unit_2_over.png" />
-    <Resource Include="Images\Global\Bt_unit_2_sel.png" />
-    <Resource Include="Images\Global\Bt_unit_3.png" />
-    <Resource Include="Images\Global\Bt_unit_3_over.png" />
-    <Resource Include="Images\Global\Bt_unit_3_sel.png" />
-    <Resource Include="Images\Global\Bt_unit_4.png" />
-    <Resource Include="Images\Global\Bt_unit_4_over.png" />
-    <Resource Include="Images\Global\Bt_unit_4_sel.png" />
-    <Resource Include="Images\Global\Bt_unit_5.png" />
-    <Resource Include="Images\Global\Bt_unit_5_over.png" />
-    <Resource Include="Images\Global\Bt_unit_5_sel.png" />
-    <Resource Include="Images\Global\Bt_unit_6.png" />
-    <Resource Include="Images\Global\Bt_unit_6_over.png" />
-    <Resource Include="Images\Global\Bt_unit_6_sel.png" />
-    <Resource Include="Images\Global\Bt_unit_7.png" />
-    <Resource Include="Images\Global\Bt_unit_7_over.png" />
-    <Resource Include="Images\Global\Bt_unit_7_sel.png" />
-    <Resource Include="Images\Global\Bt_unit_8.png" />
-    <Resource Include="Images\Global\Bt_unit_8_over.png" />
-    <Resource Include="Images\Global\Bt_unit_8_sel.png" />
-    <Resource Include="Images\Global\exit_bg_box.png" />
-    <Resource Include="Images\Global\exit_bt_no.png" />
-    <Resource Include="Images\Global\exit_bt_no_over.png" />
-    <Resource Include="Images\Global\exit_bt_yes.png" />
-    <Resource Include="Images\Global\exit_bt_yes_over.png" />
-    <Resource Include="Images\Global\headphones.png" />
-    <Resource Include="Images\Global\Menu_Globe_U1.png" />
-    <Resource Include="Images\Global\Menu_Globe_U10.png" />
-    <Resource Include="Images\Global\Menu_Globe_U2.png" />
-    <Resource Include="Images\Global\Menu_Globe_U3.png" />
-    <Resource Include="Images\Global\Menu_Globe_U4.png" />
-    <Resource Include="Images\Global\Menu_Globe_U5.png" />
-    <Resource Include="Images\Global\Menu_Globe_U6.png" />
-    <Resource Include="Images\Global\Menu_Globe_U7.png" />
-    <Resource Include="Images\Global\Menu_Globe_U8.png" />
-    <Resource Include="Images\Global\Menu_Globe_U9.png" />
-    <Resource Include="Images\Global\Placard.png" />
-    <Resource Include="Images\Global\Volume_ball_slider.png" />
-    <Resource Include="Images\Global\Volume_vertical_slider.png" />
-    <Resource Include="Images\System\exit.png" />
-    <Resource Include="Images\System\back2.png" />
-    <Resource Include="Images\System\next.png" />
-    <Resource Include="Images\System\boder9.png" />
-    <Resource Include="Images\System\menu.png" />
-    <Resource Include="Images\System\boder8.png" />
-    <Resource Include="Images\System\backgroud.jpg" />
-    <Resource Include="Images\System\backgroud4.png" />
-    <Resource Include="Images\System\backgroud2.png" />
-    <Resource Include="Images\System\backgroud3.jpg" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">

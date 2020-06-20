@@ -41,7 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+
     <Compile Include="Painting.cs" />
+
+    <Compile Include="LookAndFind.cs" />
     <Compile Include="Sentence.cs" />
     <Compile Include="Word.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

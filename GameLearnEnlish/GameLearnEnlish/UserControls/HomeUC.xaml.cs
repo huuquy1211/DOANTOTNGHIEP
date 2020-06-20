@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -69,8 +70,8 @@ namespace GameLearnEnlish.UserControls
         private void imgbtnMenu_MouseDown(object sender, MouseButtonEventArgs e)
         {
             //Tắt các âm khi mở menu
-            
-            
+
+
             Global.Instance.WindowMain.grdBackgroudOpacityUC.Children.Add(backgroudOpacity);//Khởi tạo UC BackgroudOpacityUC
             Global.Instance.WindowMain.grdMenuUC.Children.Clear();
             Global.Instance.WindowMain.grdMenuUC.Children.Add(ucMenu);
@@ -95,7 +96,7 @@ namespace GameLearnEnlish.UserControls
             }
             switch (Global.Instance.ButtonMenuSelect)
             {
-                
+
                 case SelectElementUC._imgBt_unit_1:
                     {
                         BoxSubMenuUC.boxSubMenuUC.ChangeUnit("imgBt_unit_1");
@@ -179,7 +180,25 @@ namespace GameLearnEnlish.UserControls
             grdToolbarMenu.IsEnabled = false;
             Global.Instance.WindowMain.grdExit_bg_boxUC.Children.Add(ucExit_bg_box);
         }
-
+        private void IsEnableImageButton(bool value)
+        {
+            if (value)
+            {
+                imgbtnMenu.IsEnabled = true;
+                imgbtnHelp.IsEnabled = true;
+                imgbtnBack.IsEnabled = true;
+                imgbtnNext.IsEnabled = true;
+                imgbtnClose.IsEnabled = true;
+            }
+            else
+            {
+                imgbtnMenu.IsEnabled = false;
+                imgbtnHelp.IsEnabled = false;
+                imgbtnBack.IsEnabled = false;
+                imgbtnNext.IsEnabled = false;
+                imgbtnClose.IsEnabled = false;
+            }
+        }
 
         public void IsEnabledGridToolbarMenu(SelectElementUC selectElementUC)
         {
@@ -201,8 +220,88 @@ namespace GameLearnEnlish.UserControls
 
         private void imgbtnNext_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            if (Global.Instance.indexSelectActivity < 7)
+            {
+                Task.Run(() =>
+                {
+                    this.Dispatcher.Invoke(() =>
+                    {
+                        IsEnableImageButton(false);
+                        if (UC_MultipleChoice.uC_MultipleChoice != null)
+                        {
+                            UC_MultipleChoice.uC_MultipleChoice.StopVoid();
+                        }
+                        if (UC_Matching.uC_Matching != null)
+                        {
+                            UC_Matching.uC_Matching.StopVoid();
+                        }
+                        if (BoxSubMenuUC.boxSubMenuUC != null)
+                        {
+                            BoxSubMenuUC.boxSubMenuUC.StopVoid();
+                        }
+                        if (UC_LookAndFind.uC_LookAndFind != null)
+                        {
+                            UC_LookAndFind.uC_LookAndFind.StopVoid();
+                        }
+                        Global.Instance.indexSelectActivity++;
+                        string nameTbl = "lblActivity" + Global.Instance.indexSelectActivity;
+                        BoxSubMenuUC.boxSubMenuUC.CallChangeActivity(nameTbl, SelectElementUC._Bt_unit);
+                        BoxSubMenuUC.boxSubMenuUC.UnitUCActivity(Global.Instance.UnitSelect, nameTbl);
+                    });
+                    Thread.Sleep(6000);
+                }).ContinueWith((task) =>
+                {
+                    this.Dispatcher.Invoke(() =>
+                    {
+                        IsEnableImageButton(true);
+                    });
 
-           
+                });
+            }
+        }
+
+        private void imgbtnBack_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (Global.Instance.indexSelectActivity > 0)
+            {
+                Task.Run(() =>
+                {
+                    this.Dispatcher.Invoke(() =>
+                    {
+                        IsEnableImageButton(false);
+                        if (UC_MultipleChoice.uC_MultipleChoice != null)
+                        {
+                            UC_MultipleChoice.uC_MultipleChoice.StopVoid();
+                        }
+                        if (UC_Matching.uC_Matching != null)
+                        {
+                            UC_Matching.uC_Matching.StopVoid();
+                        }
+                        if (BoxSubMenuUC.boxSubMenuUC != null)
+                        {
+                            BoxSubMenuUC.boxSubMenuUC.StopVoid();
+                        }
+                        if (UC_LookAndFind.uC_LookAndFind != null)
+                        {
+                            UC_LookAndFind.uC_LookAndFind.StopVoid();
+                        }
+                        Global.Instance.indexSelectActivity--;
+                        string nameTbl = "lblActivity" + Global.Instance.indexSelectActivity;
+                        BoxSubMenuUC.boxSubMenuUC.CallChangeActivity(nameTbl, SelectElementUC._Bt_unit);
+                        BoxSubMenuUC.boxSubMenuUC.UnitUCActivity(Global.Instance.UnitSelect, nameTbl);
+
+                    });
+                    Thread.Sleep(7000);
+
+                }).ContinueWith((task) =>
+                {
+                    this.Dispatcher.Invoke(() =>
+                    {
+                        IsEnableImageButton(true);
+                    });
+
+                });
+            }
         }
     }
 }

@@ -1,3 +1,20 @@
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\BLL\bin\Debug\BLL.dll.config
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\BLL\bin\Debug\BLL.dll
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\BLL\bin\Debug\BLL.pdb
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\BLL\bin\Debug\DAL.dll
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\BLL\bin\Debug\Data.dll
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\BLL\bin\Debug\EntityFramework.dll
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\BLL\bin\Debug\EntityFramework.SqlServer.dll
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\BLL\bin\Debug\DAL.pdb
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\BLL\bin\Debug\DAL.dll.config
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\BLL\bin\Debug\Data.pdb
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\BLL\bin\Debug\EntityFramework.xml
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\BLL\bin\Debug\EntityFramework.SqlServer.xml
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\BLL\obj\Debug\BLL.csproj.CopyComplete
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\BLL\obj\Debug\BLL.dll
+D:\STUDY\HOCTAP\HK_CUOI\DOANTOTNGHIEP\GameLearnEnlish\BLL\obj\Debug\BLL.pdb
 C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\BLL\bin\Debug\BLL.dll.config
 C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\BLL\bin\Debug\BLL.dll
 C:\Users\cuong\OneDrive\Máy tính\New folder\DOANTOTNGHIEP\GameLearnEnlish\BLL\bin\Debug\BLL.pdb

@@ -4,7 +4,22 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="EnglishGameModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="EnglishGameModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="LookAndFind">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Image" Type="varchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="LookAndFindOfUnit">
+          <Key>
+            <PropertyRef Name="Id_Unit" />
+            <PropertyRef Name="Id_LookAndFind" />
+          </Key>
+          <Property Name="Id_Unit" Type="int" Nullable="false" />
+          <Property Name="Id_LookAndFind" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Painting">
           <Key>
             <PropertyRef Name="Id" />
@@ -73,6 +88,30 @@
           <Property Name="Id_Unit" Type="int" Nullable="false" />
           <Property Name="Id_Word" Type="int" Nullable="false" />
         </EntityType>
+        <Association Name="FK_LookAndFindOfUnit_LookAndFind">
+          <End Role="LookAndFind" Type="Self.LookAndFind" Multiplicity="1" />
+          <End Role="LookAndFindOfUnit" Type="Self.LookAndFindOfUnit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LookAndFind">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LookAndFindOfUnit">
+              <PropertyRef Name="Id_LookAndFind" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LookAndFindOfUnit_Unit">
+          <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+          <End Role="LookAndFindOfUnit" Type="Self.LookAndFindOfUnit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LookAndFindOfUnit">
+              <PropertyRef Name="Id_Unit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_PaintingOfUnit_Painting">
           <End Role="Painting" Type="Self.Painting" Multiplicity="1" />
           <End Role="PaintingOfUnit" Type="Self.PaintingOfUnit" Multiplicity="*" />
@@ -146,6 +185,8 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="EnglishGameModelStoreContainer">
+          <EntitySet Name="LookAndFind" EntityType="Self.LookAndFind" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LookAndFindOfUnit" EntityType="Self.LookAndFindOfUnit" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Painting" EntityType="Self.Painting" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PaintingOfUnit" EntityType="Self.PaintingOfUnit" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sentence" EntityType="Self.Sentence" Schema="dbo" store:Type="Tables" />
@@ -154,6 +195,14 @@
           <EntitySet Name="Unit" EntityType="Self.Unit" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Word" EntityType="Self.Word" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WordOfUnit" EntityType="Self.WordOfUnit" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_LookAndFindOfUnit_LookAndFind" Association="Self.FK_LookAndFindOfUnit_LookAndFind">
+            <End Role="LookAndFind" EntitySet="LookAndFind" />
+            <End Role="LookAndFindOfUnit" EntitySet="LookAndFindOfUnit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LookAndFindOfUnit_Unit" Association="Self.FK_LookAndFindOfUnit_Unit">
+            <End Role="Unit" EntitySet="Unit" />
+            <End Role="LookAndFindOfUnit" EntitySet="LookAndFindOfUnit" />
+          </AssociationSet>
           <AssociationSet Name="FK_PaintingOfUnit_Painting" Association="Self.FK_PaintingOfUnit_Painting">
             <End Role="Painting" EntitySet="Painting" />
             <End Role="PaintingOfUnit" EntitySet="PaintingOfUnit" />
@@ -179,10 +228,30 @@
             <End Role="WordOfUnit" EntitySet="WordOfUnit" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="EnglishGameModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="LookAndFind">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Image" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Units" Relationship="Self.LookAndFindOfUnit" FromRole="LookAndFind" ToRole="Unit" />
+        </EntityType>
+        <EntityType Name="Painting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Image" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="ImagePainted" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="Request" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="Color" Type="Int32" />
+          <NavigationProperty Name="Units" Relationship="Self.PaintingOfUnit" FromRole="Painting" ToRole="Unit" />
+        </EntityType>
         <EntityType Name="Sentence">
           <Key>
             <PropertyRef Name="Id" />
@@ -209,9 +278,10 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Number" Type="Int32" />
+          <NavigationProperty Name="LookAndFinds" Relationship="Self.LookAndFindOfUnit" FromRole="Unit" ToRole="LookAndFind" />
+          <NavigationProperty Name="Paintings" Relationship="Self.PaintingOfUnit" FromRole="Unit" ToRole="Painting" />
           <NavigationProperty Name="Sentences" Relationship="Self.SentenceOfUnit" FromRole="Unit" ToRole="Sentence" />
           <NavigationProperty Name="Words" Relationship="Self.WordOfUnit" FromRole="Unit" ToRole="Word" />
-          <NavigationProperty Name="Paintings" Relationship="EnglishGameModel.PaintingOfUnit" FromRole="Unit" ToRole="Painting" />
         </EntityType>
         <EntityType Name="Word">
           <Key>
@@ -222,6 +292,14 @@
           <Property Name="Voice" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Units" Relationship="Self.WordOfUnit" FromRole="Word" ToRole="Unit" />
         </EntityType>
+        <Association Name="LookAndFindOfUnit">
+          <End Role="LookAndFind" Type="Self.LookAndFind" Multiplicity="*" />
+          <End Role="Unit" Type="Self.Unit" Multiplicity="*" />
+        </Association>
+        <Association Name="PaintingOfUnit">
+          <End Role="Painting" Type="Self.Painting" Multiplicity="*" />
+          <End Role="Unit" Type="Self.Unit" Multiplicity="*" />
+        </Association>
         <Association Name="SentenceOfUnit">
           <End Role="Sentence" Type="Self.Sentence" Multiplicity="*" />
           <End Role="Unit" Type="Self.Unit" Multiplicity="*" />
@@ -231,10 +309,20 @@
           <End Role="Word" Type="Self.Word" Multiplicity="*" />
         </Association>
         <EntityContainer Name="EnglishGameEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="LookAndFinds" EntityType="Self.LookAndFind" />
+          <EntitySet Name="Paintings" EntityType="Self.Painting" />
           <EntitySet Name="Sentences" EntityType="Self.Sentence" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="Units" EntityType="Self.Unit" />
           <EntitySet Name="Words" EntityType="Self.Word" />
+          <AssociationSet Name="LookAndFindOfUnit" Association="Self.LookAndFindOfUnit">
+            <End Role="LookAndFind" EntitySet="LookAndFinds" />
+            <End Role="Unit" EntitySet="Units" />
+          </AssociationSet>
+          <AssociationSet Name="PaintingOfUnit" Association="Self.PaintingOfUnit">
+            <End Role="Painting" EntitySet="Paintings" />
+            <End Role="Unit" EntitySet="Units" />
+          </AssociationSet>
           <AssociationSet Name="SentenceOfUnit" Association="Self.SentenceOfUnit">
             <End Role="Sentence" EntitySet="Sentences" />
             <End Role="Unit" EntitySet="Units" />
@@ -243,33 +331,32 @@
             <End Role="Unit" EntitySet="Units" />
             <End Role="Word" EntitySet="Words" />
           </AssociationSet>
-          <EntitySet Name="Paintings" EntityType="EnglishGameModel.Painting" />
-          <AssociationSet Name="PaintingOfUnit" Association="EnglishGameModel.PaintingOfUnit">
-            <End Role="Painting" EntitySet="Paintings" />
-            <End Role="Unit" EntitySet="Units" />
-          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Painting">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Image" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
-          <Property Name="ImagePainted" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
-          <Property Name="Request" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
-          <Property Name="Color" Type="Int32" />
-          <NavigationProperty Name="Units" Relationship="EnglishGameModel.PaintingOfUnit" FromRole="Painting" ToRole="Unit" />
-        </EntityType>
-        <Association Name="PaintingOfUnit">
-          <End Type="EnglishGameModel.Painting" Role="Painting" Multiplicity="*" />
-          <End Type="EnglishGameModel.Unit" Role="Unit" Multiplicity="*" />
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="EnglishGameModelStoreContainer" CdmEntityContainer="EnglishGameEntities">
+          <EntitySetMapping Name="LookAndFinds">
+            <EntityTypeMapping TypeName="EnglishGameModel.LookAndFind">
+              <MappingFragment StoreEntitySet="LookAndFind">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Paintings">
+            <EntityTypeMapping TypeName="EnglishGameModel.Painting">
+              <MappingFragment StoreEntitySet="Painting">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="ImagePainted" ColumnName="ImagePainted" />
+                <ScalarProperty Name="Request" ColumnName="Request" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Sentences">
             <EntityTypeMapping TypeName="EnglishGameModel.Sentence">
               <MappingFragment StoreEntitySet="Sentence">
@@ -308,6 +395,22 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <AssociationSetMapping Name="LookAndFindOfUnit" TypeName="EnglishGameModel.LookAndFindOfUnit" StoreEntitySet="LookAndFindOfUnit">
+            <EndProperty Name="LookAndFind">
+              <ScalarProperty Name="Id" ColumnName="Id_LookAndFind" />
+            </EndProperty>
+            <EndProperty Name="Unit">
+              <ScalarProperty Name="Id" ColumnName="Id_Unit" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="PaintingOfUnit" TypeName="EnglishGameModel.PaintingOfUnit" StoreEntitySet="PaintingOfUnit">
+            <EndProperty Name="Painting">
+              <ScalarProperty Name="Id" ColumnName="Id_Painting" />
+            </EndProperty>
+            <EndProperty Name="Unit">
+              <ScalarProperty Name="Id" ColumnName="Id_Unit" />
+            </EndProperty>
+          </AssociationSetMapping>
           <AssociationSetMapping Name="SentenceOfUnit" TypeName="EnglishGameModel.SentenceOfUnit" StoreEntitySet="SentenceOfUnit">
             <EndProperty Name="Sentence">
               <ScalarProperty Name="Id" ColumnName="Id_Sentence" />
@@ -322,25 +425,6 @@
             </EndProperty>
             <EndProperty Name="Word">
               <ScalarProperty Name="Id" ColumnName="Id_Word" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <EntitySetMapping Name="Paintings">
-            <EntityTypeMapping TypeName="EnglishGameModel.Painting">
-              <MappingFragment StoreEntitySet="Painting">
-                <ScalarProperty Name="Color" ColumnName="Color" />
-                <ScalarProperty Name="Request" ColumnName="Request" />
-                <ScalarProperty Name="ImagePainted" ColumnName="ImagePainted" />
-                <ScalarProperty Name="Image" ColumnName="Image" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <AssociationSetMapping Name="PaintingOfUnit" TypeName="EnglishGameModel.PaintingOfUnit" StoreEntitySet="PaintingOfUnit">
-            <EndProperty Name="Unit">
-              <ScalarProperty Name="Id" ColumnName="Id_Unit" />
-            </EndProperty>
-            <EndProperty Name="Painting">
-              <ScalarProperty Name="Id" ColumnName="Id_Painting" />
             </EndProperty>
           </AssociationSetMapping>
         </EntityContainerMapping>

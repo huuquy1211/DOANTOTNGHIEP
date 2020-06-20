@@ -1,4 +1,5 @@
-﻿using GameLearnEnlish.Utility;
+﻿using BLL;
+using GameLearnEnlish.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,8 @@ namespace GameLearnEnlish.UserControls
         public static UC_LookAndFind uC_LookAndFind = null;
         private int Unit = 1;
         private int CountAnswer = 0;//Số câu hỏi
+
+        private List<Data.LookAndFind> lstWord = new List<Data.LookAndFind>();
 
         private readonly string VoidCorrect = @"..\..\media\audio\global\right.mp3";//âm khi chọn đúng
         private MediaPlayer mediaPlayerVoidCorrect = new MediaPlayer();//Âm thanh câu trả lời đúng
@@ -157,6 +160,7 @@ namespace GameLearnEnlish.UserControls
         {
             try
             {
+                lstWord = new LookAndFindBLL().GetLookAndFinds(Unit);
                 //Âm thanh Description
                 VoiceDescription = @"..\..\media\audio\lookandfind\act"+ Unit + @"\description.mp3";//âm description
 
@@ -164,11 +168,12 @@ namespace GameLearnEnlish.UserControls
                 UriImgCover = @"..\..\media\textures\lookandfind\act" + Unit + @"\cover.png";
 
                 //Hình ảnh chọn
-                ListUriImgObj = new List<string>() {
-                @"..\..\media\textures\lookandfind\act"+ Unit + @"\obj1.png",
-                @"..\..\media\textures\lookandfind\act"+ Unit + @"\obj2.png",
-                @"..\..\media\textures\lookandfind\act"+ Unit + @"\obj3.png"
-            };
+                //ListUriImgObj = new List<string>() {
+                //@"..\..\media\textures\lookandfind\act"+ Unit + @"\obj1.png",
+                //@"..\..\media\textures\lookandfind\act"+ Unit + @"\obj2.png",
+                //@"..\..\media\textures\lookandfind\act"+ Unit + @"\obj3.png"};
+
+                ListUriImgObj = new List<string>() { lstWord[0].Image, lstWord[1].Image, lstWord[2].Image };
 
                 imgCover.Source = new BitmapImage(new Uri(UriImgCover, UriKind.Relative));
                 imgObj1.Source = new BitmapImage(new Uri(ListUriImgObj[0], UriKind.Relative));
@@ -361,7 +366,7 @@ namespace GameLearnEnlish.UserControls
                 StopVoid();//Tắt âm thanh
                 mediaPlayerVoidCorrect.Open(new Uri(VoidCorrect, UriKind.Relative));
                 mediaPlayerVoidCorrect.Play();//Phát âm trả lời đúng
-                imgObj3.BitmapEffect = myDropShadowEffect;//Dổ bóng khi chọn đúng
+                imgObj3.BitmapEffect = myDropShadowEffect;//Đổ bóng khi chọn đúng
             }
             catch (Exception)
             {

@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GameLearnEnlish.UserControls"
+              xmlns:gif ="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d">
     <UserControl.Resources>
@@ -39,7 +40,6 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-
                 <Label x:Name="lblQuestion1" Grid.Column="0" Grid.Row="0" Content="1." Style="{StaticResource LabelStyle}" MouseEnter="Question1_MouseEnter"  MouseLeave="Question1_MouseLeave"  Cursor="Hand" MouseLeftButtonDown="Question1_MouseLeftButtonDown"/>
                 <Label x:Name="lblQuestion2" Grid.Column="0" Grid.Row="1" Content="2." Style="{StaticResource LabelStyle}" MouseEnter="Question2_MouseEnter"  MouseLeave="Question2_MouseLeave" Cursor="Hand" MouseLeftButtonDown="Question2_MouseLeftButtonDown"/>
                 <Label x:Name="lblQuestion3" Grid.Column="0" Grid.Row="2" Content="3." Style="{StaticResource LabelStyle}" MouseEnter="Question3_MouseEnter"  MouseLeave="Question3_MouseLeave"  Cursor="Hand" MouseLeftButtonDown="Question3_MouseLeftButtonDown"/>
@@ -86,6 +86,7 @@
                 <Image x:Name="imgNode1a" Source="..\media\textures\matching\node.png" Stretch="Uniform" Grid.Row="0" Grid.Column="4" MouseEnter="Answer1_MouseEnter" MouseLeave="Answer1_MouseLeave" MouseLeftButtonDown="Answer1_MouseLeftButtonDown"/>
                 <Image x:Name="imgNode2a" Source="..\media\textures\matching\node.png" Stretch="Uniform" Grid.Row="1" Grid.Column="4" MouseEnter="Answer2_MouseEnter" MouseLeave="Answer2_MouseLeave" MouseLeftButtonDown="Answer2_MouseLeftButtonDown"/>
                 <Image x:Name="imgNode3a" Source="..\media\textures\matching\node.png" Stretch="Uniform" Grid.Row="2" Grid.Column="4" MouseEnter="Answer3_MouseEnter" MouseLeave="Answer3_MouseLeave" MouseLeftButtonDown="Answer3_MouseLeftButtonDown"/>
+                <!--<Image x:Name="Votay" Grid.RowSpan="3" Grid.ColumnSpan="7" Visibility="Visible" Stretch="Fill" gif:AnimationBehavior.SourceUri="..\media\textures\global\votay256x256.gif"   ></Image>-->
 
             </Grid>
         </Grid>

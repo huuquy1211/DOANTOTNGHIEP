@@ -1,4 +1,5 @@
-﻿using GameLearnEnlish.Utility;
+﻿using BLL;
+using GameLearnEnlish.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -51,6 +52,8 @@ namespace GameLearnEnlish.UserControls
         private Uri ImgCorrect = new Uri(@"..\..\media\textures\multipleChoice\correct.png", UriKind.Relative);//image khi chọn câu trả lời đúng
         private Uri ImgInCorrect = new Uri(@"..\..\media\textures\multipleChoice\wrong.png", UriKind.Relative);//image khi chọn câu trả lời sai
 
+
+        private List<Data.Word> lstWord = new List<Data.Word>();
         private List<string> ListImgWord = new List<string>();//danh sách hình ảnh của từ
         private List<int> ListImgSort = new List<int>();//vị trí của 3 bức ảnh.
         private List<int> ListVoidSort = new List<int>();//vị trí của 3 âm thanh.
@@ -124,7 +127,7 @@ namespace GameLearnEnlish.UserControls
         {
             this.Dispatcher.Invoke(() =>
             {
-
+                lstWord = new WordBLL().GetWordsOfUnit(Unit);
                 ListImgWord.Clear();
                 ListImgSort.Clear();
                 mediaPlayerVoidCorrect.Stop();
@@ -139,7 +142,7 @@ namespace GameLearnEnlish.UserControls
                 string pathLinkImg = @"..\..\media\textures\multiplechoice\act" + Unit;
                 string pathVoidWord = @"..\..\media\audio\multiplechoice\act" + Unit;
                 Random rd = new Random();
-                int[] num = new int[3] { 0, 0, 0 };
+               
                 int rand = 0;
                 for (int i = 1; i <= 3; i++)
                 {
@@ -161,9 +164,8 @@ namespace GameLearnEnlish.UserControls
                             }
                             if (flag == false)
                             {
-                                ListImgWord.Add(pathLinkImg + @"\img" + rand + ".png");
+                                ListImgWord.Add(lstWord[rand - 1].Image);
                                 ListImgSort.Add(rand);
-                                num[rand - 1]++;
                                 temp = true;
                             }
                         }
@@ -192,9 +194,8 @@ namespace GameLearnEnlish.UserControls
                                 }
                                 if (flag == false)
                                 {
-                                    ListVoidWord.Add(pathVoidWord + @"\sound" + rand + ".mp3");
+                                    ListVoidWord.Add(lstWord[rand - 1].Voice);
                                     ListVoidSort.Add(rand);
-                                    num[rand - 1]++;
                                     temp = true;
                                 }
 

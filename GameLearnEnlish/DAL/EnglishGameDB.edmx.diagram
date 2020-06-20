@@ -4,15 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0d633844a3934cf3a4a00518de449292" Name="Diagram1">
-        <EntityTypeShape EntityType="EnglishGameModel.Sentence" Width="1.5" PointX="2.125" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EnglishGameModel.sysdiagram" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EnglishGameModel.Unit" Width="1.5" PointX="5" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EnglishGameModel.Word" Width="1.5" PointX="7.375" PointY="1" IsExpanded="true" />
+      <Diagram DiagramId="093b0fcaf3e64f7d91a0c01030e9a2d6" Name="Diagram1">
+        <EntityTypeShape EntityType="EnglishGameModel.LookAndFind" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EnglishGameModel.Painting" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EnglishGameModel.Sentence" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EnglishGameModel.sysdiagram" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EnglishGameModel.Unit" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EnglishGameModel.Word" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="EnglishGameModel.LookAndFindOfUnit" ManuallyRouted="false" />
+        <AssociationConnector Association="EnglishGameModel.PaintingOfUnit" ManuallyRouted="false" />
         <AssociationConnector Association="EnglishGameModel.SentenceOfUnit" ManuallyRouted="false" />
         <AssociationConnector Association="EnglishGameModel.WordOfUnit" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="EnglishGameModel.Painting" Width="1.5" PointX="3.375" PointY="3.875" />
-        <AssociationConnector Association="EnglishGameModel.PaintingOfUnit" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
