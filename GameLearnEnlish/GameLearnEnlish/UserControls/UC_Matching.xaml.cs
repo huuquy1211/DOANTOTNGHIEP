@@ -781,6 +781,11 @@ namespace GameLearnEnlish.UserControls
             {
                 if (ListImgSort[0] == ListVoidSort[0])
                 {
+                    var endPoint = myVisual.TransformToAncestor(rootVisual)
+                              .Transform(new Point(0, 0)); ;
+                    line.X2 = endPoint.X - 5;
+                    line.Y2 = endPoint.Y - 5;
+
                     line = new Line();
                     grdUC_Matching.Children.Add(line);
                     IsHiddenAnswer("Answer1");
